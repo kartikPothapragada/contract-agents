@@ -1,0 +1,302 @@
+# ---------------------------------------------------------------------------
+# Northwind Industries -- Vendor Contracting Playbook v3.2
+# ---------------------------------------------------------------------------
+# SYNTHETIC ARTEFACT. Authored for the Avathon challenge, not derived from any
+# real company's internal policy. It encodes the kind of positions a mid-market
+# enterprise legal team actually maintains: a standard position, a pre-approved
+# fallback that does not need counsel sign-off, and a set of triggers that are
+# never acceptable without an executive waiver.
+#
+# Why this shape:
+#   * standard_position / fallback_position / unacceptable_triggers is the
+#     three-tier structure real playbooks use. A two-tier (ok / not-ok) model
+#     would collapse MINOR and MATERIAL deviations, which is precisely the
+#     distinction that decides whether a human is pulled in.
+#   * criticality_weight is a business input, not a model output. It is set by
+#     the legal team, versioned here, and consumed by a deterministic scorer.
+#   * Every rule names an owner, because escalation needs a routable destination.
+#
+# Clause type vocabulary is aligned to CUAD category names where one exists, so
+# CUAD's expert span annotations can be used as extraction ground truth.
+# ---------------------------------------------------------------------------
+
+playbook_version: "3.2"
+effective_date: "2026-01-15"
+entity: "Northwind Industries, Inc."
+default_governing_law: "State of Delaware, USA"
+
+# Escalation fires when aggregate risk crosses this, or any single clause does.
+thresholds:
+  clause_escalation_score: 6.0
+  aggregate_escalation_score: 14.0
+
+value_multipliers:
+  SMALL: 0.8
+  MID: 1.0
+  STRATEGIC: 1.4
+
+severity_points:
+  COMPLIANT: 0.0
+  MINOR: 1.0
+  MATERIAL: 3.0
+  UNACCEPTABLE: 5.0
+
+rules:
+  - rule_id: PB-LIAB-01
+    clause_type: LIMITATION_OF_LIABILITY
+    title: Liability cap must be bounded and mutual
+    criticality_weight: 1.0
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Aggregate liability of each party is capped at the greater of (a) fees paid
+      or payable in the twelve (12) months preceding the claim, or (b) USD
+      500,000. The cap is mutual and applies to all claims other than the
+      customary carve-outs.
+    fallback_position: >-
+      A cap of 12 months' fees with no floor is acceptable for contracts under
+      USD 250,000 total contract value, provided the cap remains mutual.
+    unacceptable_triggers:
+      - Uncapped liability for Northwind
+      - Cap applies only to the vendor (non-mutual cap)
+      - Cap below six (6) months of fees
+      - Carve-outs for vendor breach removed while retained for Northwind
+    keywords: [liability, cap, aggregate, limitation, damages, consequential]
+
+  - rule_id: PB-IND-01
+    clause_type: INDEMNIFICATION
+    title: IP and data-breach indemnity required from vendor
+    criticality_weight: 0.9
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Vendor indemnifies, defends and holds harmless Northwind against third
+      party claims arising from (a) infringement of intellectual property by the
+      services, and (b) breach of Vendor's security or data protection
+      obligations. Indemnity is uncapped for these two heads.
+    fallback_position: >-
+      IP indemnity capped at 2x the liability cap is acceptable where the vendor
+      is a Fortune 500 entity or carries equivalent cyber insurance.
+    unacceptable_triggers:
+      - No IP infringement indemnity
+      - Northwind indemnifies vendor for vendor's own security failures
+      - Indemnity conditioned on Northwind's sole control of the defence
+    keywords: [indemnify, indemnification, hold harmless, defend, third party claim]
+
+  - rule_id: PB-TERM-01
+    clause_type: TERMINATION_FOR_CONVENIENCE
+    title: Northwind retains termination for convenience on 30 days' notice
+    criticality_weight: 0.8
+    owner: procurement-lead@northwind.example
+    standard_position: >-
+      Northwind may terminate for convenience on thirty (30) days' written
+      notice, with a pro-rata refund of prepaid unused fees.
+    fallback_position: >-
+      Sixty (60) or ninety (90) days' notice is acceptable where the vendor has
+      made dedicated-capacity investments, provided the refund right survives.
+    unacceptable_triggers:
+      - No termination for convenience right for Northwind
+      - Termination permitted only for cause
+      - Early termination fee exceeding 25% of remaining contract value
+      - Forfeiture of all prepaid fees on termination
+    keywords: [terminate, termination, convenience, notice period, wind-down]
+
+  - rule_id: PB-AUTO-01
+    clause_type: AUTO_RENEWAL
+    title: Auto-renewal requires a real opt-out window
+    criticality_weight: 0.5
+    owner: procurement-lead@northwind.example
+    standard_position: >-
+      Any automatic renewal must be for a term no longer than twelve (12) months
+      and must allow non-renewal on thirty (30) days' notice before term end.
+    fallback_position: >-
+      A sixty (60) day non-renewal notice window is acceptable for multi-year
+      strategic agreements.
+    unacceptable_triggers:
+      - Auto-renewal with notice window exceeding ninety (90) days
+      - Perpetual or evergreen renewal with no exit
+      - Renewal price increase uncapped
+    keywords: [renew, renewal, automatic, evergreen, successive term]
+
+  - rule_id: PB-DP-01
+    clause_type: DATA_PROTECTION
+    title: Processor obligations, breach notice within 72 hours
+    criticality_weight: 1.0
+    owner: dpo@northwind.example
+    standard_position: >-
+      Vendor acts as processor, processes personal data only on documented
+      instructions, notifies Northwind of a personal data breach without undue
+      delay and in any event within seventy-two (72) hours, and supports data
+      subject requests. Sub-processors require prior written notice and an
+      objection right.
+    fallback_position: >-
+      Breach notice within ninety-six (96) hours is acceptable only where the
+      vendor processes no special-category data and holds a current ISO 27001
+      or SOC 2 Type II certification.
+    unacceptable_triggers:
+      - No breach notification obligation
+      - Breach notice period exceeding seven (7) days
+      - Unrestricted sub-processor appointment with no notice
+      - Vendor asserts controller status over Northwind's personal data
+      - Cross-border transfer with no stated transfer mechanism
+    keywords: [personal data, processor, gdpr, breach notification, sub-processor, dpa]
+
+  - rule_id: PB-IP-01
+    clause_type: IP_OWNERSHIP
+    title: Northwind owns deliverables and its own data
+    criticality_weight: 0.9
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Northwind owns all custom deliverables created under the agreement and all
+      Northwind data. Vendor retains its pre-existing IP and grants a perpetual,
+      non-exclusive licence to any pre-existing IP embedded in deliverables.
+    fallback_position: >-
+      Vendor ownership of deliverables with a perpetual, irrevocable, worldwide,
+      royalty-free licence to Northwind is acceptable for non-differentiating
+      commodity work.
+    unacceptable_triggers:
+      - Vendor claims ownership of Northwind data
+      - Vendor granted a licence to use Northwind data for model training
+      - Deliverable licence is time-limited or revocable on termination
+    keywords: [intellectual property, ownership, work product, deliverable, licence, license]
+
+  - rule_id: PB-PAY-01
+    clause_type: PAYMENT_TERMS
+    title: Net 45 standard, no unilateral price escalation
+    criticality_weight: 0.4
+    owner: ap-controller@northwind.example
+    standard_position: >-
+      Payment is due net forty-five (45) days from receipt of a valid invoice.
+      Price increases require ninety (90) days' notice and may not exceed CPI or
+      five percent (5%) annually, whichever is lower.
+    fallback_position: >-
+      Net thirty (30) days is acceptable where an early payment discount of at
+      least 1% is offered.
+    unacceptable_triggers:
+      - Payment terms shorter than net fifteen (15) days
+      - Uncapped or unilateral price escalation
+      - Late payment interest above 1.5% per month
+      - Payment obligation not conditioned on a valid invoice
+    keywords: [payment, invoice, net, days, fees, price increase, escalation]
+
+  - rule_id: PB-ASG-01
+    clause_type: ASSIGNMENT
+    title: Change of control assignment right preserved
+    criticality_weight: 0.6
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Neither party may assign without consent, except that either party may
+      assign to an affiliate or to a successor in a merger, acquisition or sale
+      of substantially all assets without consent.
+    fallback_position: >-
+      Consent required for assignment to a direct competitor of the other party
+      is acceptable, provided consent may not be unreasonably withheld.
+    unacceptable_triggers:
+      - Northwind cannot assign on change of control
+      - Vendor may assign freely to any third party including competitors
+      - Agreement terminates automatically on Northwind change of control
+    keywords: [assign, assignment, change of control, merger, successor, affiliate]
+
+  - rule_id: PB-AUD-01
+    clause_type: AUDIT_RIGHTS
+    title: Annual audit right with reasonable notice
+    criticality_weight: 0.5
+    owner: internal-audit@northwind.example
+    standard_position: >-
+      Northwind may audit vendor's compliance once per twelve (12) month period
+      on thirty (30) days' notice, or more frequently following a security
+      incident or a material breach.
+    fallback_position: >-
+      Substituting a current SOC 2 Type II report plus a right to audit after an
+      incident is acceptable for SaaS vendors.
+    unacceptable_triggers:
+      - No audit right and no third-party attestation
+      - Audit costs borne by Northwind even where material non-compliance found
+    keywords: [audit, inspect, records, compliance review, attestation]
+
+  - rule_id: PB-SLA-01
+    clause_type: SLA
+    title: 99.5% availability with meaningful service credits
+    criticality_weight: 0.7
+    owner: service-owner@northwind.example
+    standard_position: >-
+      Monthly availability of at least 99.5%, excluding scheduled maintenance
+      notified 5 business days in advance. Service credits escalate with the
+      shortfall, and chronic failure over three consecutive months is a
+      termination-for-cause trigger.
+    fallback_position: >-
+      99.0% availability is acceptable for non-production or internal-only
+      systems.
+    unacceptable_triggers:
+      - No availability commitment
+      - Service credits are the sole and exclusive remedy for chronic failure
+      - Unlimited or unnotified maintenance windows
+    keywords: [availability, uptime, service level, service credit, downtime, maintenance]
+
+  - rule_id: PB-INS-01
+    clause_type: INSURANCE
+    title: Cyber and professional liability cover required
+    criticality_weight: 0.5
+    owner: risk-manager@northwind.example
+    standard_position: >-
+      Vendor maintains commercial general liability of at least USD 2,000,000
+      per occurrence, professional liability (E&O) of at least USD 5,000,000,
+      and cyber liability of at least USD 5,000,000 where personal data is
+      processed. Certificates provided annually.
+    fallback_position: >-
+      Cyber cover of USD 2,000,000 is acceptable where the vendor processes
+      fewer than 10,000 data subject records.
+    unacceptable_triggers:
+      - No cyber liability cover where personal data is processed
+      - Insurance limits below the liability cap
+    keywords: [insurance, coverage, occurrence, errors and omissions, cyber liability]
+
+  - rule_id: PB-CONF-01
+    clause_type: CONFIDENTIALITY
+    title: Mutual confidentiality surviving at least 3 years
+    criticality_weight: 0.6
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Mutual confidentiality obligations survive three (3) years after
+      termination; trade secrets are protected for as long as they remain trade
+      secrets. Residuals clauses are not accepted.
+    fallback_position: >-
+      A two (2) year survival period is acceptable for agreements with no access
+      to source code, pricing models or customer lists.
+    unacceptable_triggers:
+      - One-way confidentiality binding only Northwind
+      - Residuals clause permitting use of unaided memory
+      - Survival period under twelve (12) months
+    keywords: [confidential, non-disclosure, proprietary, residuals, survive]
+
+  - rule_id: PB-NONC-01
+    clause_type: NON_COMPETE
+    title: No restraints on Northwind's business
+    criticality_weight: 0.8
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Northwind accepts no non-compete, exclusivity or minimum-volume commitment
+      restricting its freedom to engage other vendors.
+    fallback_position: >-
+      A narrowly scoped non-solicitation of the vendor's named project personnel
+      for twelve (12) months is acceptable.
+    unacceptable_triggers:
+      - Exclusivity obligation on Northwind
+      - Non-compete restricting Northwind's product roadmap
+      - Minimum purchase commitment with no termination right
+    keywords: [non-compete, exclusivity, exclusive, minimum commitment, solicit]
+
+  - rule_id: PB-LAW-01
+    clause_type: GOVERNING_LAW
+    title: Delaware law, no foreign forum
+    criticality_weight: 0.4
+    owner: general-counsel@northwind.example
+    standard_position: >-
+      Governed by the laws of the State of Delaware, USA, with exclusive
+      jurisdiction in the state and federal courts located in Delaware.
+    fallback_position: >-
+      New York or the vendor's US home state is acceptable. For EU vendors,
+      England and Wales is acceptable.
+    unacceptable_triggers:
+      - Governing law outside the US, UK or EU
+      - Mandatory arbitration seated outside the US with no opt-out
+      - Jury trial waiver combined with a foreign forum
+    keywords: [governing law, jurisdiction, venue, forum, arbitration]
