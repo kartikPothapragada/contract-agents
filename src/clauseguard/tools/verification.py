@@ -25,6 +25,7 @@ from __future__ import annotations
 import difflib
 import re
 from dataclasses import dataclass
+from typing import Sequence
 
 _WS = re.compile(r"\s+")
 # Models normalise typographic punctuation; the source document may not.
@@ -96,13 +97,23 @@ def check_span(citation: str, source: str) -> SpanCheck:
     return SpanCheck(False, round(best_ratio, 4), best_window, issues)
 
 
-def check_numeric_consistency(citation: str, claim: str) -> list[str]:
-    """Flag numbers asserted in the claim that do not appear in the citation.
+def check_numeric_consistency(
+    citation: str, claim: str, reference_texts: Sequence[str] = ()
+) -> list[str]:
+    """Flag numbers asserted in the claim that trace back to no source.
 
     This catches the most damaging quiet failure in contract review: the span is
     real, the reasoning reads well, and the figure is wrong -- a cap reported as
     USD 500,000 when the contract says USD 50,000. The span check passes because
     the quote is genuine; only comparing the numerals catches it.
+
+    ``reference_texts`` carries the governing playbook rule. A deviation
+    rationale legitimately names figures from *both* sides -- "the contract says
+    30 days where the playbook requires 45" -- so the invariant being enforced is
+    not "every figure is in the quote" but **every figure traces to the contract
+    or to the rule being applied**. Enforcing the narrower version produced false
+    positives on every correctly-reasoned MINOR finding, which would have
+    trained a reviewer to ignore the flag.
 
     Percentages, currency amounts and day-counts are all reduced to bare
     numerals so "$500,000", "500000" and "500,000" compare equal.
@@ -117,15 +128,18 @@ def check_numeric_consistency(citation: str, claim: str) -> list[str]:
                 out.add(v.rstrip("0").rstrip(".") if "." in v else v)
         return out
 
-    cited, claimed = norm_nums(citation), norm_nums(claim)
+    grounded = norm_nums(citation)
+    for ref in reference_texts:
+        grounded |= norm_nums(ref)
+    claimed = norm_nums(claim)
     # Small integers (1-12) are usually ordinals or list markers in prose, not
     # contractual figures; flagging them produces noise with no signal.
     orphans = {
-        n for n in claimed - cited if not (n.isdigit() and int(n) <= 12)
+        n for n in claimed - grounded if not (n.isdigit() and int(n) <= 12)
     }
     if orphans:
         return [
-            f"figure(s) {sorted(orphans)} asserted in the assessment do not "
-            "appear in the cited span"
+            f"figure(s) {sorted(orphans)} asserted in the assessment appear "
+            "neither in the cited span nor in the governing playbook rule"
         ]
     return []

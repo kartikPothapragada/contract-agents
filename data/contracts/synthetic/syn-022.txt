@@ -1,0 +1,71 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (the "Agreement") is entered into as of April 12, 2026 (the "Effective Date") between Northwind Industries, Inc., a Delaware corporation ("Customer"), and Helioscope Software Ltd. ("Vendor").
+
+The total contract value under this Agreement is USD 120,000.
+
+1. Definitions
+
+Capitalised terms have the meanings given to them in this Agreement. "Deliverables" means the work product prepared by Vendor for Customer. "Personal Data" has the meaning given in applicable data protection law.
+
+2. Term and Termination
+
+Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.
+
+3. Indemnification
+
+Vendor shall defend, indemnify and hold harmless Customer against any third party claim alleging that the Services infringe any intellectual property right, and against any claim arising from Vendor's breach of its security or data protection obligations.
+
+4. Severability
+
+If any provision is held unenforceable, the remaining provisions shall continue in full force and effect.
+
+5. Confidentiality
+
+Customer shall protect the Confidential Information of Vendor. Nothing shall restrict Vendor from using any information retained in the unaided memory of its personnel. These obligations survive for six (6) months.
+
+6. Service Levels
+
+Vendor shall use commercially reasonable efforts to make the Services available. Service credits shall be Customer's sole and exclusive remedy for any failure to meet any availability target.
+
+7. Force Majeure
+
+Neither party shall be liable for any failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
+
+8. Entire Agreement
+
+This Agreement constitutes the entire agreement between the parties and supersedes all prior proposals and understandings.
+
+9. Renewal
+
+This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.
+
+10. Fees and Payment
+
+Customer shall pay all undisputed amounts within forty-five (45) days of receipt of a valid invoice. Vendor may increase fees on no less than ninety (90) days' notice, provided that no increase shall exceed the lesser of CPI or five percent (5%) per annum.
+
+11. Limitation of Liability
+
+The aggregate liability of Vendor arising out of or related to this Agreement shall not exceed the fees paid in the nine (9) months preceding the claim.
+
+12. Governing Law and Dispute Resolution
+
+This Agreement shall be governed by the laws of the Republic of Singapore. Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.
+
+13. Notices
+
+All notices shall be in writing and delivered to the addresses set out on the signature page or to such other address as a party may designate.
+
+14. Data Protection
+
+Vendor acts as a processor and shall process Personal Data only on the documented instructions of Customer. Vendor shall notify Customer of any Personal Data Breach without undue delay and in any event within seventy-two (72) hours of becoming aware of it. Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.
+
+15. Intellectual Property
+
+All Deliverables created specifically for Customer under this Agreement shall be owned by Customer upon payment. Vendor retains ownership of its pre-existing materials and grants Customer a perpetual, worldwide, royalty-free licence to use such materials as embedded in the Deliverables.
+
+16. Counterparts
+
+This Agreement may be executed in counterparts, each of which shall be deemed an original.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.

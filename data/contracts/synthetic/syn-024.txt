@@ -1,0 +1,71 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (the "Agreement") is entered into as of May 2, 2026 (the "Effective Date") between Northwind Industries, Inc., a Delaware corporation ("Customer"), and Marlowe Technical Services Limited ("Vendor").
+
+The total contract value under this Agreement is USD 2,600,000.
+
+1. Definitions
+
+Capitalised terms have the meanings given to them in this Agreement. "Deliverables" means the work product prepared by Vendor for Customer. "Personal Data" has the meaning given in applicable data protection law.
+
+2. Service Levels
+
+Vendor shall use commercially reasonable efforts to make the Services available. Service credits shall be Customer's sole and exclusive remedy for any failure to meet any availability target.
+
+3. Notices
+
+All notices shall be in writing and delivered to the addresses set out on the signature page or to such other address as a party may designate.
+
+4. Force Majeure
+
+Neither party shall be liable for any failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
+
+5. Indemnification
+
+Vendor shall defend, indemnify and hold harmless Customer against any third party claim alleging that the Services infringe any intellectual property right, and against any claim arising from Vendor's breach of its security or data protection obligations.
+
+6. Entire Agreement
+
+This Agreement constitutes the entire agreement between the parties and supersedes all prior proposals and understandings.
+
+7. Severability
+
+If any provision is held unenforceable, the remaining provisions shall continue in full force and effect.
+
+8. Term and Termination
+
+Customer may terminate this Agreement for convenience upon sixty (60) days' prior written notice, and Vendor shall refund prepaid unused fees.
+
+9. Fees and Payment
+
+Customer shall pay all invoiced amounts within ten (10) days of the invoice date. Overdue amounts accrue interest at three percent (3%) per month. Vendor may adjust fees at any time in its sole discretion.
+
+10. Limitation of Liability
+
+The aggregate liability of Vendor arising out of or related to this Agreement shall not exceed the fees paid in the nine (9) months preceding the claim.
+
+11. Renewal
+
+This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least one hundred and twenty (120) days prior to the end of the then-current term.
+
+12. Data Protection
+
+Vendor shall notify Customer of any Personal Data Breach within ninety-six (96) hours of confirming the incident. Vendor may appoint Sub-processors and shall publish an updated list on its website.
+
+13. Intellectual Property
+
+Vendor shall own all Deliverables and all data derived from Customer's use of the Services. Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings.
+
+14. Governing Law and Dispute Resolution
+
+This Agreement shall be governed by the laws of the Republic of Singapore. Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.
+
+15. Confidentiality
+
+Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination. Trade secrets shall be protected for so long as they remain trade secrets.
+
+16. Counterparts
+
+This Agreement may be executed in counterparts, each of which shall be deemed an original.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.

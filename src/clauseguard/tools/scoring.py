@@ -104,8 +104,8 @@ def aggregate(
         )
     for ct in verification_failures:
         reasons.append(
-            f"{ct}: assertion could not be grounded in the source document -- "
-            "escalated as unverifiable rather than reported as fact"
+            f"{ct}: assessment failed verification -- escalated as unverifiable "
+            "rather than reported as fact"
         )
         if ct not in escalating:
             escalating.append(ct)

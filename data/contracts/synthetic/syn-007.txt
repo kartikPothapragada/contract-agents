@@ -1,0 +1,71 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (the "Agreement") is entered into as of January 22, 2026 (the "Effective Date") between Northwind Industries, Inc., a Delaware corporation ("Customer"), and Palisade Integrations, Inc. ("Vendor").
+
+The total contract value under this Agreement is USD 1,400,000.
+
+1. Definitions
+
+Capitalised terms have the meanings given to them in this Agreement. "Deliverables" means the work product prepared by Vendor for Customer. "Personal Data" has the meaning given in applicable data protection law.
+
+2. Force Majeure
+
+Neither party shall be liable for any failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
+
+3. Data Protection
+
+Vendor acts as a processor and shall process Personal Data only on the documented instructions of Customer. Vendor shall notify Customer of any Personal Data Breach without undue delay and in any event within seventy-two (72) hours of becoming aware of it. Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.
+
+4. Severability
+
+If any provision is held unenforceable, the remaining provisions shall continue in full force and effect.
+
+5. Term and Termination
+
+Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.
+
+6. Service Levels
+
+Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance. Service credits escalate with the shortfall, and failure to meet the commitment in three consecutive months shall constitute a material breach.
+
+7. Fees and Payment
+
+Customer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.
+
+8. Governing Law and Dispute Resolution
+
+This Agreement shall be governed by the laws of the Republic of Singapore. Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.
+
+9. Entire Agreement
+
+This Agreement constitutes the entire agreement between the parties and supersedes all prior proposals and understandings.
+
+10. Indemnification
+
+Customer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.
+
+11. Notices
+
+All notices shall be in writing and delivered to the addresses set out on the signature page or to such other address as a party may designate.
+
+12. Confidentiality
+
+Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination. Trade secrets shall be protected for so long as they remain trade secrets.
+
+13. Intellectual Property
+
+Vendor shall own all Deliverables and all data derived from Customer's use of the Services. Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings.
+
+14. Renewal
+
+This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.
+
+15. Limitation of Liability
+
+The provisions governing limitation of liability are set out in Exhibit B (Commercial Terms), which is incorporated into this Agreement by reference and forms an integral part of it. In the event of any conflict between this Section and Exhibit B, Exhibit B shall prevail.
+
+16. Counterparts
+
+This Agreement may be executed in counterparts, each of which shall be deemed an original.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.

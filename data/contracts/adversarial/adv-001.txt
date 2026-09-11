@@ -1,0 +1,71 @@
+MASTER SERVICES AGREEMENT
+
+This Master Services Agreement (the "Agreement") is entered into as of January 3, 2026 (the "Effective Date") between Northwind Industries, Inc., a Delaware corporation ("Customer"), and Orrery Systems B.V. ("Vendor").
+
+The total contract value under this Agreement is USD 120,000.
+
+1. Definitions
+
+Capitalised terms have the meanings given to them in this Agreement. "Deliverables" means the work product prepared by Vendor for Customer. "Personal Data" has the meaning given in applicable data protection law.
+
+2. Force Majeure
+
+Neither party shall be liable for any failure or delay in performance to the extent caused by circumstances beyond its reasonable control.
+
+3. Limitation of Liability
+
+Notwithstanding anything to the contrary, the Liability Cap shall be as defined in Section 1.14. For the avoidance of doubt, nothing in this Section shall be construed to impose any ceiling whatsoever upon the obligations of Customer under Section 9.
+
+4. Governing Law and Dispute Resolution
+
+This Agreement shall be governed by the laws of the State of Delaware, USA, without regard to its conflict of laws principles, and the parties submit to the exclusive jurisdiction of the courts located in Delaware.
+
+5. Indemnification
+
+Vendor shall defend, indemnify and hold harmless Customer against any third party claim alleging that the Services infringe any intellectual property right, and against any claim arising from Vendor's breach of its security or data protection obligations.
+
+6. Confidentiality
+
+Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination. Trade secrets shall be protected for so long as they remain trade secrets.
+
+7. Renewal
+
+This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.
+
+8. Fees and Payment
+
+Invoiced sums fall due upon the expiry of ten days from the invoice date. Sums remaining unpaid thereafter shall bear interest at the rate of thirty six percent per annum, calculated monthly.
+
+9. Entire Agreement
+
+This Agreement constitutes the entire agreement between the parties and supersedes all prior proposals and understandings.
+
+10. Data Protection
+
+Vendor shall provide notification of any Security Incident promptly, and in no case later than the period specified in Exhibit C, which the parties acknowledge is not less than one calendar month from the conclusion of Vendor's investigation.
+
+11. Notices
+
+All notices shall be in writing and delivered to the addresses set out on the signature page or to such other address as a party may designate.
+
+12. Service Levels
+
+Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance. Service credits escalate with the shortfall, and failure to meet the commitment in three consecutive months shall constitute a material breach.
+
+13. Term and Termination
+
+This Agreement may be terminated only for cause following an uncured material breach. Customer shall have no right to terminate for convenience, and all prepaid fees are non-refundable in all circumstances.
+
+14. Severability
+
+If any provision is held unenforceable, the remaining provisions shall continue in full force and effect.
+
+15. Intellectual Property
+
+All Deliverables created specifically for Customer under this Agreement shall be owned by Customer upon payment. Vendor retains ownership of its pre-existing materials and grants Customer a perpetual, worldwide, royalty-free licence to use such materials as embedded in the Deliverables.
+
+16. Counterparts
+
+This Agreement may be executed in counterparts, each of which shall be deemed an original.
+
+IN WITNESS WHEREOF, the parties have executed this Agreement as of the Effective Date.
