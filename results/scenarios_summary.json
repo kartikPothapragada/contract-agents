@@ -7,13 +7,13 @@
     "aggregate_risk": 20.0,
     "repair_passes": 0,
     "cost": {
-      "trace_id": "syn-003-2af2f2a1",
+      "trace_id": "syn-003-8881fd21",
       "messages": 128,
       "llm_calls": 29,
       "total_prompt_tokens": 0,
       "total_completion_tokens": 0,
       "total_usd": 0.0,
-      "wall_ms": 13.7,
+      "wall_ms": 13.8,
       "by_agent": {
         "intake": {
           "calls": 1,
@@ -55,13 +55,13 @@
     "unverified": [],
     "repair_passes": 1,
     "cost": {
-      "trace_id": "syn-007-d0d6e809",
+      "trace_id": "syn-007-f87bbf63",
       "messages": 222,
       "llm_calls": 43,
       "total_prompt_tokens": 0,
       "total_completion_tokens": 0,
       "total_usd": 0.0,
-      "wall_ms": 11.6,
+      "wall_ms": 11.5,
       "by_agent": {
         "intake": {
           "calls": 1,

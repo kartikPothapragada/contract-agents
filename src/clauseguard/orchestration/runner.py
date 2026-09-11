@@ -3,8 +3,9 @@
 Two execution modes, deliberately the same graph:
 
 * **Suspending** (``human_responder=None``) -- the run stops at the gate and
-  returns the review packet. Resume later, in another process, with
-  :func:`resume_review`. This is the production shape.
+  returns the review packet on ``ReviewRun.interrupt_payload``. Resume later,
+  in another process, with :meth:`ReviewRun.resume`. This is the production
+  shape.
 * **Scripted** (``human_responder=fn``) -- the gate calls a function. Used by
   the demo scenarios and the evaluation sweep.
 """
@@ -51,6 +52,11 @@ class ReviewRun:
             self.trace_id,
             sink=Path(trace_dir) / f"{self.trace_id}.jsonl",
             echo=echo,
+            metadata={
+                "backend": self.backend.name,
+                "playbook": f"v{self.playbook.version}",
+                "doc_id": doc_id,
+            },
         )
         self.graph = build_graph(self.llm, self.playbook, self.bus, human_responder)
         self.config = {"configurable": {"thread_id": self.trace_id}}

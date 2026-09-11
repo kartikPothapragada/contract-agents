@@ -1,10 +1,12 @@
 # Scenario B - edge case, unverifiable liability cap
 
-`trace_id = syn-007-d0d6e809`
+`trace_id = syn-007-f87bbf63`
+
+backend = `stub`  ·  playbook = `v3.2`  ·  doc_id = `syn-007`
 
 ### 1. `intake` → `orchestrator` — **tool.call**
 
-<sub>`msg_0313d3ac60c4`</sub>
+<sub>`msg_dd384b944654`</sub>
 
 ```json
 {
@@ -17,7 +19,7 @@
 
 ### 2. `intake` → `orchestrator` — **tool.result**
 
-<sub>`msg_4209c26f07ea` ← `msg_0313d3ac60c4`</sub>
+<sub>`msg_66d5db3fca0b` ← `msg_dd384b944654`</sub>
 
 ```json
 {
@@ -162,9 +164,9 @@
 }
 ```
 
-### 3. `intake` → `extractor` — **document.profile** · 0ms
+### 3. `intake` → `extractor` — **document.profile** · 1ms
 
-<sub>`msg_15f6cf9424dd`</sub>
+<sub>`msg_ebc56e9521eb`</sub>
 
 ```json
 {
@@ -193,7 +195,7 @@
 
 ### 4. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_64aeabec71f6`</sub>
+<sub>`msg_ee9d7c502db8`</sub>
 
 ```json
 {
@@ -206,7 +208,7 @@
 
 ### 5. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_071b1505b73a` ← `msg_64aeabec71f6`</sub>
+<sub>`msg_adc4e231688a` ← `msg_ee9d7c502db8`</sub>
 
 ```json
 {
@@ -221,7 +223,7 @@
 
 ### 6. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_f85c44ab180e`</sub>
+<sub>`msg_9307f0829923`</sub>
 
 ```json
 {
@@ -237,7 +239,7 @@
 
 ### 7. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_cf91d9d34a7b` ← `msg_f85c44ab180e`</sub>
+<sub>`msg_b65639f7ac0b` ← `msg_9307f0829923`</sub>
 
 ```json
 {
@@ -266,7 +268,7 @@
 
 ### 8. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_6e60d9a4f280` ← `msg_f85c44ab180e`</sub>
+<sub>`msg_575df2d8b37b` ← `msg_9307f0829923`</sub>
 
 ```json
 {
@@ -291,7 +293,7 @@
 
 ### 9. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_0730de0e2997`</sub>
+<sub>`msg_370ce24e25ef`</sub>
 
 ```json
 {
@@ -307,7 +309,7 @@
 
 ### 10. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_401f45e602af` ← `msg_0730de0e2997`</sub>
+<sub>`msg_56659523910b` ← `msg_370ce24e25ef`</sub>
 
 ```json
 {
@@ -336,7 +338,7 @@
 
 ### 11. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_80d33557112b` ← `msg_0730de0e2997`</sub>
+<sub>`msg_e553e661b3e5` ← `msg_370ce24e25ef`</sub>
 
 ```json
 {
@@ -361,7 +363,7 @@
 
 ### 12. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_8f0a2b6d0fef`</sub>
+<sub>`msg_822ef8209a08`</sub>
 
 ```json
 {
@@ -377,7 +379,7 @@
 
 ### 13. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_9088fac300cb` ← `msg_8f0a2b6d0fef`</sub>
+<sub>`msg_6fa088fe2d82` ← `msg_822ef8209a08`</sub>
 
 ```json
 {
@@ -406,7 +408,7 @@
 
 ### 14. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_a196f03a55fe` ← `msg_8f0a2b6d0fef`</sub>
+<sub>`msg_9a225e28b56c` ← `msg_822ef8209a08`</sub>
 
 ```json
 {
@@ -431,7 +433,7 @@
 
 ### 15. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_51f7d67ee705`</sub>
+<sub>`msg_d384779c81ca`</sub>
 
 ```json
 {
@@ -447,7 +449,7 @@
 
 ### 16. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_2b535ef8fe33` ← `msg_51f7d67ee705`</sub>
+<sub>`msg_ecaa3ccba8f6` ← `msg_d384779c81ca`</sub>
 
 ```json
 {
@@ -476,7 +478,7 @@
 
 ### 17. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_e0ddef2ed234` ← `msg_51f7d67ee705`</sub>
+<sub>`msg_dab579bc7147` ← `msg_d384779c81ca`</sub>
 
 ```json
 {
@@ -501,7 +503,7 @@
 
 ### 18. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_855ce0eb5a9e`</sub>
+<sub>`msg_061365eb5330`</sub>
 
 ```json
 {
@@ -517,7 +519,7 @@
 
 ### 19. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_d5fe156650e1` ← `msg_855ce0eb5a9e`</sub>
+<sub>`msg_ad46e3b7c2fe` ← `msg_061365eb5330`</sub>
 
 ```json
 {
@@ -546,7 +548,7 @@
 
 ### 20. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_a9fc9e6f2696` ← `msg_855ce0eb5a9e`</sub>
+<sub>`msg_7c195c8ff228` ← `msg_061365eb5330`</sub>
 
 ```json
 {
@@ -571,7 +573,7 @@
 
 ### 21. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_ab6af7339e44`</sub>
+<sub>`msg_6bd7d1829c04`</sub>
 
 ```json
 {
@@ -587,7 +589,7 @@
 
 ### 22. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_8a8a4fb8bf3f` ← `msg_ab6af7339e44`</sub>
+<sub>`msg_34c6279cf046` ← `msg_6bd7d1829c04`</sub>
 
 ```json
 {
@@ -616,7 +618,7 @@
 
 ### 23. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_93526f36ce04` ← `msg_ab6af7339e44`</sub>
+<sub>`msg_a5445ebdc35a` ← `msg_6bd7d1829c04`</sub>
 
 ```json
 {
@@ -641,7 +643,7 @@
 
 ### 24. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_f28cd9f61084`</sub>
+<sub>`msg_324115139d64`</sub>
 
 ```json
 {
@@ -657,7 +659,7 @@
 
 ### 25. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_eebf35eddbb3` ← `msg_f28cd9f61084`</sub>
+<sub>`msg_58579ff439a4` ← `msg_324115139d64`</sub>
 
 ```json
 {
@@ -686,7 +688,7 @@
 
 ### 26. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_c0e77bd713f7` ← `msg_f28cd9f61084`</sub>
+<sub>`msg_a7f2f1ab062e` ← `msg_324115139d64`</sub>
 
 ```json
 {
@@ -705,7 +707,7 @@
 
 ### 27. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_f14e3497015c`</sub>
+<sub>`msg_febe8850a459`</sub>
 
 ```json
 {
@@ -721,7 +723,7 @@
 
 ### 28. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_855e0796a6fc` ← `msg_f14e3497015c`</sub>
+<sub>`msg_b2b14fcce798` ← `msg_febe8850a459`</sub>
 
 ```json
 {
@@ -750,7 +752,7 @@
 
 ### 29. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_5ea363aa311b` ← `msg_f14e3497015c`</sub>
+<sub>`msg_8abf6d6f7932` ← `msg_febe8850a459`</sub>
 
 ```json
 {
@@ -775,7 +777,7 @@
 
 ### 30. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_58598ad9fc76`</sub>
+<sub>`msg_d8be35f67078`</sub>
 
 ```json
 {
@@ -791,7 +793,7 @@
 
 ### 31. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_6751c02143cc` ← `msg_58598ad9fc76`</sub>
+<sub>`msg_acf58f1cf287` ← `msg_d8be35f67078`</sub>
 
 ```json
 {
@@ -820,7 +822,7 @@
 
 ### 32. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_9b3105559938` ← `msg_58598ad9fc76`</sub>
+<sub>`msg_d92e6649ffdf` ← `msg_d8be35f67078`</sub>
 
 ```json
 {
@@ -845,7 +847,7 @@
 
 ### 33. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_edef86a683c3`</sub>
+<sub>`msg_4d35d4070df5`</sub>
 
 ```json
 {
@@ -861,7 +863,7 @@
 
 ### 34. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_bd90ee4a9bde` ← `msg_edef86a683c3`</sub>
+<sub>`msg_dea4e0f1b34e` ← `msg_4d35d4070df5`</sub>
 
 ```json
 {
@@ -890,7 +892,7 @@
 
 ### 35. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_9944b1d43089` ← `msg_edef86a683c3`</sub>
+<sub>`msg_88b79742f0fa` ← `msg_4d35d4070df5`</sub>
 
 ```json
 {
@@ -915,7 +917,7 @@
 
 ### 36. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_37d750eed686`</sub>
+<sub>`msg_aad52a174ce3`</sub>
 
 ```json
 {
@@ -930,7 +932,7 @@
 
 ### 37. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_cea77fad2461` ← `msg_37d750eed686`</sub>
+<sub>`msg_8fe889fa02d8` ← `msg_aad52a174ce3`</sub>
 
 ```json
 {
@@ -959,7 +961,7 @@
 
 ### 38. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_1b7b13215459` ← `msg_37d750eed686`</sub>
+<sub>`msg_61fffe08fbe9` ← `msg_aad52a174ce3`</sub>
 
 ```json
 {
@@ -977,7 +979,7 @@
 
 ### 39. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_3f78c89e26ae`</sub>
+<sub>`msg_f0f738f8051f`</sub>
 
 ```json
 {
@@ -992,7 +994,7 @@
 
 ### 40. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_71ed3c3cd24b` ← `msg_3f78c89e26ae`</sub>
+<sub>`msg_79e67dbbf1a8` ← `msg_f0f738f8051f`</sub>
 
 ```json
 {
@@ -1021,7 +1023,7 @@
 
 ### 41. `policy` → `risk` — **deviation.assessment** · 2ms
 
-<sub>`msg_4ddd39f74331` ← `msg_3f78c89e26ae`</sub>
+<sub>`msg_643a2b9d29f6` ← `msg_f0f738f8051f`</sub>
 
 ```json
 {
@@ -1039,7 +1041,7 @@
 
 ### 42. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_02dfafa90b89`</sub>
+<sub>`msg_fe156b8035e8`</sub>
 
 ```json
 {
@@ -1054,7 +1056,7 @@
 
 ### 43. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_eb4fd46d0058` ← `msg_02dfafa90b89`</sub>
+<sub>`msg_7a77d32e8e95` ← `msg_fe156b8035e8`</sub>
 
 ```json
 {
@@ -1083,7 +1085,7 @@
 
 ### 44. `policy` → `risk` — **deviation.assessment** · 2ms
 
-<sub>`msg_a0b6eacf2f42` ← `msg_02dfafa90b89`</sub>
+<sub>`msg_ac9c741ee67e` ← `msg_fe156b8035e8`</sub>
 
 ```json
 {
@@ -1101,7 +1103,7 @@
 
 ### 45. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_8c7f55c945c1`</sub>
+<sub>`msg_b72400f6e250`</sub>
 
 ```json
 {
@@ -1116,7 +1118,7 @@
 
 ### 46. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_510896d2ce0b` ← `msg_8c7f55c945c1`</sub>
+<sub>`msg_194511c2a7e9` ← `msg_b72400f6e250`</sub>
 
 ```json
 {
@@ -1145,7 +1147,7 @@
 
 ### 47. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_6a779b3cd774` ← `msg_8c7f55c945c1`</sub>
+<sub>`msg_34930c0c3d5b` ← `msg_b72400f6e250`</sub>
 
 ```json
 {
@@ -1163,7 +1165,7 @@
 
 ### 48. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_fd479af51e69`</sub>
+<sub>`msg_208b65889a69`</sub>
 
 ```json
 {
@@ -1178,7 +1180,7 @@
 
 ### 49. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_3bd72d64733f` ← `msg_fd479af51e69`</sub>
+<sub>`msg_5001d9b0d4ca` ← `msg_208b65889a69`</sub>
 
 ```json
 {
@@ -1207,7 +1209,7 @@
 
 ### 50. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_543aed1279b0` ← `msg_fd479af51e69`</sub>
+<sub>`msg_b7f03b401e08` ← `msg_208b65889a69`</sub>
 
 ```json
 {
@@ -1225,7 +1227,7 @@
 
 ### 51. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_6af61a4f7eeb`</sub>
+<sub>`msg_ba11c0b10897`</sub>
 
 ```json
 {
@@ -1240,7 +1242,7 @@
 
 ### 52. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_8523e5760f1a` ← `msg_6af61a4f7eeb`</sub>
+<sub>`msg_a42f0ef1107e` ← `msg_ba11c0b10897`</sub>
 
 ```json
 {
@@ -1269,7 +1271,7 @@
 
 ### 53. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_0d0e9dc150da` ← `msg_6af61a4f7eeb`</sub>
+<sub>`msg_df3659957fd5` ← `msg_ba11c0b10897`</sub>
 
 ```json
 {
@@ -1287,7 +1289,7 @@
 
 ### 54. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_f4efe47fe863`</sub>
+<sub>`msg_71d9c3b437a5`</sub>
 
 ```json
 {
@@ -1302,7 +1304,7 @@
 
 ### 55. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_6c823a1b381e` ← `msg_f4efe47fe863`</sub>
+<sub>`msg_b065d7493fd6` ← `msg_71d9c3b437a5`</sub>
 
 ```json
 {
@@ -1331,7 +1333,7 @@
 
 ### 56. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_a9d68c04e3ae` ← `msg_f4efe47fe863`</sub>
+<sub>`msg_59319fa72a70` ← `msg_71d9c3b437a5`</sub>
 
 ```json
 {
@@ -1349,7 +1351,7 @@
 
 ### 57. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_4e38868332a1`</sub>
+<sub>`msg_0a8c155132ca`</sub>
 
 ```json
 {
@@ -1364,7 +1366,7 @@
 
 ### 58. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_409b2ffa1501` ← `msg_4e38868332a1`</sub>
+<sub>`msg_3697a4e9f4e3` ← `msg_0a8c155132ca`</sub>
 
 ```json
 {
@@ -1393,7 +1395,7 @@
 
 ### 59. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_cdaabaa85d2a` ← `msg_4e38868332a1`</sub>
+<sub>`msg_5d1fe92c7d18` ← `msg_0a8c155132ca`</sub>
 
 ```json
 {
@@ -1411,7 +1413,7 @@
 
 ### 60. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_d3b03118dd61`</sub>
+<sub>`msg_849ea8d6e4f5`</sub>
 
 ```json
 {
@@ -1426,7 +1428,7 @@
 
 ### 61. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_98f75a3bfa2e` ← `msg_d3b03118dd61`</sub>
+<sub>`msg_f9e975678c69` ← `msg_849ea8d6e4f5`</sub>
 
 ```json
 {
@@ -1455,7 +1457,7 @@
 
 ### 62. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_a3d74a8f7598` ← `msg_d3b03118dd61`</sub>
+<sub>`msg_c639b2795957` ← `msg_849ea8d6e4f5`</sub>
 
 ```json
 {
@@ -1473,7 +1475,7 @@
 
 ### 63. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_6bc062c23662`</sub>
+<sub>`msg_6aed30ea0a29`</sub>
 
 ```json
 {
@@ -1488,7 +1490,7 @@
 
 ### 64. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_ea7d4ad97b3e` ← `msg_6bc062c23662`</sub>
+<sub>`msg_7c68b75ad647` ← `msg_6aed30ea0a29`</sub>
 
 ```json
 {
@@ -1517,7 +1519,7 @@
 
 ### 65. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_823838b601c5` ← `msg_6bc062c23662`</sub>
+<sub>`msg_9fdfc2bf22d6` ← `msg_6aed30ea0a29`</sub>
 
 ```json
 {
@@ -1535,7 +1537,7 @@
 
 ### 66. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_72c616b49f1a`</sub>
+<sub>`msg_beb5f9b79495`</sub>
 
 ```json
 {
@@ -1550,7 +1552,7 @@
 
 ### 67. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_8db5b06b77ba` ← `msg_72c616b49f1a`</sub>
+<sub>`msg_8ee64f17aff7` ← `msg_beb5f9b79495`</sub>
 
 ```json
 {
@@ -1573,7 +1575,7 @@
 
 ### 68. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_357f78241988`</sub>
+<sub>`msg_fd555b1ad9dd`</sub>
 
 ```json
 {
@@ -1590,7 +1592,7 @@
 
 ### 69. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_3467901108c0`</sub>
+<sub>`msg_6cccfe100f02`</sub>
 
 ```json
 {
@@ -1605,7 +1607,7 @@
 
 ### 70. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_71452f218b90` ← `msg_3467901108c0`</sub>
+<sub>`msg_0d096665644a` ← `msg_6cccfe100f02`</sub>
 
 ```json
 {
@@ -1628,7 +1630,7 @@
 
 ### 71. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_6f615dbc8e40`</sub>
+<sub>`msg_e31924a9a73d`</sub>
 
 ```json
 {
@@ -1645,7 +1647,7 @@
 
 ### 72. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_f0038e3e4092`</sub>
+<sub>`msg_1baaaa73eea4`</sub>
 
 ```json
 {
@@ -1660,7 +1662,7 @@
 
 ### 73. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_346aba4db280` ← `msg_f0038e3e4092`</sub>
+<sub>`msg_fe9d254c1bb3` ← `msg_1baaaa73eea4`</sub>
 
 ```json
 {
@@ -1683,7 +1685,7 @@
 
 ### 74. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_2bfd29426f39`</sub>
+<sub>`msg_ec81916f6424`</sub>
 
 ```json
 {
@@ -1700,7 +1702,7 @@
 
 ### 75. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_500bc61b51ac`</sub>
+<sub>`msg_8da7a6eb8aac`</sub>
 
 ```json
 {
@@ -1715,7 +1717,7 @@
 
 ### 76. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_7cf46e72da34` ← `msg_500bc61b51ac`</sub>
+<sub>`msg_681bf4992047` ← `msg_8da7a6eb8aac`</sub>
 
 ```json
 {
@@ -1738,7 +1740,7 @@
 
 ### 77. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_02c97e14254d`</sub>
+<sub>`msg_d7792fa6f031`</sub>
 
 ```json
 {
@@ -1755,7 +1757,7 @@
 
 ### 78. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_0b7e378fb872`</sub>
+<sub>`msg_1623bcc23cd2`</sub>
 
 ```json
 {
@@ -1770,7 +1772,7 @@
 
 ### 79. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_458555ca7f23` ← `msg_0b7e378fb872`</sub>
+<sub>`msg_99c7f1076b05` ← `msg_1623bcc23cd2`</sub>
 
 ```json
 {
@@ -1793,7 +1795,7 @@
 
 ### 80. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_9c9219634c45`</sub>
+<sub>`msg_effd7ce22548`</sub>
 
 ```json
 {
@@ -1810,7 +1812,7 @@
 
 ### 81. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_86ad41ff5291`</sub>
+<sub>`msg_4d335b9dcab2`</sub>
 
 ```json
 {
@@ -1825,7 +1827,7 @@
 
 ### 82. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_4baea49f096d` ← `msg_86ad41ff5291`</sub>
+<sub>`msg_a74126e9dbaf` ← `msg_4d335b9dcab2`</sub>
 
 ```json
 {
@@ -1848,7 +1850,7 @@
 
 ### 83. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_72a59ff9ea27`</sub>
+<sub>`msg_69d183a1c072`</sub>
 
 ```json
 {
@@ -1865,7 +1867,7 @@
 
 ### 84. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_6a6e38c773a8`</sub>
+<sub>`msg_4894a81bc695`</sub>
 
 ```json
 {
@@ -1880,7 +1882,7 @@
 
 ### 85. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_2e199238bc33` ← `msg_6a6e38c773a8`</sub>
+<sub>`msg_8c0f9128e80f` ← `msg_4894a81bc695`</sub>
 
 ```json
 {
@@ -1903,7 +1905,7 @@
 
 ### 86. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_fed75cf361b4`</sub>
+<sub>`msg_6ca0c3bc52ce`</sub>
 
 ```json
 {
@@ -1920,7 +1922,7 @@
 
 ### 87. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_1683045c811d`</sub>
+<sub>`msg_642f8b8c414b`</sub>
 
 ```json
 {
@@ -1935,7 +1937,7 @@
 
 ### 88. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_a16b73ded918` ← `msg_1683045c811d`</sub>
+<sub>`msg_23404ee99ec9` ← `msg_642f8b8c414b`</sub>
 
 ```json
 {
@@ -1958,7 +1960,7 @@
 
 ### 89. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_1ddf4c4cc974`</sub>
+<sub>`msg_0442ad358670`</sub>
 
 ```json
 {
@@ -1975,7 +1977,7 @@
 
 ### 90. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_1367e15cab75`</sub>
+<sub>`msg_aee77b3a20b1`</sub>
 
 ```json
 {
@@ -1990,7 +1992,7 @@
 
 ### 91. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_2b04ccb11aa9` ← `msg_1367e15cab75`</sub>
+<sub>`msg_674bd2856626` ← `msg_aee77b3a20b1`</sub>
 
 ```json
 {
@@ -2013,7 +2015,7 @@
 
 ### 92. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_9f8e89321fca`</sub>
+<sub>`msg_d4283936fbdb`</sub>
 
 ```json
 {
@@ -2030,7 +2032,7 @@
 
 ### 93. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_6524c59ab944`</sub>
+<sub>`msg_5a06b6abe2c1`</sub>
 
 ```json
 {
@@ -2045,7 +2047,7 @@
 
 ### 94. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_b43a3c445220` ← `msg_6524c59ab944`</sub>
+<sub>`msg_6f602e55b563` ← `msg_5a06b6abe2c1`</sub>
 
 ```json
 {
@@ -2068,7 +2070,7 @@
 
 ### 95. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_a32cf8624ed4`</sub>
+<sub>`msg_fa57c3482a79`</sub>
 
 ```json
 {
@@ -2085,7 +2087,7 @@
 
 ### 96. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_3d2da41a9902`</sub>
+<sub>`msg_d63883750e12`</sub>
 
 ```json
 {
@@ -2099,7 +2101,7 @@
 
 ### 97. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_3980ad8b04fb` ← `msg_3d2da41a9902`</sub>
+<sub>`msg_6b38bc095254` ← `msg_d63883750e12`</sub>
 
 ```json
 {
@@ -2118,7 +2120,7 @@
 
 ### 98. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_7d236108f818`</sub>
+<sub>`msg_ed0ad322386e`</sub>
 
 ```json
 {
@@ -2133,7 +2135,7 @@
 
 ### 99. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_7b04c10e06b3`</sub>
+<sub>`msg_fda65a68e998`</sub>
 
 ```json
 {
@@ -2147,7 +2149,7 @@
 
 ### 100. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_81c7f76d201c` ← `msg_7b04c10e06b3`</sub>
+<sub>`msg_f45f4b347602` ← `msg_fda65a68e998`</sub>
 
 ```json
 {
@@ -2166,7 +2168,7 @@
 
 ### 101. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_ad9c9747599a`</sub>
+<sub>`msg_480bebfccb91`</sub>
 
 ```json
 {
@@ -2181,7 +2183,7 @@
 
 ### 102. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_2ad7d1dd216e`</sub>
+<sub>`msg_efea4936628f`</sub>
 
 ```json
 {
@@ -2195,7 +2197,7 @@
 
 ### 103. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_754fbbaa2776` ← `msg_2ad7d1dd216e`</sub>
+<sub>`msg_58affa79d327` ← `msg_efea4936628f`</sub>
 
 ```json
 {
@@ -2214,7 +2216,7 @@
 
 ### 104. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_0b292dfa65ff`</sub>
+<sub>`msg_af540709217c`</sub>
 
 ```json
 {
@@ -2229,7 +2231,7 @@
 
 ### 105. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_f03b357e0034`</sub>
+<sub>`msg_5b063004075c`</sub>
 
 ```json
 {
@@ -2243,7 +2245,7 @@
 
 ### 106. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_28167b7c204f` ← `msg_f03b357e0034`</sub>
+<sub>`msg_32c089d93c7c` ← `msg_5b063004075c`</sub>
 
 ```json
 {
@@ -2262,7 +2264,7 @@
 
 ### 107. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_9ce1e613445b`</sub>
+<sub>`msg_895dc943ac08`</sub>
 
 ```json
 {
@@ -2277,7 +2279,7 @@
 
 ### 108. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_547e0a915526`</sub>
+<sub>`msg_8f8b83516efb`</sub>
 
 ```json
 {
@@ -2291,7 +2293,7 @@
 
 ### 109. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_8aec70c58c14` ← `msg_547e0a915526`</sub>
+<sub>`msg_698ac9709355` ← `msg_8f8b83516efb`</sub>
 
 ```json
 {
@@ -2310,7 +2312,7 @@
 
 ### 110. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_f3b66bf872cf`</sub>
+<sub>`msg_57aa18214dbe`</sub>
 
 ```json
 {
@@ -2325,7 +2327,7 @@
 
 ### 111. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_939400521054`</sub>
+<sub>`msg_34ee7273f866`</sub>
 
 ```json
 {
@@ -2339,7 +2341,7 @@
 
 ### 112. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_0de72b180ba8` ← `msg_939400521054`</sub>
+<sub>`msg_92afe5ec75b6` ← `msg_34ee7273f866`</sub>
 
 ```json
 {
@@ -2358,7 +2360,7 @@
 
 ### 113. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_27ca82c224ee`</sub>
+<sub>`msg_ba8522fa6910`</sub>
 
 ```json
 {
@@ -2373,7 +2375,7 @@
 
 ### 114. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_b73ef42a41c1`</sub>
+<sub>`msg_8c22fc708382`</sub>
 
 ```json
 {
@@ -2390,7 +2392,7 @@
 
 ### 115. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_c5dff6ba308c`</sub>
+<sub>`msg_fcb4f0564d46`</sub>
 
 ```json
 {
@@ -2404,7 +2406,7 @@
 
 ### 116. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_0f7aab786328` ← `msg_c5dff6ba308c`</sub>
+<sub>`msg_adeb6eabe614` ← `msg_fcb4f0564d46`</sub>
 
 ```json
 {
@@ -2423,7 +2425,7 @@
 
 ### 117. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_a8042051fe26`</sub>
+<sub>`msg_a36e8eb751a1`</sub>
 
 ```json
 {
@@ -2438,7 +2440,7 @@
 
 ### 118. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_fb54e4c42a69`</sub>
+<sub>`msg_c16c5187b82f`</sub>
 
 ```json
 {
@@ -2452,7 +2454,7 @@
 
 ### 119. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_fbecccd9c0ec` ← `msg_fb54e4c42a69`</sub>
+<sub>`msg_5afbae508e9c` ← `msg_c16c5187b82f`</sub>
 
 ```json
 {
@@ -2471,7 +2473,7 @@
 
 ### 120. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_c57e43271d44`</sub>
+<sub>`msg_a2cc8074a83c`</sub>
 
 ```json
 {
@@ -2486,7 +2488,7 @@
 
 ### 121. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_6e84806527bf`</sub>
+<sub>`msg_d3b361780aba`</sub>
 
 ```json
 {
@@ -2500,7 +2502,7 @@
 
 ### 122. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_f270eb7f3099` ← `msg_6e84806527bf`</sub>
+<sub>`msg_0d58f1794051` ← `msg_d3b361780aba`</sub>
 
 ```json
 {
@@ -2519,7 +2521,7 @@
 
 ### 123. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_d2a9d294b1bb`</sub>
+<sub>`msg_e727d1294e70`</sub>
 
 ```json
 {
@@ -2534,7 +2536,7 @@
 
 ### 124. `orchestrator` → `human` — **escalation.request**
 
-<sub>`msg_3c651a0c6be3`</sub>
+<sub>`msg_05243612ce9c`</sub>
 
 ```json
 {
@@ -2577,7 +2579,7 @@
 
 ### 125. `human` → `orchestrator` — **human.decision**
 
-<sub>`msg_b73ac11bc061`</sub>
+<sub>`msg_9d2363beb3a0`</sub>
 
 ```json
 {
@@ -2590,7 +2592,7 @@
 
 ### 126. `orchestrator` → `extractor` — **agent.error**
 
-<sub>`msg_4a1dd66ab011`</sub>
+<sub>`msg_085c7090d072`</sub>
 
 ```json
 {
@@ -2602,7 +2604,7 @@
 
 ### 127. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_a3a4d5e8695b`</sub>
+<sub>`msg_165719feb50f`</sub>
 
 ```json
 {
@@ -2615,7 +2617,7 @@
 
 ### 128. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_f2c644f56a9c` ← `msg_a3a4d5e8695b`</sub>
+<sub>`msg_75445d87c7ca` ← `msg_165719feb50f`</sub>
 
 ```json
 {
@@ -2630,7 +2632,7 @@
 
 ### 129. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_986756ac4b1c`</sub>
+<sub>`msg_a81cfb983c11`</sub>
 
 ```json
 {
@@ -2646,7 +2648,7 @@
 
 ### 130. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_4fb8ccf20f85` ← `msg_986756ac4b1c`</sub>
+<sub>`msg_9131a820bbbf` ← `msg_a81cfb983c11`</sub>
 
 ```json
 {
@@ -2675,7 +2677,7 @@
 
 ### 131. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_164314ed679a` ← `msg_986756ac4b1c`</sub>
+<sub>`msg_a096aa463661` ← `msg_a81cfb983c11`</sub>
 
 ```json
 {
@@ -2694,7 +2696,7 @@
 
 ### 132. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_201ff6da1a09`</sub>
+<sub>`msg_c0621b16e614`</sub>
 
 ```json
 {
@@ -2709,7 +2711,7 @@
 
 ### 133. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_119867cf30a8` ← `msg_201ff6da1a09`</sub>
+<sub>`msg_4ac3b70eb6c7` ← `msg_c0621b16e614`</sub>
 
 ```json
 {
@@ -2738,7 +2740,7 @@
 
 ### 134. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_88a3213d00b8` ← `msg_201ff6da1a09`</sub>
+<sub>`msg_7f7b2356674c` ← `msg_c0621b16e614`</sub>
 
 ```json
 {
@@ -2756,7 +2758,7 @@
 
 ### 135. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_1f1ffd440899`</sub>
+<sub>`msg_022ea140a177`</sub>
 
 ```json
 {
@@ -2771,7 +2773,7 @@
 
 ### 136. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_546f6399d7be` ← `msg_1f1ffd440899`</sub>
+<sub>`msg_ce74c4b4da97` ← `msg_022ea140a177`</sub>
 
 ```json
 {
@@ -2800,7 +2802,7 @@
 
 ### 137. `policy` → `risk` — **deviation.assessment** · 1ms
 
-<sub>`msg_7ef92be0b14c` ← `msg_1f1ffd440899`</sub>
+<sub>`msg_3a190b68b04e` ← `msg_022ea140a177`</sub>
 
 ```json
 {
@@ -2818,7 +2820,7 @@
 
 ### 138. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_91c32dd67807`</sub>
+<sub>`msg_5b249f2fac06`</sub>
 
 ```json
 {
@@ -2833,7 +2835,7 @@
 
 ### 139. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_2d270e3fa483` ← `msg_91c32dd67807`</sub>
+<sub>`msg_ad6e556c7c02` ← `msg_5b249f2fac06`</sub>
 
 ```json
 {
@@ -2862,7 +2864,7 @@
 
 ### 140. `policy` → `risk` — **deviation.assessment** · 1ms
 
-<sub>`msg_3d02efac6425` ← `msg_91c32dd67807`</sub>
+<sub>`msg_410393b879a9` ← `msg_5b249f2fac06`</sub>
 
 ```json
 {
@@ -2880,7 +2882,7 @@
 
 ### 141. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_00bf33d77fe1`</sub>
+<sub>`msg_873fe9c008e7`</sub>
 
 ```json
 {
@@ -2895,7 +2897,7 @@
 
 ### 142. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_a5fac37669fa` ← `msg_00bf33d77fe1`</sub>
+<sub>`msg_27b74525620a` ← `msg_873fe9c008e7`</sub>
 
 ```json
 {
@@ -2924,7 +2926,7 @@
 
 ### 143. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_3011f93e2c64` ← `msg_00bf33d77fe1`</sub>
+<sub>`msg_04ae12f422e0` ← `msg_873fe9c008e7`</sub>
 
 ```json
 {
@@ -2942,7 +2944,7 @@
 
 ### 144. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_2d7b4b420c61`</sub>
+<sub>`msg_c8cd35b7dbeb`</sub>
 
 ```json
 {
@@ -2957,7 +2959,7 @@
 
 ### 145. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_876832c8d853` ← `msg_2d7b4b420c61`</sub>
+<sub>`msg_730168085be1` ← `msg_c8cd35b7dbeb`</sub>
 
 ```json
 {
@@ -2986,7 +2988,7 @@
 
 ### 146. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_def8ef78d59f` ← `msg_2d7b4b420c61`</sub>
+<sub>`msg_5b026393b28f` ← `msg_c8cd35b7dbeb`</sub>
 
 ```json
 {
@@ -3004,7 +3006,7 @@
 
 ### 147. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_eedb1642cc7a`</sub>
+<sub>`msg_410c07c43a03`</sub>
 
 ```json
 {
@@ -3019,7 +3021,7 @@
 
 ### 148. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_9e8d23e39087` ← `msg_eedb1642cc7a`</sub>
+<sub>`msg_e54b6cc4df20` ← `msg_410c07c43a03`</sub>
 
 ```json
 {
@@ -3048,7 +3050,7 @@
 
 ### 149. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_22b49b16fdee` ← `msg_eedb1642cc7a`</sub>
+<sub>`msg_a1548b80d654` ← `msg_410c07c43a03`</sub>
 
 ```json
 {
@@ -3066,7 +3068,7 @@
 
 ### 150. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_f3322ce5ee14`</sub>
+<sub>`msg_62487a5de912`</sub>
 
 ```json
 {
@@ -3081,7 +3083,7 @@
 
 ### 151. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_d7c650dba1d9` ← `msg_f3322ce5ee14`</sub>
+<sub>`msg_bc671848ae56` ← `msg_62487a5de912`</sub>
 
 ```json
 {
@@ -3110,7 +3112,7 @@
 
 ### 152. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_ed5d604ea433` ← `msg_f3322ce5ee14`</sub>
+<sub>`msg_673a33faf80b` ← `msg_62487a5de912`</sub>
 
 ```json
 {
@@ -3128,7 +3130,7 @@
 
 ### 153. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_03f18df4bc0f`</sub>
+<sub>`msg_df6fe2d72ab0`</sub>
 
 ```json
 {
@@ -3143,7 +3145,7 @@
 
 ### 154. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_07222e94855a` ← `msg_03f18df4bc0f`</sub>
+<sub>`msg_f2643c474a68` ← `msg_df6fe2d72ab0`</sub>
 
 ```json
 {
@@ -3172,7 +3174,7 @@
 
 ### 155. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_2d7073b8070c` ← `msg_03f18df4bc0f`</sub>
+<sub>`msg_90ab50bb39c8` ← `msg_df6fe2d72ab0`</sub>
 
 ```json
 {
@@ -3190,7 +3192,7 @@
 
 ### 156. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_c99e2585d11e`</sub>
+<sub>`msg_ff95f33aa813`</sub>
 
 ```json
 {
@@ -3205,7 +3207,7 @@
 
 ### 157. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_b6c0967351f8` ← `msg_c99e2585d11e`</sub>
+<sub>`msg_d18d9e521637` ← `msg_ff95f33aa813`</sub>
 
 ```json
 {
@@ -3234,7 +3236,7 @@
 
 ### 158. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_d6335f3dce40` ← `msg_c99e2585d11e`</sub>
+<sub>`msg_ecd6b61c2484` ← `msg_ff95f33aa813`</sub>
 
 ```json
 {
@@ -3252,7 +3254,7 @@
 
 ### 159. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_e0f144b6309c`</sub>
+<sub>`msg_10b6c70731d8`</sub>
 
 ```json
 {
@@ -3267,7 +3269,7 @@
 
 ### 160. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_98b28a55f164` ← `msg_e0f144b6309c`</sub>
+<sub>`msg_8f1de4c4459b` ← `msg_10b6c70731d8`</sub>
 
 ```json
 {
@@ -3296,7 +3298,7 @@
 
 ### 161. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_3235d86bd8c6` ← `msg_e0f144b6309c`</sub>
+<sub>`msg_d09b0803631c` ← `msg_10b6c70731d8`</sub>
 
 ```json
 {
@@ -3314,7 +3316,7 @@
 
 ### 162. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_311078468f06`</sub>
+<sub>`msg_b84aca5ceff0`</sub>
 
 ```json
 {
@@ -3329,7 +3331,7 @@
 
 ### 163. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_bb72ddf71db7` ← `msg_311078468f06`</sub>
+<sub>`msg_7ada6ac9615a` ← `msg_b84aca5ceff0`</sub>
 
 ```json
 {
@@ -3352,7 +3354,7 @@
 
 ### 164. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_7a43f98630f8`</sub>
+<sub>`msg_133bcf4aafea`</sub>
 
 ```json
 {
@@ -3369,7 +3371,7 @@
 
 ### 165. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_73151e42ca93`</sub>
+<sub>`msg_40bb5ff3ede0`</sub>
 
 ```json
 {
@@ -3384,7 +3386,7 @@
 
 ### 166. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_16c72797027a` ← `msg_73151e42ca93`</sub>
+<sub>`msg_efc1ba7b5c41` ← `msg_40bb5ff3ede0`</sub>
 
 ```json
 {
@@ -3407,7 +3409,7 @@
 
 ### 167. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_f2e29e0e0e40`</sub>
+<sub>`msg_71d545c1cf7d`</sub>
 
 ```json
 {
@@ -3424,7 +3426,7 @@
 
 ### 168. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_ce9a333e7f41`</sub>
+<sub>`msg_94434a6a82e6`</sub>
 
 ```json
 {
@@ -3439,7 +3441,7 @@
 
 ### 169. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_22a3366408af` ← `msg_ce9a333e7f41`</sub>
+<sub>`msg_72cf1f6fe97f` ← `msg_94434a6a82e6`</sub>
 
 ```json
 {
@@ -3462,7 +3464,7 @@
 
 ### 170. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_57941a4f3379`</sub>
+<sub>`msg_ef5dec1243d5`</sub>
 
 ```json
 {
@@ -3479,7 +3481,7 @@
 
 ### 171. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_8abc0c3363ba`</sub>
+<sub>`msg_8e9737b930a4`</sub>
 
 ```json
 {
@@ -3494,7 +3496,7 @@
 
 ### 172. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_5ba5ff75e0c6` ← `msg_8abc0c3363ba`</sub>
+<sub>`msg_a61ee9e04155` ← `msg_8e9737b930a4`</sub>
 
 ```json
 {
@@ -3517,7 +3519,7 @@
 
 ### 173. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_2c98d9333ed2`</sub>
+<sub>`msg_7c047dc5f837`</sub>
 
 ```json
 {
@@ -3534,7 +3536,7 @@
 
 ### 174. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_32c2ab9bad65`</sub>
+<sub>`msg_a10e12df76cc`</sub>
 
 ```json
 {
@@ -3549,7 +3551,7 @@
 
 ### 175. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_84322b4f33c2` ← `msg_32c2ab9bad65`</sub>
+<sub>`msg_e590aa8edfe7` ← `msg_a10e12df76cc`</sub>
 
 ```json
 {
@@ -3572,7 +3574,7 @@
 
 ### 176. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_4c4008d0ecaa`</sub>
+<sub>`msg_fc7daa96e4cf`</sub>
 
 ```json
 {
@@ -3589,7 +3591,7 @@
 
 ### 177. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_ef6b8865ff06`</sub>
+<sub>`msg_0de5d8091ef5`</sub>
 
 ```json
 {
@@ -3604,7 +3606,7 @@
 
 ### 178. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_186b48df6bc8` ← `msg_ef6b8865ff06`</sub>
+<sub>`msg_3e0b89e2b990` ← `msg_0de5d8091ef5`</sub>
 
 ```json
 {
@@ -3627,7 +3629,7 @@
 
 ### 179. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_3c8370ac246c`</sub>
+<sub>`msg_c1e7a01bd49b`</sub>
 
 ```json
 {
@@ -3644,7 +3646,7 @@
 
 ### 180. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_ff6b10daebf4`</sub>
+<sub>`msg_9052f4b3bde8`</sub>
 
 ```json
 {
@@ -3659,7 +3661,7 @@
 
 ### 181. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_a5fd75ce99fa` ← `msg_ff6b10daebf4`</sub>
+<sub>`msg_f272f36c1416` ← `msg_9052f4b3bde8`</sub>
 
 ```json
 {
@@ -3682,7 +3684,7 @@
 
 ### 182. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_945b3fe2735e`</sub>
+<sub>`msg_2974489ffb42`</sub>
 
 ```json
 {
@@ -3699,7 +3701,7 @@
 
 ### 183. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_808b9086a8c1`</sub>
+<sub>`msg_552cecc1e4e7`</sub>
 
 ```json
 {
@@ -3714,7 +3716,7 @@
 
 ### 184. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_dc199626cd92` ← `msg_808b9086a8c1`</sub>
+<sub>`msg_b1635f9f80fe` ← `msg_552cecc1e4e7`</sub>
 
 ```json
 {
@@ -3737,7 +3739,7 @@
 
 ### 185. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_cbb257fd2d9d`</sub>
+<sub>`msg_7231188a0d96`</sub>
 
 ```json
 {
@@ -3754,7 +3756,7 @@
 
 ### 186. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_a2e1ac603a52`</sub>
+<sub>`msg_c668d8233cef`</sub>
 
 ```json
 {
@@ -3769,7 +3771,7 @@
 
 ### 187. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_a8d55256f20f` ← `msg_a2e1ac603a52`</sub>
+<sub>`msg_8f66a28f7ee4` ← `msg_c668d8233cef`</sub>
 
 ```json
 {
@@ -3792,7 +3794,7 @@
 
 ### 188. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_6e4c85ab5a67`</sub>
+<sub>`msg_af2919dde71a`</sub>
 
 ```json
 {
@@ -3809,7 +3811,7 @@
 
 ### 189. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_cec660607c47`</sub>
+<sub>`msg_50113d87bec5`</sub>
 
 ```json
 {
@@ -3824,7 +3826,7 @@
 
 ### 190. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_1de1cdd33043` ← `msg_cec660607c47`</sub>
+<sub>`msg_6b8043b591fd` ← `msg_50113d87bec5`</sub>
 
 ```json
 {
@@ -3847,7 +3849,7 @@
 
 ### 191. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_4f215550f691`</sub>
+<sub>`msg_27f1e9b7b36d`</sub>
 
 ```json
 {
@@ -3864,7 +3866,7 @@
 
 ### 192. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_1c9f5c7bf59c`</sub>
+<sub>`msg_aeefb9c114d9`</sub>
 
 ```json
 {
@@ -3878,7 +3880,7 @@
 
 ### 193. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_5665aadc7808` ← `msg_1c9f5c7bf59c`</sub>
+<sub>`msg_e573d7cb9c7a` ← `msg_aeefb9c114d9`</sub>
 
 ```json
 {
@@ -3897,7 +3899,7 @@
 
 ### 194. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_b70c52db39de`</sub>
+<sub>`msg_0c0bb3b8cd23`</sub>
 
 ```json
 {
@@ -3912,7 +3914,7 @@
 
 ### 195. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_1cc4e4a19e0b`</sub>
+<sub>`msg_aacc59eb3b3b`</sub>
 
 ```json
 {
@@ -3926,7 +3928,7 @@
 
 ### 196. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_14ad40c4c18b` ← `msg_1cc4e4a19e0b`</sub>
+<sub>`msg_d54479b45562` ← `msg_aacc59eb3b3b`</sub>
 
 ```json
 {
@@ -3945,7 +3947,7 @@
 
 ### 197. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_353d5c45e5e2`</sub>
+<sub>`msg_41fafdcfea8f`</sub>
 
 ```json
 {
@@ -3960,7 +3962,7 @@
 
 ### 198. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_66c67c3f8a30`</sub>
+<sub>`msg_ecd60335a3be`</sub>
 
 ```json
 {
@@ -3974,7 +3976,7 @@
 
 ### 199. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_7a9ffe7d8f7a` ← `msg_66c67c3f8a30`</sub>
+<sub>`msg_ec07d6835edd` ← `msg_ecd60335a3be`</sub>
 
 ```json
 {
@@ -3993,7 +3995,7 @@
 
 ### 200. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_944d6ab6996c`</sub>
+<sub>`msg_1e8294d5f050`</sub>
 
 ```json
 {
@@ -4008,7 +4010,7 @@
 
 ### 201. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_ce99433d9848`</sub>
+<sub>`msg_dca68470b52a`</sub>
 
 ```json
 {
@@ -4022,7 +4024,7 @@
 
 ### 202. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_c52a44ea2636` ← `msg_ce99433d9848`</sub>
+<sub>`msg_a2661ce4d834` ← `msg_dca68470b52a`</sub>
 
 ```json
 {
@@ -4041,7 +4043,7 @@
 
 ### 203. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_a16f1da3d2f8`</sub>
+<sub>`msg_bf82a7fa8a0d`</sub>
 
 ```json
 {
@@ -4056,7 +4058,7 @@
 
 ### 204. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_add23d4d7619`</sub>
+<sub>`msg_573c4f77e09a`</sub>
 
 ```json
 {
@@ -4070,7 +4072,7 @@
 
 ### 205. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_ff4674fae8be` ← `msg_add23d4d7619`</sub>
+<sub>`msg_e686db6bf3c6` ← `msg_573c4f77e09a`</sub>
 
 ```json
 {
@@ -4089,7 +4091,7 @@
 
 ### 206. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_725e004b34bd`</sub>
+<sub>`msg_05d1a617c777`</sub>
 
 ```json
 {
@@ -4104,7 +4106,7 @@
 
 ### 207. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_2a8d518c582e`</sub>
+<sub>`msg_51eddcf5580c`</sub>
 
 ```json
 {
@@ -4118,7 +4120,7 @@
 
 ### 208. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_c2dc44c83cc0` ← `msg_2a8d518c582e`</sub>
+<sub>`msg_64c775344067` ← `msg_51eddcf5580c`</sub>
 
 ```json
 {
@@ -4137,7 +4139,7 @@
 
 ### 209. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_05dd1a1fad9e`</sub>
+<sub>`msg_8b34419842a6`</sub>
 
 ```json
 {
@@ -4152,7 +4154,7 @@
 
 ### 210. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_be9f926b45a6`</sub>
+<sub>`msg_70f3de52fe94`</sub>
 
 ```json
 {
@@ -4169,7 +4171,7 @@
 
 ### 211. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_f8170bfc8402`</sub>
+<sub>`msg_03757e2b6091`</sub>
 
 ```json
 {
@@ -4183,7 +4185,7 @@
 
 ### 212. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_38702b0879f6` ← `msg_f8170bfc8402`</sub>
+<sub>`msg_889719b4ba4f` ← `msg_03757e2b6091`</sub>
 
 ```json
 {
@@ -4202,7 +4204,7 @@
 
 ### 213. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_bbcc78fccb87`</sub>
+<sub>`msg_9db56b9c55b0`</sub>
 
 ```json
 {
@@ -4217,7 +4219,7 @@
 
 ### 214. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_ab1eb2e3decd`</sub>
+<sub>`msg_8101cb12b237`</sub>
 
 ```json
 {
@@ -4231,7 +4233,7 @@
 
 ### 215. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_de8dacb3f222` ← `msg_ab1eb2e3decd`</sub>
+<sub>`msg_6479ac97b5d6` ← `msg_8101cb12b237`</sub>
 
 ```json
 {
@@ -4250,7 +4252,7 @@
 
 ### 216. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_8f57b7802ce0`</sub>
+<sub>`msg_a94105b8db32`</sub>
 
 ```json
 {
@@ -4265,7 +4267,7 @@
 
 ### 217. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_4ed5f3a3219c`</sub>
+<sub>`msg_87d2b8690618`</sub>
 
 ```json
 {
@@ -4279,7 +4281,7 @@
 
 ### 218. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_1452e5e52cea` ← `msg_4ed5f3a3219c`</sub>
+<sub>`msg_35472586579a` ← `msg_87d2b8690618`</sub>
 
 ```json
 {
@@ -4298,7 +4300,7 @@
 
 ### 219. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_a5fc582c3c29`</sub>
+<sub>`msg_72c2e9be6d55`</sub>
 
 ```json
 {
@@ -4313,7 +4315,7 @@
 
 ### 220. `orchestrator` → `human` — **escalation.request**
 
-<sub>`msg_0afb9a549b4c`</sub>
+<sub>`msg_8de3a6aef16c`</sub>
 
 ```json
 {
@@ -4356,7 +4358,7 @@
 
 ### 221. `human` → `orchestrator` — **human.decision**
 
-<sub>`msg_01001c91d600`</sub>
+<sub>`msg_68b99ed603d3`</sub>
 
 ```json
 {
@@ -4369,7 +4371,7 @@
 
 ### 222. `drafter` → `human` — **redline.memo** · 0ms
 
-<sub>`msg_118022daaaed`</sub>
+<sub>`msg_bd2276dce3d0`</sub>
 
 ```json
 {
@@ -4414,3 +4416,5 @@
 | **total** | **43** | **0** | **0** | **$0.00000** |
 
 Messages exchanged: **222** · LLM wall time: **12 ms**
+
+> Zero tokens and zero cost because this run used the deterministic rule-engine backend, which spends no tokens. Re-run with `--backend anthropic` for real usage figures.

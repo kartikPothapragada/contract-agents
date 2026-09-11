@@ -36,8 +36,18 @@ from clauseguard.schemas.messages import (
 
 
 class TraceBus:
-    def __init__(self, trace_id: str, sink: str | Path | None = None, echo: bool = False) -> None:
+    def __init__(
+        self,
+        trace_id: str,
+        sink: str | Path | None = None,
+        echo: bool = False,
+        metadata: dict[str, Any] | None = None,
+    ) -> None:
         self.trace_id = trace_id
+        # Carries the backend and playbook version into the rendered trace. A
+        # cost table reading $0.00000 with no context looks like broken
+        # accounting rather than a deterministic backend that spends no tokens.
+        self.metadata = metadata or {}
         self.messages: list[AgentMessage] = []
         self.echo = echo
         self.sink = Path(sink) if sink else None
@@ -121,7 +131,10 @@ class TraceBus:
 
     # -- render ------------------------------------------------------------ #
     def render_markdown(self, title: str = "Agent interaction trace") -> str:
+        meta = "  ·  ".join(f"{k} = `{v}`" for k, v in self.metadata.items())
         lines = [f"# {title}", "", f"`trace_id = {self.trace_id}`", ""]
+        if meta:
+            lines += [meta, ""]
         for i, m in enumerate(self.messages, 1):
             body = m.payload.model_dump(exclude={"kind"})
             cost = ""
@@ -164,4 +177,11 @@ class TraceBus:
             f"LLM wall time: **{rep['wall_ms']:.0f} ms**",
             "",
         ]
+        if self.metadata.get("backend") == "stub":
+            lines += [
+                "> Zero tokens and zero cost because this run used the "
+                "deterministic rule-engine backend, which spends no tokens. "
+                "Re-run with `--backend anthropic` for real usage figures.",
+                "",
+            ]
         return "\n".join(lines)
