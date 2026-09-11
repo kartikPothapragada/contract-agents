@@ -1,0 +1,32 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clauseguard"
+version = "0.1.0"
+description = "Agentic contract risk triage - Avathon challenge, Track A x Scenario 2"
+requires-python = ">=3.11"
+authors = [{name = "Kartik Pothapragada", email = "pvs.kartik@gmail.com"}]
+dependencies = [
+    "langgraph==1.2.11",
+    "langchain-core==1.6.1",
+    "pydantic==2.13.4",
+    "PyYAML==6.0.2",
+    "scikit-learn==1.9.0",
+    "numpy==2.2.3",
+    "httpx==0.28.1",
+]
+
+[project.optional-dependencies]
+dense = ["sentence-transformers==5.6.0", "torch==2.12.1"]
+anthropic = ["anthropic==0.112.0"]
+openai = ["openai==2.54.0"]
+dev = ["pytest==9.1.1"]
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::UserWarning"]

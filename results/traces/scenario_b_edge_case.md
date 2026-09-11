@@ -1,10 +1,10 @@
 # Scenario B - edge case, unverifiable liability cap
 
-`trace_id = syn-007-61278afb`
+`trace_id = syn-007-d0d6e809`
 
 ### 1. `intake` → `orchestrator` — **tool.call**
 
-<sub>`msg_54224cd98963`</sub>
+<sub>`msg_0313d3ac60c4`</sub>
 
 ```json
 {
@@ -17,7 +17,7 @@
 
 ### 2. `intake` → `orchestrator` — **tool.result**
 
-<sub>`msg_5696e8cb470b` ← `msg_54224cd98963`</sub>
+<sub>`msg_4209c26f07ea` ← `msg_0313d3ac60c4`</sub>
 
 ```json
 {
@@ -162,9 +162,9 @@
 }
 ```
 
-### 3. `intake` → `extractor` — **document.profile** · 1ms
+### 3. `intake` → `extractor` — **document.profile** · 0ms
 
-<sub>`msg_94f120adf568`</sub>
+<sub>`msg_15f6cf9424dd`</sub>
 
 ```json
 {
@@ -193,7 +193,7 @@
 
 ### 4. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_5462766b1917`</sub>
+<sub>`msg_64aeabec71f6`</sub>
 
 ```json
 {
@@ -206,7 +206,7 @@
 
 ### 5. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_7e50e890b3b5` ← `msg_5462766b1917`</sub>
+<sub>`msg_071b1505b73a` ← `msg_64aeabec71f6`</sub>
 
 ```json
 {
@@ -221,7 +221,7 @@
 
 ### 6. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_d9591287b431`</sub>
+<sub>`msg_f85c44ab180e`</sub>
 
 ```json
 {
@@ -237,7 +237,7 @@
 
 ### 7. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_542e98d1ed6e` ← `msg_d9591287b431`</sub>
+<sub>`msg_cf91d9d34a7b` ← `msg_f85c44ab180e`</sub>
 
 ```json
 {
@@ -266,7 +266,7 @@
 
 ### 8. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_ecdce846c1f1` ← `msg_d9591287b431`</sub>
+<sub>`msg_6e60d9a4f280` ← `msg_f85c44ab180e`</sub>
 
 ```json
 {
@@ -274,8 +274,8 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Renewal\n\nThis Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.",
-    "char_start": 3322,
+    "text": "This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.",
+    "char_start": 3331,
     "char_end": 3535,
     "section_ref": "14"
   },
@@ -291,7 +291,7 @@
 
 ### 9. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_9c5f67a546ed`</sub>
+<sub>`msg_0730de0e2997`</sub>
 
 ```json
 {
@@ -307,7 +307,7 @@
 
 ### 10. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_c8f59afb2635` ← `msg_9c5f67a546ed`</sub>
+<sub>`msg_401f45e602af` ← `msg_0730de0e2997`</sub>
 
 ```json
 {
@@ -336,7 +336,7 @@
 
 ### 11. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_853ecddfb052` ← `msg_9c5f67a546ed`</sub>
+<sub>`msg_80d33557112b` ← `msg_0730de0e2997`</sub>
 
 ```json
 {
@@ -344,9 +344,9 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Confidentiality\n\nEach party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination.",
-    "char_start": 2781,
-    "char_end": 2984,
+    "text": "Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination. Trade secrets shall be protected for so long as they remain trade secrets.",
+    "char_start": 2798,
+    "char_end": 3059,
     "section_ref": "12"
   },
   "extraction_confidence": 0.8,
@@ -361,7 +361,7 @@
 
 ### 12. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_e1da3e33bbb1`</sub>
+<sub>`msg_8f0a2b6d0fef`</sub>
 
 ```json
 {
@@ -377,7 +377,7 @@
 
 ### 13. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_638100e66f6f` ← `msg_e1da3e33bbb1`</sub>
+<sub>`msg_9088fac300cb` ← `msg_8f0a2b6d0fef`</sub>
 
 ```json
 {
@@ -406,7 +406,7 @@
 
 ### 14. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_b5721c70c740` ← `msg_e1da3e33bbb1`</sub>
+<sub>`msg_a196f03a55fe` ← `msg_8f0a2b6d0fef`</sub>
 
 ```json
 {
@@ -414,8 +414,8 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.",
-    "char_start": 986,
+    "text": "Vendor acts as a processor and shall process Personal Data only on the documented instructions of Customer. Vendor shall notify Customer of any Personal Data Breach without undue delay and in any event within seventy-two (72) hours of becoming aware of it. Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.",
+    "char_start": 729,
     "char_end": 1112,
     "section_ref": "3"
   },
@@ -431,7 +431,7 @@
 
 ### 15. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_c8d249a50c45`</sub>
+<sub>`msg_51f7d67ee705`</sub>
 
 ```json
 {
@@ -447,7 +447,7 @@
 
 ### 16. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_2ed4ab8af91e` ← `msg_c8d249a50c45`</sub>
+<sub>`msg_2b535ef8fe33` ← `msg_51f7d67ee705`</sub>
 
 ```json
 {
@@ -476,7 +476,7 @@
 
 ### 17. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_ea99c7af8310` ← `msg_c8d249a50c45`</sub>
+<sub>`msg_e0ddef2ed234` ← `msg_51f7d67ee705`</sub>
 
 ```json
 {
@@ -484,8 +484,8 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.",
-    "char_start": 2124,
+    "text": "This Agreement shall be governed by the laws of the Republic of Singapore. Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.",
+    "char_start": 2049,
     "char_end": 2258,
     "section_ref": "8"
   },
@@ -501,7 +501,7 @@
 
 ### 18. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_da9bb766f78a`</sub>
+<sub>`msg_855ce0eb5a9e`</sub>
 
 ```json
 {
@@ -517,7 +517,7 @@
 
 ### 19. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_fd9443239058` ← `msg_da9bb766f78a`</sub>
+<sub>`msg_d5fe156650e1` ← `msg_855ce0eb5a9e`</sub>
 
 ```json
 {
@@ -546,7 +546,7 @@
 
 ### 20. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_9f04ed965467` ← `msg_da9bb766f78a`</sub>
+<sub>`msg_a9fc9e6f2696` ← `msg_855ce0eb5a9e`</sub>
 
 ```json
 {
@@ -554,8 +554,8 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Indemnification\n\nCustomer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.",
-    "char_start": 2409,
+    "text": "Customer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.",
+    "char_start": 2426,
     "char_end": 2617,
     "section_ref": "10"
   },
@@ -571,7 +571,7 @@
 
 ### 21. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_d1e34072a0c7`</sub>
+<sub>`msg_ab6af7339e44`</sub>
 
 ```json
 {
@@ -587,7 +587,7 @@
 
 ### 22. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_27800c5d453d` ← `msg_d1e34072a0c7`</sub>
+<sub>`msg_8a8a4fb8bf3f` ← `msg_ab6af7339e44`</sub>
 
 ```json
 {
@@ -616,7 +616,7 @@
 
 ### 23. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_c1921673a352` ← `msg_d1e34072a0c7`</sub>
+<sub>`msg_93526f36ce04` ← `msg_ab6af7339e44`</sub>
 
 ```json
 {
@@ -624,9 +624,9 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Intellectual Property\n\nVendor shall own all Deliverables and all data derived from Customer's use of the Services.",
-    "char_start": 3065,
-    "char_end": 3179,
+    "text": "Vendor shall own all Deliverables and all data derived from Customer's use of the Services. Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings.",
+    "char_start": 3088,
+    "char_end": 3316,
     "section_ref": "13"
   },
   "extraction_confidence": 0.8,
@@ -641,7 +641,7 @@
 
 ### 24. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_d517cf6ae32d`</sub>
+<sub>`msg_f28cd9f61084`</sub>
 
 ```json
 {
@@ -657,7 +657,7 @@
 
 ### 25. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_d75a5bf2d2fe` ← `msg_d517cf6ae32d`</sub>
+<sub>`msg_eebf35eddbb3` ← `msg_f28cd9f61084`</sub>
 
 ```json
 {
@@ -686,7 +686,7 @@
 
 ### 26. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_d43faa751399` ← `msg_d517cf6ae32d`</sub>
+<sub>`msg_c0e77bd713f7` ← `msg_f28cd9f61084`</sub>
 
 ```json
 {
@@ -705,7 +705,7 @@
 
 ### 27. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_0c642f12a4e2`</sub>
+<sub>`msg_f14e3497015c`</sub>
 
 ```json
 {
@@ -721,7 +721,7 @@
 
 ### 28. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_11284b47b1e2` ← `msg_0c642f12a4e2`</sub>
+<sub>`msg_855e0796a6fc` ← `msg_f14e3497015c`</sub>
 
 ```json
 {
@@ -750,7 +750,7 @@
 
 ### 29. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_b653318ffe1b` ← `msg_0c642f12a4e2`</sub>
+<sub>`msg_5ea363aa311b` ← `msg_f14e3497015c`</sub>
 
 ```json
 {
@@ -758,8 +758,8 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Fees and Payment\n\nCustomer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.",
-    "char_start": 1807,
+    "text": "Customer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.",
+    "char_start": 1825,
     "char_end": 2006,
     "section_ref": "7"
   },
@@ -775,7 +775,7 @@
 
 ### 30. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_4f9f8ce27d1e`</sub>
+<sub>`msg_58598ad9fc76`</sub>
 
 ```json
 {
@@ -791,7 +791,7 @@
 
 ### 31. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_4f44f6943bfb` ← `msg_4f9f8ce27d1e`</sub>
+<sub>`msg_6751c02143cc` ← `msg_58598ad9fc76`</sub>
 
 ```json
 {
@@ -820,7 +820,7 @@
 
 ### 32. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_34ea1922f774` ← `msg_4f9f8ce27d1e`</sub>
+<sub>`msg_9b3105559938` ← `msg_58598ad9fc76`</sub>
 
 ```json
 {
@@ -828,9 +828,9 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Service Levels\n\nVendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance.",
-    "char_start": 1476,
-    "char_end": 1658,
+    "text": "Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance. Service credits escalate with the shortfall, and failure to meet the commitment in three consecutive months shall constitute a material breach.",
+    "char_start": 1492,
+    "char_end": 1802,
     "section_ref": "6"
   },
   "extraction_confidence": 0.8,
@@ -845,7 +845,7 @@
 
 ### 33. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_a7c7127fd55a`</sub>
+<sub>`msg_edef86a683c3`</sub>
 
 ```json
 {
@@ -861,7 +861,7 @@
 
 ### 34. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_54acb10daac5` ← `msg_a7c7127fd55a`</sub>
+<sub>`msg_bd90ee4a9bde` ← `msg_edef86a683c3`</sub>
 
 ```json
 {
@@ -890,7 +890,7 @@
 
 ### 35. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_022a1e44c5b9` ← `msg_a7c7127fd55a`</sub>
+<sub>`msg_9944b1d43089` ← `msg_edef86a683c3`</sub>
 
 ```json
 {
@@ -898,8 +898,8 @@
   "found": true,
   "span": {
     "kind": "clause.span",
-    "text": "Term and Termination\n\nCustomer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.",
-    "char_start": 1241,
+    "text": "Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.",
+    "char_start": 1263,
     "char_end": 1471,
     "section_ref": "5"
   },
@@ -915,7 +915,7 @@
 
 ### 36. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_5c8043e86b2c`</sub>
+<sub>`msg_37d750eed686`</sub>
 
 ```json
 {
@@ -930,7 +930,7 @@
 
 ### 37. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_9f0893810446` ← `msg_5c8043e86b2c`</sub>
+<sub>`msg_cea77fad2461` ← `msg_37d750eed686`</sub>
 
 ```json
 {
@@ -959,7 +959,7 @@
 
 ### 38. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_df893614bbf6` ← `msg_5c8043e86b2c`</sub>
+<sub>`msg_1b7b13215459` ← `msg_37d750eed686`</sub>
 
 ```json
 {
@@ -967,17 +967,17 @@
   "rule_id": "PB-AUTO-01",
   "rule_title": "Auto-renewal requires a real opt-out window",
   "standard_position": "Any automatic renewal must be for a term no longer than twelve (12) months and must allow non-renewal on thirty (30) days' notice before term end.",
-  "observed_position": "Clause present and no never-acceptable trigger matched",
+  "observed_position": "Non-renewal notice of 30 days meets the standard position",
   "severity": "COMPLIANT",
-  "rationale": "Playbook PB-AUTO-01 requires: Any automatic renewal must be for a term no longer than twelve (12) months and must allow non-renewal on thirty (30) days' notice before term end.. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
+  "rationale": "Playbook PB-AUTO-01 requires: Any automatic renewal must be for a term no longer than twelve (12) months and must allow non-renewal on thirty (30) days' notice before term end.. The contract instead provides language under which non-renewal notice of 30 days meets the standard position. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Renewal\n\nThis Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term."
+  "cited_span_text": "This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term."
 }
 ```
 
 ### 39. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_6dc69dbac759`</sub>
+<sub>`msg_3f78c89e26ae`</sub>
 
 ```json
 {
@@ -992,7 +992,7 @@
 
 ### 40. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_a13eb168c798` ← `msg_6dc69dbac759`</sub>
+<sub>`msg_71ed3c3cd24b` ← `msg_3f78c89e26ae`</sub>
 
 ```json
 {
@@ -1019,9 +1019,9 @@
 }
 ```
 
-### 41. `policy` → `risk` — **deviation.assessment** · 0ms
+### 41. `policy` → `risk` — **deviation.assessment** · 2ms
 
-<sub>`msg_ad4a590d1b81` ← `msg_6dc69dbac759`</sub>
+<sub>`msg_4ddd39f74331` ← `msg_3f78c89e26ae`</sub>
 
 ```json
 {
@@ -1029,17 +1029,17 @@
   "rule_id": "PB-CONF-01",
   "rule_title": "Mutual confidentiality surviving at least 3 years",
   "standard_position": "Mutual confidentiality obligations survive three (3) years after termination; trade secrets are protected for as long as they remain trade secrets. Residuals clauses are not accepted.",
-  "observed_position": "Clause present and no never-acceptable trigger matched",
+  "observed_position": "Mutual confidentiality surviving 3 years",
   "severity": "COMPLIANT",
-  "rationale": "Playbook PB-CONF-01 requires: Mutual confidentiality obligations survive three (3) years after termination; trade secrets are protected for as long as they remain trade secrets. Residuals clauses are not accept. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
+  "rationale": "Playbook PB-CONF-01 requires: Mutual confidentiality obligations survive three (3) years after termination; trade secrets are protected for as long as they remain trade secrets. Residuals clauses are not accept. The contract instead provides language under which mutual confidentiality surviving 3 years. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Confidentiality\n\nEach party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination."
+  "cited_span_text": "Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination."
 }
 ```
 
 ### 42. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_9e65d0fc091e`</sub>
+<sub>`msg_02dfafa90b89`</sub>
 
 ```json
 {
@@ -1054,7 +1054,7 @@
 
 ### 43. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_cffa71686453` ← `msg_9e65d0fc091e`</sub>
+<sub>`msg_eb4fd46d0058` ← `msg_02dfafa90b89`</sub>
 
 ```json
 {
@@ -1067,8 +1067,8 @@
       "rank": 1
     },
     {
-      "rule_id": "PB-ASG-01",
-      "clause_type": "ASSIGNMENT",
+      "rule_id": "PB-INS-01",
+      "clause_type": "INSURANCE",
       "rank": 2
     },
     {
@@ -1081,9 +1081,9 @@
 }
 ```
 
-### 44. `policy` → `risk` — **deviation.assessment** · 1ms
+### 44. `policy` → `risk` — **deviation.assessment** · 2ms
 
-<sub>`msg_3328cf6d932a` ← `msg_9e65d0fc091e`</sub>
+<sub>`msg_a0b6eacf2f42` ← `msg_02dfafa90b89`</sub>
 
 ```json
 {
@@ -1091,9 +1091,9 @@
   "rule_id": "PB-DP-01",
   "rule_title": "Processor obligations, breach notice within 72 hours",
   "standard_position": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
-  "observed_position": "No personal data breach notification obligation",
+  "observed_position": "Unrestricted sub-processor appointment with no notice right",
   "severity": "UNACCEPTABLE",
-  "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which no personal data breach notification obligation. Assessed UNACCEPTABLE on that basis.",
+  "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which unrestricted sub-processor appointment with no notice right. Assessed UNACCEPTABLE on that basis.",
   "suggested_redline": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
   "cited_span_text": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object."
 }
@@ -1101,7 +1101,7 @@
 
 ### 45. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_7909be9a5512`</sub>
+<sub>`msg_8c7f55c945c1`</sub>
 
 ```json
 {
@@ -1116,7 +1116,7 @@
 
 ### 46. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_a04eb7bc0384` ← `msg_7909be9a5512`</sub>
+<sub>`msg_510896d2ce0b` ← `msg_8c7f55c945c1`</sub>
 
 ```json
 {
@@ -1134,8 +1134,8 @@
       "rank": 2
     },
     {
-      "rule_id": "PB-IND-01",
-      "clause_type": "INDEMNIFICATION",
+      "rule_id": "PB-ASG-01",
+      "clause_type": "ASSIGNMENT",
       "rank": 3
     }
   ],
@@ -1145,7 +1145,7 @@
 
 ### 47. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_c4aac11dc481` ← `msg_7909be9a5512`</sub>
+<sub>`msg_6a779b3cd774` ← `msg_8c7f55c945c1`</sub>
 
 ```json
 {
@@ -1153,17 +1153,17 @@
   "rule_id": "PB-LAW-01",
   "rule_title": "Delaware law, no foreign forum",
   "standard_position": "Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.",
-  "observed_position": "Clause present but thinly drafted relative to the standard position",
-  "severity": "MINOR",
-  "rationale": "Playbook PB-LAW-01 requires: Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.. The contract instead provides language under which clause present but thinly drafted relative to the standard position. Assessed MINOR on that basis.",
-  "suggested_redline": null,
+  "observed_position": "Governed by the laws of republic of singapore, with mandatory arbitration abroad and a jury trial waiver",
+  "severity": "UNACCEPTABLE",
+  "rationale": "Playbook PB-LAW-01 requires: Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.. The contract instead provides language under which governed by the laws of republic of singapore, with mandatory arbitration abroad and a jury trial waiver. Assessed UNACCEPTABLE on that basis.",
+  "suggested_redline": "Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.",
   "cited_span_text": "Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial."
 }
 ```
 
 ### 48. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_120fb16e4676`</sub>
+<sub>`msg_fd479af51e69`</sub>
 
 ```json
 {
@@ -1178,7 +1178,7 @@
 
 ### 49. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_cb9ce085c7d4` ← `msg_120fb16e4676`</sub>
+<sub>`msg_3bd72d64733f` ← `msg_fd479af51e69`</sub>
 
 ```json
 {
@@ -1191,13 +1191,13 @@
       "rank": 1
     },
     {
-      "rule_id": "PB-ASG-01",
-      "clause_type": "ASSIGNMENT",
+      "rule_id": "PB-LIAB-01",
+      "clause_type": "LIMITATION_OF_LIABILITY",
       "rank": 2
     },
     {
-      "rule_id": "PB-LIAB-01",
-      "clause_type": "LIMITATION_OF_LIABILITY",
+      "rule_id": "PB-ASG-01",
+      "clause_type": "ASSIGNMENT",
       "rank": 3
     }
   ],
@@ -1207,7 +1207,7 @@
 
 ### 50. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_7c3b3a884c81` ← `msg_120fb16e4676`</sub>
+<sub>`msg_543aed1279b0` ← `msg_fd479af51e69`</sub>
 
 ```json
 {
@@ -1215,17 +1215,17 @@
   "rule_id": "PB-IND-01",
   "rule_title": "IP and data-breach indemnity required from vendor",
   "standard_position": "Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor's security or data protection obligations. Indemnity is uncapped for these two heads.",
-  "observed_position": "Clause present and no never-acceptable trigger matched",
-  "severity": "COMPLIANT",
-  "rationale": "Playbook PB-IND-01 requires: Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
-  "suggested_redline": null,
-  "cited_span_text": "Indemnification\n\nCustomer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems."
+  "observed_position": "Indemnity runs against Northwind rather than the vendor",
+  "severity": "UNACCEPTABLE",
+  "rationale": "Playbook PB-IND-01 requires: Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor. The contract instead provides language under which indemnity runs against Northwind rather than the vendor. Assessed UNACCEPTABLE on that basis.",
+  "suggested_redline": "Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor's security or data protection obligations. Indemnity is uncapped for these two heads.",
+  "cited_span_text": "Customer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems."
 }
 ```
 
 ### 51. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_e2ae50840d30`</sub>
+<sub>`msg_6af61a4f7eeb`</sub>
 
 ```json
 {
@@ -1240,7 +1240,7 @@
 
 ### 52. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_40002603c5de` ← `msg_e2ae50840d30`</sub>
+<sub>`msg_8523e5760f1a` ← `msg_6af61a4f7eeb`</sub>
 
 ```json
 {
@@ -1269,7 +1269,7 @@
 
 ### 53. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_60125c01fba0` ← `msg_e2ae50840d30`</sub>
+<sub>`msg_0d0e9dc150da` ← `msg_6af61a4f7eeb`</sub>
 
 ```json
 {
@@ -1277,17 +1277,17 @@
   "rule_id": "PB-IP-01",
   "rule_title": "Northwind owns deliverables and its own data",
   "standard_position": "Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any pre-existing IP embedded in deliverables.",
-  "observed_position": "Vendor claims ownership of deliverables",
-  "severity": "MATERIAL",
-  "rationale": "Playbook PB-IP-01 requires: Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any p. The contract instead provides language under which vendor claims ownership of deliverables. Assessed MATERIAL on that basis.",
+  "observed_position": "Vendor granted rights to use Northwind data for model training",
+  "severity": "UNACCEPTABLE",
+  "rationale": "Playbook PB-IP-01 requires: Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any p. The contract instead provides language under which vendor granted rights to use Northwind data for model training. Assessed UNACCEPTABLE on that basis.",
   "suggested_redline": "Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any pre-existing IP embedded in deliverables.",
-  "cited_span_text": "Intellectual Property\n\nVendor shall own all Deliverables and all data derived from Customer's use of the Services."
+  "cited_span_text": "Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings."
 }
 ```
 
 ### 54. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_e75899cdfd26`</sub>
+<sub>`msg_f4efe47fe863`</sub>
 
 ```json
 {
@@ -1302,7 +1302,7 @@
 
 ### 55. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_db004727ac8a` ← `msg_e75899cdfd26`</sub>
+<sub>`msg_6c823a1b381e` ← `msg_f4efe47fe863`</sub>
 
 ```json
 {
@@ -1331,7 +1331,7 @@
 
 ### 56. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_e16d927920ac` ← `msg_e75899cdfd26`</sub>
+<sub>`msg_a9d68c04e3ae` ← `msg_f4efe47fe863`</sub>
 
 ```json
 {
@@ -1349,7 +1349,7 @@
 
 ### 57. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_a1fc928ecd69`</sub>
+<sub>`msg_4e38868332a1`</sub>
 
 ```json
 {
@@ -1364,7 +1364,7 @@
 
 ### 58. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_3b6968a4c68e` ← `msg_a1fc928ecd69`</sub>
+<sub>`msg_409b2ffa1501` ← `msg_4e38868332a1`</sub>
 
 ```json
 {
@@ -1382,8 +1382,8 @@
       "rank": 2
     },
     {
-      "rule_id": "PB-DP-01",
-      "clause_type": "DATA_PROTECTION",
+      "rule_id": "PB-SLA-01",
+      "clause_type": "SLA",
       "rank": 3
     }
   ],
@@ -1393,7 +1393,7 @@
 
 ### 59. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_68736ddc52a1` ← `msg_a1fc928ecd69`</sub>
+<sub>`msg_cdaabaa85d2a` ← `msg_4e38868332a1`</sub>
 
 ```json
 {
@@ -1405,13 +1405,13 @@
   "severity": "UNACCEPTABLE",
   "rationale": "Playbook PB-PAY-01 requires: Payment is due net forty-five (45) days from receipt of a valid invoice. Price increases require ninety (90) days' notice and may not exceed CPI or five percent (5%) annually, whic. The contract instead provides language under which net 10 is shorter than the fifteen-day floor. Assessed UNACCEPTABLE on that basis.",
   "suggested_redline": "Payment is due net forty-five (45) days from receipt of a valid invoice. Price increases require ninety (90) days' notice and may not exceed CPI or five percent (5%) annually, whichever is lower.",
-  "cited_span_text": "Fees and Payment\n\nCustomer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days."
+  "cited_span_text": "Customer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days."
 }
 ```
 
 ### 60. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_4edd9053775e`</sub>
+<sub>`msg_d3b03118dd61`</sub>
 
 ```json
 {
@@ -1426,7 +1426,7 @@
 
 ### 61. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_d3a8cf5220ed` ← `msg_4edd9053775e`</sub>
+<sub>`msg_98f75a3bfa2e` ← `msg_d3b03118dd61`</sub>
 
 ```json
 {
@@ -1455,7 +1455,7 @@
 
 ### 62. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_128c0eeb7189` ← `msg_4edd9053775e`</sub>
+<sub>`msg_a3d74a8f7598` ← `msg_d3b03118dd61`</sub>
 
 ```json
 {
@@ -1467,13 +1467,13 @@
   "severity": "COMPLIANT",
   "rationale": "Playbook PB-SLA-01 requires: Monthly availability of at least 99.5%, excluding scheduled maintenance notified 5 business days in advance. Service credits escalate with the shortfall, and chronic failure over t. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Service Levels\n\nVendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance."
+  "cited_span_text": "Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance."
 }
 ```
 
 ### 63. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_162da4af5ba6`</sub>
+<sub>`msg_6bc062c23662`</sub>
 
 ```json
 {
@@ -1488,7 +1488,7 @@
 
 ### 64. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_c92010771e00` ← `msg_162da4af5ba6`</sub>
+<sub>`msg_ea7d4ad97b3e` ← `msg_6bc062c23662`</sub>
 
 ```json
 {
@@ -1517,7 +1517,7 @@
 
 ### 65. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_df3df0031d5f` ← `msg_162da4af5ba6`</sub>
+<sub>`msg_823838b601c5` ← `msg_6bc062c23662`</sub>
 
 ```json
 {
@@ -1529,13 +1529,13 @@
   "severity": "COMPLIANT",
   "rationale": "Playbook PB-TERM-01 requires: Northwind may terminate for convenience on thirty (30) days' written notice, with a pro-rata refund of prepaid unused fees.. The contract instead provides language under which termination for convenience on standard notice. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Term and Termination\n\nCustomer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term."
+  "cited_span_text": "Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term."
 }
 ```
 
 ### 66. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_3c50c38143d3`</sub>
+<sub>`msg_72c616b49f1a`</sub>
 
 ```json
 {
@@ -1550,7 +1550,7 @@
 
 ### 67. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_6c0db9360ad9` ← `msg_3c50c38143d3`</sub>
+<sub>`msg_8db5b06b77ba` ← `msg_72c616b49f1a`</sub>
 
 ```json
 {
@@ -1573,7 +1573,7 @@
 
 ### 68. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_62ab9e42129f`</sub>
+<sub>`msg_357f78241988`</sub>
 
 ```json
 {
@@ -1590,7 +1590,7 @@
 
 ### 69. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_efe4db02da05`</sub>
+<sub>`msg_3467901108c0`</sub>
 
 ```json
 {
@@ -1605,7 +1605,7 @@
 
 ### 70. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_efda9aa572a3` ← `msg_efe4db02da05`</sub>
+<sub>`msg_71452f218b90` ← `msg_3467901108c0`</sub>
 
 ```json
 {
@@ -1628,7 +1628,7 @@
 
 ### 71. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_36d6edfdf81e`</sub>
+<sub>`msg_6f615dbc8e40`</sub>
 
 ```json
 {
@@ -1645,7 +1645,7 @@
 
 ### 72. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_07734ac76f94`</sub>
+<sub>`msg_f0038e3e4092`</sub>
 
 ```json
 {
@@ -1660,7 +1660,7 @@
 
 ### 73. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_1fdffd2be65b` ← `msg_07734ac76f94`</sub>
+<sub>`msg_346aba4db280` ← `msg_f0038e3e4092`</sub>
 
 ```json
 {
@@ -1683,7 +1683,7 @@
 
 ### 74. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_6a2cdfda5fd2`</sub>
+<sub>`msg_2bfd29426f39`</sub>
 
 ```json
 {
@@ -1700,14 +1700,14 @@
 
 ### 75. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_16363f16b145`</sub>
+<sub>`msg_500bc61b51ac`</sub>
 
 ```json
 {
   "tool_name": "score_clause",
   "arguments": {
     "clause_type": "GOVERNING_LAW",
-    "severity": "MINOR",
+    "severity": "UNACCEPTABLE",
     "value_tier": "STRATEGIC"
   }
 }
@@ -1715,7 +1715,7 @@
 
 ### 76. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_0397e8602a61` ← `msg_16363f16b145`</sub>
+<sub>`msg_7cf46e72da34` ← `msg_500bc61b51ac`</sub>
 
 ```json
 {
@@ -1724,13 +1724,13 @@
   "result": {
     "kind": "risk.score",
     "clause_type": "GOVERNING_LAW",
-    "severity": "MINOR",
-    "severity_points": 1.0,
+    "severity": "UNACCEPTABLE",
+    "severity_points": 5.0,
     "criticality_weight": 0.4,
     "value_multiplier": 1.4,
-    "score": 0.56,
+    "score": 2.8,
     "escalate": false,
-    "formula": "1.0 (severity MINOR) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 0.56; threshold 6.0"
+    "formula": "5.0 (severity UNACCEPTABLE) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 2.8; threshold 6.0"
   },
   "error": null
 }
@@ -1738,31 +1738,31 @@
 
 ### 77. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_d5cb14ceca38`</sub>
+<sub>`msg_02c97e14254d`</sub>
 
 ```json
 {
   "clause_type": "GOVERNING_LAW",
-  "severity": "MINOR",
-  "severity_points": 1.0,
+  "severity": "UNACCEPTABLE",
+  "severity_points": 5.0,
   "criticality_weight": 0.4,
   "value_multiplier": 1.4,
-  "score": 0.56,
+  "score": 2.8,
   "escalate": false,
-  "formula": "1.0 (severity MINOR) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 0.56; threshold 6.0"
+  "formula": "5.0 (severity UNACCEPTABLE) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 2.8; threshold 6.0"
 }
 ```
 
 ### 78. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_7c03265653b3`</sub>
+<sub>`msg_0b7e378fb872`</sub>
 
 ```json
 {
   "tool_name": "score_clause",
   "arguments": {
     "clause_type": "INDEMNIFICATION",
-    "severity": "COMPLIANT",
+    "severity": "UNACCEPTABLE",
     "value_tier": "STRATEGIC"
   }
 }
@@ -1770,7 +1770,7 @@
 
 ### 79. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_cf4525771e60` ← `msg_7c03265653b3`</sub>
+<sub>`msg_458555ca7f23` ← `msg_0b7e378fb872`</sub>
 
 ```json
 {
@@ -1779,13 +1779,13 @@
   "result": {
     "kind": "risk.score",
     "clause_type": "INDEMNIFICATION",
-    "severity": "COMPLIANT",
-    "severity_points": 0.0,
+    "severity": "UNACCEPTABLE",
+    "severity_points": 5.0,
     "criticality_weight": 0.9,
     "value_multiplier": 1.4,
-    "score": 0.0,
-    "escalate": false,
-    "formula": "0.0 (severity COMPLIANT) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 0.0; threshold 6.0"
+    "score": 6.3,
+    "escalate": true,
+    "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
   },
   "error": null
 }
@@ -1793,31 +1793,31 @@
 
 ### 80. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_6714104df4a9`</sub>
+<sub>`msg_9c9219634c45`</sub>
 
 ```json
 {
   "clause_type": "INDEMNIFICATION",
-  "severity": "COMPLIANT",
-  "severity_points": 0.0,
+  "severity": "UNACCEPTABLE",
+  "severity_points": 5.0,
   "criticality_weight": 0.9,
   "value_multiplier": 1.4,
-  "score": 0.0,
-  "escalate": false,
-  "formula": "0.0 (severity COMPLIANT) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 0.0; threshold 6.0"
+  "score": 6.3,
+  "escalate": true,
+  "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
 }
 ```
 
 ### 81. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_6e9de6efa424`</sub>
+<sub>`msg_86ad41ff5291`</sub>
 
 ```json
 {
   "tool_name": "score_clause",
   "arguments": {
     "clause_type": "IP_OWNERSHIP",
-    "severity": "MATERIAL",
+    "severity": "UNACCEPTABLE",
     "value_tier": "STRATEGIC"
   }
 }
@@ -1825,7 +1825,7 @@
 
 ### 82. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_8a9cf971e7fc` ← `msg_6e9de6efa424`</sub>
+<sub>`msg_4baea49f096d` ← `msg_86ad41ff5291`</sub>
 
 ```json
 {
@@ -1834,13 +1834,13 @@
   "result": {
     "kind": "risk.score",
     "clause_type": "IP_OWNERSHIP",
-    "severity": "MATERIAL",
-    "severity_points": 3.0,
+    "severity": "UNACCEPTABLE",
+    "severity_points": 5.0,
     "criticality_weight": 0.9,
     "value_multiplier": 1.4,
-    "score": 3.78,
-    "escalate": false,
-    "formula": "3.0 (severity MATERIAL) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 3.78; threshold 6.0"
+    "score": 6.3,
+    "escalate": true,
+    "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
   },
   "error": null
 }
@@ -1848,24 +1848,24 @@
 
 ### 83. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_f4d65c11e5b1`</sub>
+<sub>`msg_72a59ff9ea27`</sub>
 
 ```json
 {
   "clause_type": "IP_OWNERSHIP",
-  "severity": "MATERIAL",
-  "severity_points": 3.0,
+  "severity": "UNACCEPTABLE",
+  "severity_points": 5.0,
   "criticality_weight": 0.9,
   "value_multiplier": 1.4,
-  "score": 3.78,
-  "escalate": false,
-  "formula": "3.0 (severity MATERIAL) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 3.78; threshold 6.0"
+  "score": 6.3,
+  "escalate": true,
+  "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
 }
 ```
 
 ### 84. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_aeb2362d6e83`</sub>
+<sub>`msg_6a6e38c773a8`</sub>
 
 ```json
 {
@@ -1880,7 +1880,7 @@
 
 ### 85. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_2135708817e6` ← `msg_aeb2362d6e83`</sub>
+<sub>`msg_2e199238bc33` ← `msg_6a6e38c773a8`</sub>
 
 ```json
 {
@@ -1903,7 +1903,7 @@
 
 ### 86. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_6d037fe8f6f2`</sub>
+<sub>`msg_fed75cf361b4`</sub>
 
 ```json
 {
@@ -1920,7 +1920,7 @@
 
 ### 87. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_4eb0e811da2d`</sub>
+<sub>`msg_1683045c811d`</sub>
 
 ```json
 {
@@ -1935,7 +1935,7 @@
 
 ### 88. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_eec8c0ae9244` ← `msg_4eb0e811da2d`</sub>
+<sub>`msg_a16b73ded918` ← `msg_1683045c811d`</sub>
 
 ```json
 {
@@ -1958,7 +1958,7 @@
 
 ### 89. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_0bb9633299f8`</sub>
+<sub>`msg_1ddf4c4cc974`</sub>
 
 ```json
 {
@@ -1975,7 +1975,7 @@
 
 ### 90. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_e0004a51caac`</sub>
+<sub>`msg_1367e15cab75`</sub>
 
 ```json
 {
@@ -1990,7 +1990,7 @@
 
 ### 91. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_8c0879721578` ← `msg_e0004a51caac`</sub>
+<sub>`msg_2b04ccb11aa9` ← `msg_1367e15cab75`</sub>
 
 ```json
 {
@@ -2013,7 +2013,7 @@
 
 ### 92. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_9d84093a6366`</sub>
+<sub>`msg_9f8e89321fca`</sub>
 
 ```json
 {
@@ -2030,7 +2030,7 @@
 
 ### 93. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_506656c42fcc`</sub>
+<sub>`msg_6524c59ab944`</sub>
 
 ```json
 {
@@ -2045,7 +2045,7 @@
 
 ### 94. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_43d2fefbbda6` ← `msg_506656c42fcc`</sub>
+<sub>`msg_b43a3c445220` ← `msg_6524c59ab944`</sub>
 
 ```json
 {
@@ -2068,7 +2068,7 @@
 
 ### 95. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_db7906b2faa7`</sub>
+<sub>`msg_a32cf8624ed4`</sub>
 
 ```json
 {
@@ -2085,21 +2085,21 @@
 
 ### 96. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_ca8ad83d8057`</sub>
+<sub>`msg_3d2da41a9902`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "AUTO_RENEWAL",
-    "citation_chars": 213
+    "citation_chars": 204
   }
 }
 ```
 
 ### 97. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_df787ba15d1e` ← `msg_ca8ad83d8057`</sub>
+<sub>`msg_3980ad8b04fb` ← `msg_3d2da41a9902`</sub>
 
 ```json
 {
@@ -2108,8 +2108,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Renewal\n\nThis Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.",
-    "issues": []
+    "best_window": "This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2117,7 +2118,7 @@
 
 ### 98. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_7446ff6aebb5`</sub>
+<sub>`msg_7d236108f818`</sub>
 
 ```json
 {
@@ -2132,21 +2133,21 @@
 
 ### 99. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_4ac2ac61d0a4`</sub>
+<sub>`msg_7b04c10e06b3`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "CONFIDENTIALITY",
-    "citation_chars": 203
+    "citation_chars": 186
   }
 }
 ```
 
 ### 100. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_1a7d130b3972` ← `msg_4ac2ac61d0a4`</sub>
+<sub>`msg_81c7f76d201c` ← `msg_7b04c10e06b3`</sub>
 
 ```json
 {
@@ -2155,8 +2156,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Confidentiality\n\nEach party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination.",
-    "issues": []
+    "best_window": "Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2164,7 +2166,7 @@
 
 ### 101. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_038027454aff`</sub>
+<sub>`msg_ad9c9747599a`</sub>
 
 ```json
 {
@@ -2179,7 +2181,7 @@
 
 ### 102. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_d649ce852875`</sub>
+<sub>`msg_2ad7d1dd216e`</sub>
 
 ```json
 {
@@ -2193,7 +2195,7 @@
 
 ### 103. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_dc9052dc3ee4` ← `msg_d649ce852875`</sub>
+<sub>`msg_754fbbaa2776` ← `msg_2ad7d1dd216e`</sub>
 
 ```json
 {
@@ -2203,7 +2205,8 @@
     "exact": true,
     "fuzzy_ratio": 1.0,
     "best_window": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.",
-    "issues": []
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2211,7 +2214,7 @@
 
 ### 104. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_36184eaefcd2`</sub>
+<sub>`msg_0b292dfa65ff`</sub>
 
 ```json
 {
@@ -2226,7 +2229,7 @@
 
 ### 105. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_4d9d9fe8b194`</sub>
+<sub>`msg_f03b357e0034`</sub>
 
 ```json
 {
@@ -2240,7 +2243,7 @@
 
 ### 106. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_23b553b6579b` ← `msg_4d9d9fe8b194`</sub>
+<sub>`msg_28167b7c204f` ← `msg_f03b357e0034`</sub>
 
 ```json
 {
@@ -2250,7 +2253,8 @@
     "exact": true,
     "fuzzy_ratio": 1.0,
     "best_window": "Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.",
-    "issues": []
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2258,7 +2262,7 @@
 
 ### 107. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_ce6f55f99f7a`</sub>
+<sub>`msg_9ce1e613445b`</sub>
 
 ```json
 {
@@ -2273,21 +2277,21 @@
 
 ### 108. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_efb78fe9c23a`</sub>
+<sub>`msg_547e0a915526`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "INDEMNIFICATION",
-    "citation_chars": 208
+    "citation_chars": 191
   }
 }
 ```
 
 ### 109. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_f819560799ed` ← `msg_efb78fe9c23a`</sub>
+<sub>`msg_8aec70c58c14` ← `msg_547e0a915526`</sub>
 
 ```json
 {
@@ -2296,16 +2300,17 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Indemnification\n\nCustomer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.",
-    "issues": []
+    "best_window": "Customer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
 ```
 
-### 110. `verifier` → `orchestrator` — **verification.verdict**
+### 110. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_1cdf294d406c`</sub>
+<sub>`msg_f3b66bf872cf`</sub>
 
 ```json
 {
@@ -2320,21 +2325,21 @@
 
 ### 111. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_ac81e58228bd`</sub>
+<sub>`msg_939400521054`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "IP_OWNERSHIP",
-    "citation_chars": 114
+    "citation_chars": 136
   }
 }
 ```
 
 ### 112. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_b8442ed2536b` ← `msg_ac81e58228bd`</sub>
+<sub>`msg_0de72b180ba8` ← `msg_939400521054`</sub>
 
 ```json
 {
@@ -2343,8 +2348,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Intellectual Property\n\nVendor shall own all Deliverables and all data derived from Customer's use of the Services.",
-    "issues": []
+    "best_window": "Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2352,7 +2358,7 @@
 
 ### 113. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_37d803037dfe`</sub>
+<sub>`msg_27ca82c224ee`</sub>
 
 ```json
 {
@@ -2367,7 +2373,7 @@
 
 ### 114. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_320a36072452`</sub>
+<sub>`msg_b73ef42a41c1`</sub>
 
 ```json
 {
@@ -2384,21 +2390,21 @@
 
 ### 115. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_366e98fe723f`</sub>
+<sub>`msg_c5dff6ba308c`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "PAYMENT_TERMS",
-    "citation_chars": 199
+    "citation_chars": 181
   }
 }
 ```
 
 ### 116. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_5182a227cb05` ← `msg_366e98fe723f`</sub>
+<sub>`msg_0f7aab786328` ← `msg_c5dff6ba308c`</sub>
 
 ```json
 {
@@ -2407,8 +2413,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Fees and Payment\n\nCustomer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.",
-    "issues": []
+    "best_window": "Customer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2416,7 +2423,7 @@
 
 ### 117. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_7a5bec9ff41c`</sub>
+<sub>`msg_a8042051fe26`</sub>
 
 ```json
 {
@@ -2431,21 +2438,21 @@
 
 ### 118. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_75556186792f`</sub>
+<sub>`msg_fb54e4c42a69`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "SLA",
-    "citation_chars": 182
+    "citation_chars": 166
   }
 }
 ```
 
 ### 119. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_1ade030f8d1b` ← `msg_75556186792f`</sub>
+<sub>`msg_fbecccd9c0ec` ← `msg_fb54e4c42a69`</sub>
 
 ```json
 {
@@ -2454,8 +2461,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Service Levels\n\nVendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance.",
-    "issues": []
+    "best_window": "Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2463,7 +2471,7 @@
 
 ### 120. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_75d9ea8718c4`</sub>
+<sub>`msg_c57e43271d44`</sub>
 
 ```json
 {
@@ -2478,21 +2486,21 @@
 
 ### 121. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_0b2835d28f64`</sub>
+<sub>`msg_6e84806527bf`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "TERMINATION_FOR_CONVENIENCE",
-    "citation_chars": 230
+    "citation_chars": 208
   }
 }
 ```
 
 ### 122. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_34108771e8f8` ← `msg_0b2835d28f64`</sub>
+<sub>`msg_f270eb7f3099` ← `msg_6e84806527bf`</sub>
 
 ```json
 {
@@ -2501,8 +2509,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Term and Termination\n\nCustomer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.",
-    "issues": []
+    "best_window": "Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -2510,7 +2519,7 @@
 
 ### 123. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_47f8dbdb0c71`</sub>
+<sub>`msg_d2a9d294b1bb`</sub>
 
 ```json
 {
@@ -2525,23 +2534,26 @@
 
 ### 124. `orchestrator` → `human` — **escalation.request**
 
-<sub>`msg_2aeef7ede360`</sub>
+<sub>`msg_3c651a0c6be3`</sub>
 
 ```json
 {
   "reasons": [
     "DATA_PROTECTION scored 7.0 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 1.0",
+    "INDEMNIFICATION scored 6.3 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 0.9",
+    "IP_OWNERSHIP scored 6.3 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 0.9",
     "LIMITATION_OF_LIABILITY scored 7.0 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 1.0",
-    "aggregate risk 21.14 (>= 14.0) across 5 deviations"
+    "aggregate risk 32.2 (>= 14.0) across 6 deviations"
   ],
   "clause_types": [
     "DATA_PROTECTION",
+    "INDEMNIFICATION",
+    "IP_OWNERSHIP",
     "LIMITATION_OF_LIABILITY",
     "GOVERNING_LAW",
-    "IP_OWNERSHIP",
     "PAYMENT_TERMS"
   ],
-  "aggregate_risk": 21.14,
+  "aggregate_risk": 32.2,
   "recommended_action": "Do not sign. Counsel review required before counter-signature.",
   "review_packet": [
     {
@@ -2551,8 +2563,8 @@
       "severity": "UNACCEPTABLE",
       "risk_score": 7.0,
       "standard_position": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
-      "observed_position": "No personal data breach notification obligation",
-      "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which no personal data breach notification obligation. Assessed UNACCEPTABLE on that basis.",
+      "observed_position": "Unrestricted sub-processor appointment with no notice right",
+      "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which unrestricted sub-processor appointment with no notice right. Assessed UNACCEPTABLE on that basis.",
       "cited_span": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.",
       "suggested_redline": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
       "unverified": false,
@@ -2560,17 +2572,12 @@
       "owner": "dpo@northwind.example"
     },
     {
-      "clause_type": "LIMITATION_OF_LIABILITY",
-      "rule_id": "PB-LIAB-01",
-      "rule_title": "Liability cap must be bounded and mutual",
-      "severity": "UNACCEPTABLE",
-      "risk_score": 7.0,
-      "standard_position": "Aggregate liability of each party is c
+      "clause_type": "INDEMNIFICATION"
 ```
 
 ### 125. `human` → `orchestrator` — **human.decision**
 
-<sub>`msg_907e56667641`</sub>
+<sub>`msg_b73ac11bc061`</sub>
 
 ```json
 {
@@ -2583,7 +2590,7 @@
 
 ### 126. `orchestrator` → `extractor` — **agent.error**
 
-<sub>`msg_ebeb4e5adafc`</sub>
+<sub>`msg_4a1dd66ab011`</sub>
 
 ```json
 {
@@ -2595,7 +2602,7 @@
 
 ### 127. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_ef165cd294af`</sub>
+<sub>`msg_a3a4d5e8695b`</sub>
 
 ```json
 {
@@ -2608,7 +2615,7 @@
 
 ### 128. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_b56acf9e580b` ← `msg_ef165cd294af`</sub>
+<sub>`msg_f2c644f56a9c` ← `msg_a3a4d5e8695b`</sub>
 
 ```json
 {
@@ -2623,7 +2630,7 @@
 
 ### 129. `extractor` → `orchestrator` — **tool.call**
 
-<sub>`msg_dc62219562f8`</sub>
+<sub>`msg_986756ac4b1c`</sub>
 
 ```json
 {
@@ -2639,7 +2646,7 @@
 
 ### 130. `extractor` → `orchestrator` — **tool.result**
 
-<sub>`msg_1ce560b0bd45` ← `msg_dc62219562f8`</sub>
+<sub>`msg_4fb8ccf20f85` ← `msg_986756ac4b1c`</sub>
 
 ```json
 {
@@ -2668,7 +2675,7 @@
 
 ### 131. `extractor` → `policy` — **clause.finding** · 0ms
 
-<sub>`msg_3931e9ac74b8` ← `msg_dc62219562f8`</sub>
+<sub>`msg_164314ed679a` ← `msg_986756ac4b1c`</sub>
 
 ```json
 {
@@ -2687,7 +2694,7 @@
 
 ### 132. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_0f82bee6a64c`</sub>
+<sub>`msg_201ff6da1a09`</sub>
 
 ```json
 {
@@ -2702,7 +2709,7 @@
 
 ### 133. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_585baa946ec1` ← `msg_0f82bee6a64c`</sub>
+<sub>`msg_119867cf30a8` ← `msg_201ff6da1a09`</sub>
 
 ```json
 {
@@ -2731,7 +2738,7 @@
 
 ### 134. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_7278d2e6cd5f` ← `msg_0f82bee6a64c`</sub>
+<sub>`msg_88a3213d00b8` ← `msg_201ff6da1a09`</sub>
 
 ```json
 {
@@ -2739,17 +2746,17 @@
   "rule_id": "PB-AUTO-01",
   "rule_title": "Auto-renewal requires a real opt-out window",
   "standard_position": "Any automatic renewal must be for a term no longer than twelve (12) months and must allow non-renewal on thirty (30) days' notice before term end.",
-  "observed_position": "Clause present and no never-acceptable trigger matched",
+  "observed_position": "Non-renewal notice of 30 days meets the standard position",
   "severity": "COMPLIANT",
-  "rationale": "Playbook PB-AUTO-01 requires: Any automatic renewal must be for a term no longer than twelve (12) months and must allow non-renewal on thirty (30) days' notice before term end.. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
+  "rationale": "Playbook PB-AUTO-01 requires: Any automatic renewal must be for a term no longer than twelve (12) months and must allow non-renewal on thirty (30) days' notice before term end.. The contract instead provides language under which non-renewal notice of 30 days meets the standard position. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Renewal\n\nThis Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term."
+  "cited_span_text": "This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term."
 }
 ```
 
 ### 135. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_e6c7caf70783`</sub>
+<sub>`msg_1f1ffd440899`</sub>
 
 ```json
 {
@@ -2764,7 +2771,7 @@
 
 ### 136. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_fda849dd7822` ← `msg_e6c7caf70783`</sub>
+<sub>`msg_546f6399d7be` ← `msg_1f1ffd440899`</sub>
 
 ```json
 {
@@ -2791,9 +2798,9 @@
 }
 ```
 
-### 137. `policy` → `risk` — **deviation.assessment** · 0ms
+### 137. `policy` → `risk` — **deviation.assessment** · 1ms
 
-<sub>`msg_1fd437d49b15` ← `msg_e6c7caf70783`</sub>
+<sub>`msg_7ef92be0b14c` ← `msg_1f1ffd440899`</sub>
 
 ```json
 {
@@ -2801,17 +2808,17 @@
   "rule_id": "PB-CONF-01",
   "rule_title": "Mutual confidentiality surviving at least 3 years",
   "standard_position": "Mutual confidentiality obligations survive three (3) years after termination; trade secrets are protected for as long as they remain trade secrets. Residuals clauses are not accepted.",
-  "observed_position": "Clause present and no never-acceptable trigger matched",
+  "observed_position": "Mutual confidentiality surviving 3 years",
   "severity": "COMPLIANT",
-  "rationale": "Playbook PB-CONF-01 requires: Mutual confidentiality obligations survive three (3) years after termination; trade secrets are protected for as long as they remain trade secrets. Residuals clauses are not accept. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
+  "rationale": "Playbook PB-CONF-01 requires: Mutual confidentiality obligations survive three (3) years after termination; trade secrets are protected for as long as they remain trade secrets. Residuals clauses are not accept. The contract instead provides language under which mutual confidentiality surviving 3 years. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Confidentiality\n\nEach party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination."
+  "cited_span_text": "Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination."
 }
 ```
 
 ### 138. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_a0b70ec87a8a`</sub>
+<sub>`msg_91c32dd67807`</sub>
 
 ```json
 {
@@ -2826,7 +2833,7 @@
 
 ### 139. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_b3303779dbb6` ← `msg_a0b70ec87a8a`</sub>
+<sub>`msg_2d270e3fa483` ← `msg_91c32dd67807`</sub>
 
 ```json
 {
@@ -2839,8 +2846,8 @@
       "rank": 1
     },
     {
-      "rule_id": "PB-ASG-01",
-      "clause_type": "ASSIGNMENT",
+      "rule_id": "PB-INS-01",
+      "clause_type": "INSURANCE",
       "rank": 2
     },
     {
@@ -2853,9 +2860,9 @@
 }
 ```
 
-### 140. `policy` → `risk` — **deviation.assessment** · 0ms
+### 140. `policy` → `risk` — **deviation.assessment** · 1ms
 
-<sub>`msg_ea184995f92d` ← `msg_a0b70ec87a8a`</sub>
+<sub>`msg_3d02efac6425` ← `msg_91c32dd67807`</sub>
 
 ```json
 {
@@ -2863,9 +2870,9 @@
   "rule_id": "PB-DP-01",
   "rule_title": "Processor obligations, breach notice within 72 hours",
   "standard_position": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
-  "observed_position": "No personal data breach notification obligation",
+  "observed_position": "Unrestricted sub-processor appointment with no notice right",
   "severity": "UNACCEPTABLE",
-  "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which no personal data breach notification obligation. Assessed UNACCEPTABLE on that basis.",
+  "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which unrestricted sub-processor appointment with no notice right. Assessed UNACCEPTABLE on that basis.",
   "suggested_redline": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
   "cited_span_text": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object."
 }
@@ -2873,7 +2880,7 @@
 
 ### 141. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_d3f77568b60f`</sub>
+<sub>`msg_00bf33d77fe1`</sub>
 
 ```json
 {
@@ -2888,7 +2895,7 @@
 
 ### 142. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_bc0ce3eda637` ← `msg_d3f77568b60f`</sub>
+<sub>`msg_a5fac37669fa` ← `msg_00bf33d77fe1`</sub>
 
 ```json
 {
@@ -2906,8 +2913,8 @@
       "rank": 2
     },
     {
-      "rule_id": "PB-IND-01",
-      "clause_type": "INDEMNIFICATION",
+      "rule_id": "PB-ASG-01",
+      "clause_type": "ASSIGNMENT",
       "rank": 3
     }
   ],
@@ -2917,7 +2924,7 @@
 
 ### 143. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_585d35f6cf47` ← `msg_d3f77568b60f`</sub>
+<sub>`msg_3011f93e2c64` ← `msg_00bf33d77fe1`</sub>
 
 ```json
 {
@@ -2925,17 +2932,17 @@
   "rule_id": "PB-LAW-01",
   "rule_title": "Delaware law, no foreign forum",
   "standard_position": "Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.",
-  "observed_position": "Clause present but thinly drafted relative to the standard position",
-  "severity": "MINOR",
-  "rationale": "Playbook PB-LAW-01 requires: Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.. The contract instead provides language under which clause present but thinly drafted relative to the standard position. Assessed MINOR on that basis.",
-  "suggested_redline": null,
+  "observed_position": "Governed by the laws of republic of singapore, with mandatory arbitration abroad and a jury trial waiver",
+  "severity": "UNACCEPTABLE",
+  "rationale": "Playbook PB-LAW-01 requires: Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.. The contract instead provides language under which governed by the laws of republic of singapore, with mandatory arbitration abroad and a jury trial waiver. Assessed UNACCEPTABLE on that basis.",
+  "suggested_redline": "Governed by the laws of the State of Delaware, USA, with exclusive jurisdiction in the state and federal courts located in Delaware.",
   "cited_span_text": "Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial."
 }
 ```
 
 ### 144. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_0a66b30ad726`</sub>
+<sub>`msg_2d7b4b420c61`</sub>
 
 ```json
 {
@@ -2950,7 +2957,7 @@
 
 ### 145. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_c08cba85e016` ← `msg_0a66b30ad726`</sub>
+<sub>`msg_876832c8d853` ← `msg_2d7b4b420c61`</sub>
 
 ```json
 {
@@ -2963,13 +2970,13 @@
       "rank": 1
     },
     {
-      "rule_id": "PB-ASG-01",
-      "clause_type": "ASSIGNMENT",
+      "rule_id": "PB-LIAB-01",
+      "clause_type": "LIMITATION_OF_LIABILITY",
       "rank": 2
     },
     {
-      "rule_id": "PB-LIAB-01",
-      "clause_type": "LIMITATION_OF_LIABILITY",
+      "rule_id": "PB-ASG-01",
+      "clause_type": "ASSIGNMENT",
       "rank": 3
     }
   ],
@@ -2979,7 +2986,7 @@
 
 ### 146. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_3a4ce46864e3` ← `msg_0a66b30ad726`</sub>
+<sub>`msg_def8ef78d59f` ← `msg_2d7b4b420c61`</sub>
 
 ```json
 {
@@ -2987,17 +2994,17 @@
   "rule_id": "PB-IND-01",
   "rule_title": "IP and data-breach indemnity required from vendor",
   "standard_position": "Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor's security or data protection obligations. Indemnity is uncapped for these two heads.",
-  "observed_position": "Clause present and no never-acceptable trigger matched",
-  "severity": "COMPLIANT",
-  "rationale": "Playbook PB-IND-01 requires: Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
-  "suggested_redline": null,
-  "cited_span_text": "Indemnification\n\nCustomer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems."
+  "observed_position": "Indemnity runs against Northwind rather than the vendor",
+  "severity": "UNACCEPTABLE",
+  "rationale": "Playbook PB-IND-01 requires: Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor. The contract instead provides language under which indemnity runs against Northwind rather than the vendor. Assessed UNACCEPTABLE on that basis.",
+  "suggested_redline": "Vendor indemnifies, defends and holds harmless Northwind against third party claims arising from (a) infringement of intellectual property by the services, and (b) breach of Vendor's security or data protection obligations. Indemnity is uncapped for these two heads.",
+  "cited_span_text": "Customer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems."
 }
 ```
 
 ### 147. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_d4db35eb2709`</sub>
+<sub>`msg_eedb1642cc7a`</sub>
 
 ```json
 {
@@ -3012,7 +3019,7 @@
 
 ### 148. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_02ce619ad79d` ← `msg_d4db35eb2709`</sub>
+<sub>`msg_9e8d23e39087` ← `msg_eedb1642cc7a`</sub>
 
 ```json
 {
@@ -3041,7 +3048,7 @@
 
 ### 149. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_b201e1f38681` ← `msg_d4db35eb2709`</sub>
+<sub>`msg_22b49b16fdee` ← `msg_eedb1642cc7a`</sub>
 
 ```json
 {
@@ -3049,17 +3056,17 @@
   "rule_id": "PB-IP-01",
   "rule_title": "Northwind owns deliverables and its own data",
   "standard_position": "Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any pre-existing IP embedded in deliverables.",
-  "observed_position": "Vendor claims ownership of deliverables",
-  "severity": "MATERIAL",
-  "rationale": "Playbook PB-IP-01 requires: Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any p. The contract instead provides language under which vendor claims ownership of deliverables. Assessed MATERIAL on that basis.",
+  "observed_position": "Vendor granted rights to use Northwind data for model training",
+  "severity": "UNACCEPTABLE",
+  "rationale": "Playbook PB-IP-01 requires: Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any p. The contract instead provides language under which vendor granted rights to use Northwind data for model training. Assessed UNACCEPTABLE on that basis.",
   "suggested_redline": "Northwind owns all custom deliverables created under the agreement and all Northwind data. Vendor retains its pre-existing IP and grants a perpetual, non-exclusive licence to any pre-existing IP embedded in deliverables.",
-  "cited_span_text": "Intellectual Property\n\nVendor shall own all Deliverables and all data derived from Customer's use of the Services."
+  "cited_span_text": "Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings."
 }
 ```
 
 ### 150. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_c74cf523023d`</sub>
+<sub>`msg_f3322ce5ee14`</sub>
 
 ```json
 {
@@ -3074,7 +3081,7 @@
 
 ### 151. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_e2cf46fedc8b` ← `msg_c74cf523023d`</sub>
+<sub>`msg_d7c650dba1d9` ← `msg_f3322ce5ee14`</sub>
 
 ```json
 {
@@ -3103,7 +3110,7 @@
 
 ### 152. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_f1ecd1a06a11` ← `msg_c74cf523023d`</sub>
+<sub>`msg_ed5d604ea433` ← `msg_f3322ce5ee14`</sub>
 
 ```json
 {
@@ -3121,7 +3128,7 @@
 
 ### 153. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_002be22ae649`</sub>
+<sub>`msg_03f18df4bc0f`</sub>
 
 ```json
 {
@@ -3136,7 +3143,7 @@
 
 ### 154. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_28228dd9d434` ← `msg_002be22ae649`</sub>
+<sub>`msg_07222e94855a` ← `msg_03f18df4bc0f`</sub>
 
 ```json
 {
@@ -3154,8 +3161,8 @@
       "rank": 2
     },
     {
-      "rule_id": "PB-DP-01",
-      "clause_type": "DATA_PROTECTION",
+      "rule_id": "PB-SLA-01",
+      "clause_type": "SLA",
       "rank": 3
     }
   ],
@@ -3165,7 +3172,7 @@
 
 ### 155. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_fd3e2bb3172b` ← `msg_002be22ae649`</sub>
+<sub>`msg_2d7073b8070c` ← `msg_03f18df4bc0f`</sub>
 
 ```json
 {
@@ -3177,13 +3184,13 @@
   "severity": "UNACCEPTABLE",
   "rationale": "Playbook PB-PAY-01 requires: Payment is due net forty-five (45) days from receipt of a valid invoice. Price increases require ninety (90) days' notice and may not exceed CPI or five percent (5%) annually, whic. The contract instead provides language under which net 10 is shorter than the fifteen-day floor. Assessed UNACCEPTABLE on that basis.",
   "suggested_redline": "Payment is due net forty-five (45) days from receipt of a valid invoice. Price increases require ninety (90) days' notice and may not exceed CPI or five percent (5%) annually, whichever is lower.",
-  "cited_span_text": "Fees and Payment\n\nCustomer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days."
+  "cited_span_text": "Customer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days."
 }
 ```
 
 ### 156. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_6c3bfbe4f027`</sub>
+<sub>`msg_c99e2585d11e`</sub>
 
 ```json
 {
@@ -3198,7 +3205,7 @@
 
 ### 157. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_10daace49b46` ← `msg_6c3bfbe4f027`</sub>
+<sub>`msg_b6c0967351f8` ← `msg_c99e2585d11e`</sub>
 
 ```json
 {
@@ -3227,7 +3234,7 @@
 
 ### 158. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_0872e397c73c` ← `msg_6c3bfbe4f027`</sub>
+<sub>`msg_d6335f3dce40` ← `msg_c99e2585d11e`</sub>
 
 ```json
 {
@@ -3239,13 +3246,13 @@
   "severity": "COMPLIANT",
   "rationale": "Playbook PB-SLA-01 requires: Monthly availability of at least 99.5%, excluding scheduled maintenance notified 5 business days in advance. Service credits escalate with the shortfall, and chronic failure over t. The contract instead provides language under which clause present and no never-acceptable trigger matched. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Service Levels\n\nVendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance."
+  "cited_span_text": "Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance."
 }
 ```
 
 ### 159. `policy` → `orchestrator` — **tool.call**
 
-<sub>`msg_d4563115514c`</sub>
+<sub>`msg_e0f144b6309c`</sub>
 
 ```json
 {
@@ -3260,7 +3267,7 @@
 
 ### 160. `policy` → `orchestrator` — **tool.result**
 
-<sub>`msg_6bc731144485` ← `msg_d4563115514c`</sub>
+<sub>`msg_98b28a55f164` ← `msg_e0f144b6309c`</sub>
 
 ```json
 {
@@ -3287,9 +3294,9 @@
 }
 ```
 
-### 161. `policy` → `risk` — **deviation.assessment** · 1ms
+### 161. `policy` → `risk` — **deviation.assessment** · 0ms
 
-<sub>`msg_c4dfd0c3685c` ← `msg_d4563115514c`</sub>
+<sub>`msg_3235d86bd8c6` ← `msg_e0f144b6309c`</sub>
 
 ```json
 {
@@ -3301,13 +3308,13 @@
   "severity": "COMPLIANT",
   "rationale": "Playbook PB-TERM-01 requires: Northwind may terminate for convenience on thirty (30) days' written notice, with a pro-rata refund of prepaid unused fees.. The contract instead provides language under which termination for convenience on standard notice. Assessed COMPLIANT on that basis.",
   "suggested_redline": null,
-  "cited_span_text": "Term and Termination\n\nCustomer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term."
+  "cited_span_text": "Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term."
 }
 ```
 
 ### 162. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_24b9f5cf4d48`</sub>
+<sub>`msg_311078468f06`</sub>
 
 ```json
 {
@@ -3322,7 +3329,7 @@
 
 ### 163. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_010b4cd3c9da` ← `msg_24b9f5cf4d48`</sub>
+<sub>`msg_bb72ddf71db7` ← `msg_311078468f06`</sub>
 
 ```json
 {
@@ -3345,7 +3352,7 @@
 
 ### 164. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_a431516e6deb`</sub>
+<sub>`msg_7a43f98630f8`</sub>
 
 ```json
 {
@@ -3362,7 +3369,7 @@
 
 ### 165. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_4aa46b0b3e7c`</sub>
+<sub>`msg_73151e42ca93`</sub>
 
 ```json
 {
@@ -3377,7 +3384,7 @@
 
 ### 166. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_422e82b9a302` ← `msg_4aa46b0b3e7c`</sub>
+<sub>`msg_16c72797027a` ← `msg_73151e42ca93`</sub>
 
 ```json
 {
@@ -3400,7 +3407,7 @@
 
 ### 167. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_4a3c94824187`</sub>
+<sub>`msg_f2e29e0e0e40`</sub>
 
 ```json
 {
@@ -3417,7 +3424,7 @@
 
 ### 168. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_51596a09c2ce`</sub>
+<sub>`msg_ce9a333e7f41`</sub>
 
 ```json
 {
@@ -3432,7 +3439,7 @@
 
 ### 169. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_e941cc27ea76` ← `msg_51596a09c2ce`</sub>
+<sub>`msg_22a3366408af` ← `msg_ce9a333e7f41`</sub>
 
 ```json
 {
@@ -3455,7 +3462,7 @@
 
 ### 170. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_85f8e0b99515`</sub>
+<sub>`msg_57941a4f3379`</sub>
 
 ```json
 {
@@ -3472,14 +3479,14 @@
 
 ### 171. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_c799a4f096ab`</sub>
+<sub>`msg_8abc0c3363ba`</sub>
 
 ```json
 {
   "tool_name": "score_clause",
   "arguments": {
     "clause_type": "GOVERNING_LAW",
-    "severity": "MINOR",
+    "severity": "UNACCEPTABLE",
     "value_tier": "STRATEGIC"
   }
 }
@@ -3487,7 +3494,7 @@
 
 ### 172. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_9c508a169a99` ← `msg_c799a4f096ab`</sub>
+<sub>`msg_5ba5ff75e0c6` ← `msg_8abc0c3363ba`</sub>
 
 ```json
 {
@@ -3496,13 +3503,13 @@
   "result": {
     "kind": "risk.score",
     "clause_type": "GOVERNING_LAW",
-    "severity": "MINOR",
-    "severity_points": 1.0,
+    "severity": "UNACCEPTABLE",
+    "severity_points": 5.0,
     "criticality_weight": 0.4,
     "value_multiplier": 1.4,
-    "score": 0.56,
+    "score": 2.8,
     "escalate": false,
-    "formula": "1.0 (severity MINOR) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 0.56; threshold 6.0"
+    "formula": "5.0 (severity UNACCEPTABLE) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 2.8; threshold 6.0"
   },
   "error": null
 }
@@ -3510,31 +3517,31 @@
 
 ### 173. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_c7f9916716b3`</sub>
+<sub>`msg_2c98d9333ed2`</sub>
 
 ```json
 {
   "clause_type": "GOVERNING_LAW",
-  "severity": "MINOR",
-  "severity_points": 1.0,
+  "severity": "UNACCEPTABLE",
+  "severity_points": 5.0,
   "criticality_weight": 0.4,
   "value_multiplier": 1.4,
-  "score": 0.56,
+  "score": 2.8,
   "escalate": false,
-  "formula": "1.0 (severity MINOR) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 0.56; threshold 6.0"
+  "formula": "5.0 (severity UNACCEPTABLE) x 0.4 (criticality) x 1.4 (tier STRATEGIC) = 2.8; threshold 6.0"
 }
 ```
 
 ### 174. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_b1dbb38a9c93`</sub>
+<sub>`msg_32c2ab9bad65`</sub>
 
 ```json
 {
   "tool_name": "score_clause",
   "arguments": {
     "clause_type": "INDEMNIFICATION",
-    "severity": "COMPLIANT",
+    "severity": "UNACCEPTABLE",
     "value_tier": "STRATEGIC"
   }
 }
@@ -3542,7 +3549,7 @@
 
 ### 175. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_938b9867daf5` ← `msg_b1dbb38a9c93`</sub>
+<sub>`msg_84322b4f33c2` ← `msg_32c2ab9bad65`</sub>
 
 ```json
 {
@@ -3551,13 +3558,13 @@
   "result": {
     "kind": "risk.score",
     "clause_type": "INDEMNIFICATION",
-    "severity": "COMPLIANT",
-    "severity_points": 0.0,
+    "severity": "UNACCEPTABLE",
+    "severity_points": 5.0,
     "criticality_weight": 0.9,
     "value_multiplier": 1.4,
-    "score": 0.0,
-    "escalate": false,
-    "formula": "0.0 (severity COMPLIANT) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 0.0; threshold 6.0"
+    "score": 6.3,
+    "escalate": true,
+    "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
   },
   "error": null
 }
@@ -3565,31 +3572,31 @@
 
 ### 176. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_d4d2cb876f2f`</sub>
+<sub>`msg_4c4008d0ecaa`</sub>
 
 ```json
 {
   "clause_type": "INDEMNIFICATION",
-  "severity": "COMPLIANT",
-  "severity_points": 0.0,
+  "severity": "UNACCEPTABLE",
+  "severity_points": 5.0,
   "criticality_weight": 0.9,
   "value_multiplier": 1.4,
-  "score": 0.0,
-  "escalate": false,
-  "formula": "0.0 (severity COMPLIANT) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 0.0; threshold 6.0"
+  "score": 6.3,
+  "escalate": true,
+  "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
 }
 ```
 
 ### 177. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_fcbd071bdb89`</sub>
+<sub>`msg_ef6b8865ff06`</sub>
 
 ```json
 {
   "tool_name": "score_clause",
   "arguments": {
     "clause_type": "IP_OWNERSHIP",
-    "severity": "MATERIAL",
+    "severity": "UNACCEPTABLE",
     "value_tier": "STRATEGIC"
   }
 }
@@ -3597,7 +3604,7 @@
 
 ### 178. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_22e210f7cbf8` ← `msg_fcbd071bdb89`</sub>
+<sub>`msg_186b48df6bc8` ← `msg_ef6b8865ff06`</sub>
 
 ```json
 {
@@ -3606,13 +3613,13 @@
   "result": {
     "kind": "risk.score",
     "clause_type": "IP_OWNERSHIP",
-    "severity": "MATERIAL",
-    "severity_points": 3.0,
+    "severity": "UNACCEPTABLE",
+    "severity_points": 5.0,
     "criticality_weight": 0.9,
     "value_multiplier": 1.4,
-    "score": 3.78,
-    "escalate": false,
-    "formula": "3.0 (severity MATERIAL) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 3.78; threshold 6.0"
+    "score": 6.3,
+    "escalate": true,
+    "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
   },
   "error": null
 }
@@ -3620,24 +3627,24 @@
 
 ### 179. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_d5fe8bf5e317`</sub>
+<sub>`msg_3c8370ac246c`</sub>
 
 ```json
 {
   "clause_type": "IP_OWNERSHIP",
-  "severity": "MATERIAL",
-  "severity_points": 3.0,
+  "severity": "UNACCEPTABLE",
+  "severity_points": 5.0,
   "criticality_weight": 0.9,
   "value_multiplier": 1.4,
-  "score": 3.78,
-  "escalate": false,
-  "formula": "3.0 (severity MATERIAL) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 3.78; threshold 6.0"
+  "score": 6.3,
+  "escalate": true,
+  "formula": "5.0 (severity UNACCEPTABLE) x 0.9 (criticality) x 1.4 (tier STRATEGIC) = 6.3; threshold 6.0"
 }
 ```
 
 ### 180. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_08552a359a77`</sub>
+<sub>`msg_ff6b10daebf4`</sub>
 
 ```json
 {
@@ -3652,7 +3659,7 @@
 
 ### 181. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_6919541ebcf3` ← `msg_08552a359a77`</sub>
+<sub>`msg_a5fd75ce99fa` ← `msg_ff6b10daebf4`</sub>
 
 ```json
 {
@@ -3675,7 +3682,7 @@
 
 ### 182. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_50f3ccf648f3`</sub>
+<sub>`msg_945b3fe2735e`</sub>
 
 ```json
 {
@@ -3692,7 +3699,7 @@
 
 ### 183. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_4be35c525ff5`</sub>
+<sub>`msg_808b9086a8c1`</sub>
 
 ```json
 {
@@ -3707,7 +3714,7 @@
 
 ### 184. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_1a4d40a18513` ← `msg_4be35c525ff5`</sub>
+<sub>`msg_dc199626cd92` ← `msg_808b9086a8c1`</sub>
 
 ```json
 {
@@ -3730,7 +3737,7 @@
 
 ### 185. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_b92eca2ed5d8`</sub>
+<sub>`msg_cbb257fd2d9d`</sub>
 
 ```json
 {
@@ -3747,7 +3754,7 @@
 
 ### 186. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_3124319d2c5c`</sub>
+<sub>`msg_a2e1ac603a52`</sub>
 
 ```json
 {
@@ -3762,7 +3769,7 @@
 
 ### 187. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_b69df8970330` ← `msg_3124319d2c5c`</sub>
+<sub>`msg_a8d55256f20f` ← `msg_a2e1ac603a52`</sub>
 
 ```json
 {
@@ -3785,7 +3792,7 @@
 
 ### 188. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_ade517a75572`</sub>
+<sub>`msg_6e4c85ab5a67`</sub>
 
 ```json
 {
@@ -3802,7 +3809,7 @@
 
 ### 189. `risk` → `orchestrator` — **tool.call**
 
-<sub>`msg_04bcb1858d21`</sub>
+<sub>`msg_cec660607c47`</sub>
 
 ```json
 {
@@ -3817,7 +3824,7 @@
 
 ### 190. `risk` → `orchestrator` — **tool.result**
 
-<sub>`msg_0216d93334fd` ← `msg_04bcb1858d21`</sub>
+<sub>`msg_1de1cdd33043` ← `msg_cec660607c47`</sub>
 
 ```json
 {
@@ -3840,7 +3847,7 @@
 
 ### 191. `risk` → `verifier` — **risk.score**
 
-<sub>`msg_945eeec023e2`</sub>
+<sub>`msg_4f215550f691`</sub>
 
 ```json
 {
@@ -3857,21 +3864,21 @@
 
 ### 192. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_94a7e5ce8570`</sub>
+<sub>`msg_1c9f5c7bf59c`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "AUTO_RENEWAL",
-    "citation_chars": 213
+    "citation_chars": 204
   }
 }
 ```
 
 ### 193. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_60399d2d199e` ← `msg_94a7e5ce8570`</sub>
+<sub>`msg_5665aadc7808` ← `msg_1c9f5c7bf59c`</sub>
 
 ```json
 {
@@ -3880,8 +3887,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Renewal\n\nThis Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.",
-    "issues": []
+    "best_window": "This Agreement shall automatically renew for successive twelve (12) month terms unless either party gives written notice of non-renewal at least thirty (30) days prior to the end of the then-current term.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -3889,7 +3897,7 @@
 
 ### 194. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_c42ccce254cf`</sub>
+<sub>`msg_b70c52db39de`</sub>
 
 ```json
 {
@@ -3904,21 +3912,21 @@
 
 ### 195. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_d45eacf98ebe`</sub>
+<sub>`msg_1cc4e4a19e0b`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "CONFIDENTIALITY",
-    "citation_chars": 203
+    "citation_chars": 186
   }
 }
 ```
 
 ### 196. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_80043f91207a` ← `msg_d45eacf98ebe`</sub>
+<sub>`msg_14ad40c4c18b` ← `msg_1cc4e4a19e0b`</sub>
 
 ```json
 {
@@ -3927,8 +3935,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Confidentiality\n\nEach party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination.",
-    "issues": []
+    "best_window": "Each party shall protect the Confidential Information of the other party with no less than reasonable care, and these obligations shall survive for three (3) years following termination.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -3936,7 +3945,7 @@
 
 ### 197. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_3d1622741d2d`</sub>
+<sub>`msg_353d5c45e5e2`</sub>
 
 ```json
 {
@@ -3951,7 +3960,7 @@
 
 ### 198. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_e0f6dd37cffc`</sub>
+<sub>`msg_66c67c3f8a30`</sub>
 
 ```json
 {
@@ -3965,7 +3974,7 @@
 
 ### 199. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_1e18b76b8549` ← `msg_e0f6dd37cffc`</sub>
+<sub>`msg_7a9ffe7d8f7a` ← `msg_66c67c3f8a30`</sub>
 
 ```json
 {
@@ -3975,7 +3984,8 @@
     "exact": true,
     "fuzzy_ratio": 1.0,
     "best_window": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.",
-    "issues": []
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -3983,7 +3993,7 @@
 
 ### 200. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_8b67ac585a73`</sub>
+<sub>`msg_944d6ab6996c`</sub>
 
 ```json
 {
@@ -3998,7 +4008,7 @@
 
 ### 201. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_f9bd28e4aa33`</sub>
+<sub>`msg_ce99433d9848`</sub>
 
 ```json
 {
@@ -4012,7 +4022,7 @@
 
 ### 202. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_7b0578fd081b` ← `msg_f9bd28e4aa33`</sub>
+<sub>`msg_c52a44ea2636` ← `msg_ce99433d9848`</sub>
 
 ```json
 {
@@ -4022,7 +4032,8 @@
     "exact": true,
     "fuzzy_ratio": 1.0,
     "best_window": "Any dispute shall be finally resolved by arbitration seated in Singapore, and each party irrevocably waives any right to a jury trial.",
-    "issues": []
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -4030,7 +4041,7 @@
 
 ### 203. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_7cf46748ff7f`</sub>
+<sub>`msg_a16f1da3d2f8`</sub>
 
 ```json
 {
@@ -4045,21 +4056,21 @@
 
 ### 204. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_c99c4bb51aa2`</sub>
+<sub>`msg_add23d4d7619`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "INDEMNIFICATION",
-    "citation_chars": 208
+    "citation_chars": 191
   }
 }
 ```
 
 ### 205. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_dd5f1dbdb14a` ← `msg_c99c4bb51aa2`</sub>
+<sub>`msg_ff4674fae8be` ← `msg_add23d4d7619`</sub>
 
 ```json
 {
@@ -4068,16 +4079,17 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Indemnification\n\nCustomer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.",
-    "issues": []
+    "best_window": "Customer shall defend, indemnify and hold harmless Vendor against any third party claim arising from the use of the Services, including claims arising from any compromise of Vendor's systems.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
 ```
 
-### 206. `verifier` → `orchestrator` — **verification.verdict**
+### 206. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_6efbe6fad0bb`</sub>
+<sub>`msg_725e004b34bd`</sub>
 
 ```json
 {
@@ -4092,21 +4104,21 @@
 
 ### 207. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_d13fcfa052b3`</sub>
+<sub>`msg_2a8d518c582e`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "IP_OWNERSHIP",
-    "citation_chars": 114
+    "citation_chars": 136
   }
 }
 ```
 
 ### 208. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_04ac93ec1833` ← `msg_d13fcfa052b3`</sub>
+<sub>`msg_c2dc44c83cc0` ← `msg_2a8d518c582e`</sub>
 
 ```json
 {
@@ -4115,8 +4127,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Intellectual Property\n\nVendor shall own all Deliverables and all data derived from Customer's use of the Services.",
-    "issues": []
+    "best_window": "Customer grants Vendor a perpetual, irrevocable licence to use Customer Data to train and improve Vendor's models and service offerings.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -4124,7 +4137,7 @@
 
 ### 209. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_9f1a5053172c`</sub>
+<sub>`msg_05dd1a1fad9e`</sub>
 
 ```json
 {
@@ -4139,7 +4152,7 @@
 
 ### 210. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_6a5ec2124000`</sub>
+<sub>`msg_be9f926b45a6`</sub>
 
 ```json
 {
@@ -4156,21 +4169,21 @@
 
 ### 211. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_666ffb99c3e6`</sub>
+<sub>`msg_f8170bfc8402`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "PAYMENT_TERMS",
-    "citation_chars": 199
+    "citation_chars": 181
   }
 }
 ```
 
 ### 212. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_243f2f204d09` ← `msg_666ffb99c3e6`</sub>
+<sub>`msg_38702b0879f6` ← `msg_f8170bfc8402`</sub>
 
 ```json
 {
@@ -4179,8 +4192,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Fees and Payment\n\nCustomer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.",
-    "issues": []
+    "best_window": "Customer shall pay all undisputed amounts within thirty (30) days of receipt of a valid invoice, and Vendor shall apply a one percent (1%) discount for payment within ten (10) days.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -4188,7 +4202,7 @@
 
 ### 213. `verifier` → `orchestrator` — **verification.verdict** · 0ms
 
-<sub>`msg_84afc5fc3e03`</sub>
+<sub>`msg_bbcc78fccb87`</sub>
 
 ```json
 {
@@ -4203,21 +4217,21 @@
 
 ### 214. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_0ae31b844e7f`</sub>
+<sub>`msg_ab1eb2e3decd`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "SLA",
-    "citation_chars": 182
+    "citation_chars": 166
   }
 }
 ```
 
 ### 215. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_875d5ec89ead` ← `msg_0ae31b844e7f`</sub>
+<sub>`msg_de8dacb3f222` ← `msg_ab1eb2e3decd`</sub>
 
 ```json
 {
@@ -4226,8 +4240,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Service Levels\n\nVendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance.",
-    "issues": []
+    "best_window": "Vendor shall make the Services available at least 99.5% of the time in each calendar month, excluding maintenance notified at least five (5) business days in advance.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -4235,7 +4250,7 @@
 
 ### 216. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_be2dc17b51f8`</sub>
+<sub>`msg_8f57b7802ce0`</sub>
 
 ```json
 {
@@ -4250,21 +4265,21 @@
 
 ### 217. `verifier` → `orchestrator` — **tool.call**
 
-<sub>`msg_73de7647626a`</sub>
+<sub>`msg_4ed5f3a3219c`</sub>
 
 ```json
 {
   "tool_name": "check_span",
   "arguments": {
     "clause_type": "TERMINATION_FOR_CONVENIENCE",
-    "citation_chars": 230
+    "citation_chars": 208
   }
 }
 ```
 
 ### 218. `verifier` → `orchestrator` — **tool.result**
 
-<sub>`msg_f2b0c1806fcc` ← `msg_73de7647626a`</sub>
+<sub>`msg_1452e5e52cea` ← `msg_4ed5f3a3219c`</sub>
 
 ```json
 {
@@ -4273,8 +4288,9 @@
   "result": {
     "exact": true,
     "fuzzy_ratio": 1.0,
-    "best_window": "Term and Termination\n\nCustomer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.",
-    "issues": []
+    "best_window": "Customer may terminate this Agreement for convenience upon thirty (30) days' prior written notice to Vendor, in which case Vendor shall refund any prepaid fees for the unused portion of the then-current term.",
+    "issues": [],
+    "numeric_conflict": false
   },
   "error": null
 }
@@ -4282,7 +4298,7 @@
 
 ### 219. `verifier` → `orchestrator` — **verification.verdict**
 
-<sub>`msg_8d9aaf2b4536`</sub>
+<sub>`msg_a5fc582c3c29`</sub>
 
 ```json
 {
@@ -4297,23 +4313,26 @@
 
 ### 220. `orchestrator` → `human` — **escalation.request**
 
-<sub>`msg_016fbd84214b`</sub>
+<sub>`msg_0afb9a549b4c`</sub>
 
 ```json
 {
   "reasons": [
     "DATA_PROTECTION scored 7.0 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 1.0",
+    "INDEMNIFICATION scored 6.3 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 0.9",
+    "IP_OWNERSHIP scored 6.3 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 0.9",
     "LIMITATION_OF_LIABILITY scored 7.0 (>= 6.0) -- UNACCEPTABLE deviation on a clause weighted 1.0",
-    "aggregate risk 21.14 (>= 14.0) across 5 deviations"
+    "aggregate risk 32.2 (>= 14.0) across 6 deviations"
   ],
   "clause_types": [
     "DATA_PROTECTION",
+    "INDEMNIFICATION",
+    "IP_OWNERSHIP",
     "LIMITATION_OF_LIABILITY",
     "GOVERNING_LAW",
-    "IP_OWNERSHIP",
     "PAYMENT_TERMS"
   ],
-  "aggregate_risk": 21.14,
+  "aggregate_risk": 32.2,
   "recommended_action": "Do not sign. Counsel review required before counter-signature.",
   "review_packet": [
     {
@@ -4323,8 +4342,8 @@
       "severity": "UNACCEPTABLE",
       "risk_score": 7.0,
       "standard_position": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
-      "observed_position": "No personal data breach notification obligation",
-      "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which no personal data breach notification obligation. Assessed UNACCEPTABLE on that basis.",
+      "observed_position": "Unrestricted sub-processor appointment with no notice right",
+      "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which unrestricted sub-processor appointment with no notice right. Assessed UNACCEPTABLE on that basis.",
       "cited_span": "Vendor shall not appoint a Sub-processor without prior written notice to Customer and shall afford Customer a right to object.",
       "suggested_redline": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
       "unverified": false,
@@ -4332,17 +4351,12 @@
       "owner": "dpo@northwind.example"
     },
     {
-      "clause_type": "LIMITATION_OF_LIABILITY",
-      "rule_id": "PB-LIAB-01",
-      "rule_title": "Liability cap must be bounded and mutual",
-      "severity": "UNACCEPTABLE",
-      "risk_score": 7.0,
-      "standard_position": "Aggregate liability of each party is c
+      "clause_type": "INDEMNIFICATION"
 ```
 
 ### 221. `human` → `orchestrator` — **human.decision**
 
-<sub>`msg_352987c5524b`</sub>
+<sub>`msg_01001c91d600`</sub>
 
 ```json
 {
@@ -4355,12 +4369,12 @@
 
 ### 222. `drafter` → `human` — **redline.memo** · 0ms
 
-<sub>`msg_92680d3bb9e8`</sub>
+<sub>`msg_118022daaaed`</sub>
 
 ```json
 {
   "doc_id": "syn-007",
-  "executive_summary": "This MSA cannot be signed as drafted: 3 term(s) breach a never-acceptable playbook position (DATA_PROTECTION, LIMITATION_OF_LIABILITY, PAYMENT_TERMS). Aggregate risk score 21.14 across 5 deviation(s). Reviewed by a.lindqvist@northwind.example (Counsel) (APPROVE).",
+  "executive_summary": "This MSA cannot be signed as drafted: 6 term(s) breach a never-acceptable playbook position (DATA_PROTECTION, GOVERNING_LAW, INDEMNIFICATION, IP_OWNERSHIP, LIMITATION_OF_LIABILITY, PAYMENT_TERMS). Aggregate risk score 32.2 across 6 deviation(s). Reviewed by a.lindqvist@northwind.example (Counsel) (APPROVE).",
   "deviations": [
     {
       "clause_type": "DATA_PROTECTION",
@@ -4368,8 +4382,8 @@
       "severity": "UNACCEPTABLE",
       "model_severity": "UNACCEPTABLE",
       "human_overridden": false,
-      "observed_position": "No personal data breach notification obligation",
-      "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which no personal data breach notification obligation. Assessed UNACCEPTABLE on that basis.",
+      "observed_position": "Unrestricted sub-processor appointment with no notice right",
+      "rationale": "Playbook PB-DP-01 requires: Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-. The contract instead provides language under which unrestricted sub-processor appointment with no notice right. Assessed UNACCEPTABLE on that basis.",
       "suggested_redline": "Vendor acts as processor, processes personal data only on documented instructions, notifies Northwind of a personal data breach without undue delay and in any event within seventy-two (72) hours, and supports data subject requests. Sub-processors require prior written notice and an objection right.",
       "risk_score": 7.0,
       "verification": "PASS",
@@ -4383,9 +4397,7 @@
       "human_overridden": false,
       "observed_position": "No limitation of liability clause located.",
       "rationale": "The contract contains no language governing LIMITATION_OF_LIABILITY. The playbook requires: Aggregate liability of each party is capped at the greater of (a) fees paid or payable in the twelve (12) months preceding the claim, or (b) USD 500,000. The cap is mutual and applies to all claims ot",
-      "suggested_redline": "Aggregate liability of each party is capped at the greater of (a) fees paid or payable in the twelve (12) months preceding the claim, or (b) USD 500,000. The cap is mutual and applies to all claims other than the customary carve-outs.",
-      "risk_score": 7.0,
-      "verification": "PASS
+      "suggested_redline": "Aggregate liability of each party is capped at the greater of (a) fees paid or payable in the twelve (12) months preceding the claim, or (b) USD 500,000. The cap is mutual and applies to all claims other than the customa
 ```
 
 ---
@@ -4398,7 +4410,7 @@
 | extractor | 11 | 0 | 0 | $0.00000 |
 | intake | 1 | 0 | 0 | $0.00000 |
 | policy | 20 | 0 | 0 | $0.00000 |
-| verifier | 8 | 0 | 0 | $0.00000 |
-| **total** | **41** | **0** | **0** | **$0.00000** |
+| verifier | 10 | 0 | 0 | $0.00000 |
+| **total** | **43** | **0** | **0** | **$0.00000** |
 
-Messages exchanged: **222** · LLM wall time: **8 ms**
+Messages exchanged: **222** · LLM wall time: **12 ms**
