@@ -54,6 +54,7 @@ class GraphState(TypedDict, total=False):
     # control
     repair_count: int
     repair_targets: list[str]
+    repair_reason: str | None
     unverified: list[str]
     escalation: EscalationRequest | None
     human_decision: HumanDecision | None

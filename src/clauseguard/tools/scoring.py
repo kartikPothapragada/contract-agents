@@ -98,10 +98,17 @@ def aggregate(
                 f"{s.criticality_weight}"
             )
     if total >= agg_thr:
+        deviations = [s for s in scores if s.severity is not Severity.COMPLIANT]
         reasons.append(
-            f"aggregate risk {total} (>= {agg_thr}) across "
-            f"{len([s for s in scores if s.severity is not Severity.COMPLIANT])} deviations"
+            f"aggregate risk {total} (>= {agg_thr}) across {len(deviations)} deviations"
         )
+        # When the aggregate is what fired, the reviewer needs every contributing
+        # deviation, not only those that individually crossed the clause
+        # threshold. Escalating on aggregate risk and then handing over an empty
+        # packet tells a lawyer "something is wrong, find it yourself".
+        for s in deviations:
+            if s.clause_type not in escalating:
+                escalating.append(s.clause_type)
     for ct in verification_failures:
         reasons.append(
             f"{ct}: assessment failed verification -- escalated as unverifiable "

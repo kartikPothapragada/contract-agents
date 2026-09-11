@@ -220,6 +220,39 @@ def _extract(ctx: dict[str, Any]) -> dict:
         }
 
     sentence = _best_sentence(best_section.text, keywords)
+
+    # Operative terms displaced into an attachment that is not in the document.
+    # Quoting the pointer would report a clause nobody has read; the honest
+    # answer is that the terms are not in the four corners of this contract.
+    xref = re.search(
+        r"(?:set out in|specified in|described in|contained in)\s+"
+        r"(Exhibit|Schedule|Annex|Appendix)\s+([A-Z0-9]{1,3})",
+        sentence,
+        re.I,
+    )
+    if xref:
+        label = f"{xref.group(1)} {xref.group(2)}"
+        # Is the attachment actually present? Counting mentions does not answer
+        # that - the pointer sentence alone names it three times ("set out in
+        # Exhibit B ... conflict between this Section and Exhibit B ... Exhibit B
+        # shall prevail"). An attached exhibit has a heading of its own, on its
+        # own line, so that is what is looked for.
+        attached = re.search(
+            rf"^\s*{re.escape(label)}", source, re.I | re.M
+        )
+        if not attached:
+            return {
+                "found": False,
+                "quoted_text": "",
+                "section_ref": best_section.ref,
+                "confidence": 0.0,
+                "notes": (
+                    f"operative terms are incorporated by reference to {label}, "
+                    "which is not attached to this document; refusing to quote "
+                    "terms that are not in the four corners of the contract (stub)"
+                ),
+            }
+
     quote = _verbatim(sentence, source)
     if not quote:
         return {

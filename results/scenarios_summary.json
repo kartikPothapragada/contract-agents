@@ -1,0 +1,99 @@
+{
+  "backend": "stub",
+  "scenario_a": {
+    "doc_id": "syn-003",
+    "status": "complete",
+    "escalated": true,
+    "aggregate_risk": 18.1,
+    "repair_passes": 0,
+    "cost": {
+      "trace_id": "syn-003-ef4ae145",
+      "messages": 128,
+      "llm_calls": 28,
+      "total_prompt_tokens": 0,
+      "total_completion_tokens": 0,
+      "total_usd": 0.0,
+      "wall_ms": 12.6,
+      "by_agent": {
+        "intake": {
+          "calls": 1,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "extractor": {
+          "calls": 10,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "policy": {
+          "calls": 10,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "verifier": {
+          "calls": 6,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "drafter": {
+          "calls": 1,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        }
+      }
+    }
+  },
+  "scenario_b": {
+    "doc_id": "syn-007",
+    "status": "complete",
+    "escalated": true,
+    "unverified": [],
+    "repair_passes": 1,
+    "cost": {
+      "trace_id": "syn-007-61278afb",
+      "messages": 222,
+      "llm_calls": 41,
+      "total_prompt_tokens": 0,
+      "total_completion_tokens": 0,
+      "total_usd": 0.0,
+      "wall_ms": 8.3,
+      "by_agent": {
+        "intake": {
+          "calls": 1,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "extractor": {
+          "calls": 11,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "policy": {
+          "calls": 20,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "verifier": {
+          "calls": 8,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        },
+        "drafter": {
+          "calls": 1,
+          "prompt_tokens": 0,
+          "completion_tokens": 0,
+          "usd": 0.0
+        }
+      }
+    }
+  }
+}

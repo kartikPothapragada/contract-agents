@@ -21,6 +21,7 @@ are flagged with low confidence rather than silently mis-segmented.
 
 from __future__ import annotations
 
+import hashlib
 import re
 from dataclasses import dataclass
 
@@ -111,15 +112,32 @@ def segment_contract(text: str, min_sections: int = 3) -> SegmentationResult:
     return SegmentationResult(sections, "paragraph-fallback", 0.4)
 
 
+_INDEX_CACHE: dict[str, object] = {}
+
+
 def build_section_index(sections: list[Section]):
     """Index sections for retrieval so the Extractor can find a clause by meaning.
 
-    Imported lazily to keep this module import-cheap for callers that only need
-    segmentation.
+    Cached on the section content. The extractor is re-entered on every repair
+    pass, and re-embedding an unchanged document each time was the single
+    largest avoidable latency cost in the pipeline -- on a 16-section contract a
+    rebuild is ~1.5 s of embedding work that produces a byte-identical index.
+    The repair loop only changes *which* clauses are re-examined, never the
+    document, so the index is safe to reuse.
+
+    Keyed on a hash of the section text rather than the document id: two runs of
+    the same contract share the index, and a genuinely edited document misses.
     """
     from clauseguard.tools.retrieval import Document, HybridRetriever
 
-    return HybridRetriever(
+    key = hashlib.sha256(
+        "\n".join(f"{s.ref}|{s.char_start}|{s.text}" for s in sections).encode()
+    ).hexdigest()
+    cached = _INDEX_CACHE.get(key)
+    if cached is not None:
+        return cached
+
+    index = HybridRetriever(
         [
             Document(
                 doc_id=s.ref,
@@ -129,3 +147,9 @@ def build_section_index(sections: list[Section]):
             for s in sections
         ]
     )
+    # Bounded: a long-running worker reviewing thousands of contracts must not
+    # accumulate an embedding matrix per document.
+    if len(_INDEX_CACHE) > 32:
+        _INDEX_CACHE.clear()
+    _INDEX_CACHE[key] = index
+    return index

@@ -243,9 +243,14 @@ def build_graph(
             # A rejection is routed as a repair with the reviewer's scope, which
             # is the whole reason the gate exists: the human redirects the
             # system rather than merely vetoing its output.
+            #
+            # The counter is deliberately NOT touched here. ``node_repair`` owns
+            # the budget; incrementing in both places made a single rejection
+            # consume two of the two available passes, so the reviewer's redirect
+            # was answered with one re-extraction and then a forced stop.
             targets = raw.get("recheck_clause_types") or escalation.clause_types
             updates["repair_targets"] = list(targets)
-            updates["repair_count"] = state.get("repair_count", 0) + 1
+            updates["repair_reason"] = "human_rejection"
         return updates
 
     def node_draft(state: GraphState) -> dict:
@@ -264,21 +269,26 @@ def build_graph(
         the act of looping, so no agent can reset it by being re-entered.
         """
         n = state.get("repair_count", 0) + 1
+        by_human = state.get("repair_reason") == "human_rejection"
+        cause = (
+            "a reviewer rejected the finding and scoped the re-check"
+            if by_human
+            else "assessments could not be grounded in the source"
+        )
         bus.emit(
             AgentRole.ORCHESTRATOR,
             AgentRole.EXTRACTOR,
             MessageType.AGENT_ERROR,
             AgentError(
-                error_type="verification_repair",
+                error_type="human_rejection_repair" if by_human else "verification_repair",
                 message=(
                     f"repair pass {n}/{MAX_REPAIRS} for "
-                    f"{state.get('repair_targets')}: re-extracting clauses whose "
-                    "assessments could not be grounded"
+                    f"{state.get('repair_targets')}: re-extracting because {cause}"
                 ),
                 recoverable=True,
             ),
         )
-        return {"repair_count": n, "status": f"repairing_{n}"}
+        return {"repair_count": n, "repair_reason": None, "status": f"repairing_{n}"}
 
     def route_after_escalation_check(state: GraphState) -> str:
         return "human_gate" if state.get("escalation") else "draft"
@@ -288,7 +298,7 @@ def build_graph(
         if (
             decision
             and decision.action is HumanAction.REJECT
-            and state.get("repair_count", 0) <= MAX_REPAIRS
+            and state.get("repair_count", 0) < MAX_REPAIRS
         ):
             return "repair"
         return "draft"
