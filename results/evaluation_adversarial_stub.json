@@ -1,0 +1,176 @@
+{
+  "backend": "stub",
+  "corpus": "data/contracts/adversarial",
+  "documents": 8,
+  "clause_judgements": 78,
+  "severity_accuracy": 0.8718,
+  "adjacent_rate": 0.0513,
+  "dangerous_miss_rate": 0.1395,
+  "dangerous_misses": 6,
+  "risky_clauses_total": 43,
+  "false_alarm_rate": 0.0,
+  "false_alarms": 0,
+  "compliant_clauses_total": 32,
+  "absence_detection_recall": 1.0,
+  "absence_cases": 2,
+  "groundedness_rate": 1.0,
+  "grounded_checked": 78,
+  "escalation": {
+    "recall": 0.875,
+    "precision": 1.0,
+    "tp": 7,
+    "fp": 0,
+    "fn": 1,
+    "tn": 0
+  },
+  "cost": {
+    "total_usd": 0.0,
+    "usd_per_contract": 0.0,
+    "seconds_per_contract": 10.03
+  },
+  "confusion": {
+    "COMPLIANT->COMPLIANT": 32,
+    "MATERIAL->MATERIAL": 3,
+    "MATERIAL->UNACCEPTABLE": 4,
+    "MINOR->MINOR": 3,
+    "UNACCEPTABLE->MINOR": 6,
+    "UNACCEPTABLE->UNACCEPTABLE": 30
+  },
+  "dangerous_miss_detail": [
+    {
+      "doc": "adv-001",
+      "clause": "LIMITATION_OF_LIABILITY",
+      "gold": "UNACCEPTABLE",
+      "pred": "MINOR"
+    },
+    {
+      "doc": "adv-002",
+      "clause": "LIMITATION_OF_LIABILITY",
+      "gold": "UNACCEPTABLE",
+      "pred": "MINOR"
+    },
+    {
+      "doc": "adv-003",
+      "clause": "LIMITATION_OF_LIABILITY",
+      "gold": "UNACCEPTABLE",
+      "pred": "MINOR"
+    },
+    {
+      "doc": "adv-004",
+      "clause": "LIMITATION_OF_LIABILITY",
+      "gold": "UNACCEPTABLE",
+      "pred": "MINOR"
+    },
+    {
+      "doc": "adv-006",
+      "clause": "LIMITATION_OF_LIABILITY",
+      "gold": "UNACCEPTABLE",
+      "pred": "MINOR"
+    },
+    {
+      "doc": "adv-008",
+      "clause": "LIMITATION_OF_LIABILITY",
+      "gold": "UNACCEPTABLE",
+      "pred": "MINOR"
+    }
+  ],
+  "false_alarm_detail": [],
+  "per_document": [
+    {
+      "doc_id": "adv-001",
+      "value_tier": "MID",
+      "escalated": false,
+      "should_escalate": true,
+      "dangerous_misses": 1,
+      "repair_passes": 0,
+      "aggregate_risk": 12.0,
+      "llm_calls": 26,
+      "usd": 0.0,
+      "seconds": 36.99
+    },
+    {
+      "doc_id": "adv-002",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 1,
+      "repair_passes": 0,
+      "aggregate_risk": 25.62,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 6.09
+    },
+    {
+      "doc_id": "adv-003",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 1,
+      "repair_passes": 0,
+      "aggregate_risk": 21.3,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 6.03
+    },
+    {
+      "doc_id": "adv-004",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 1,
+      "repair_passes": 0,
+      "aggregate_risk": 20.0,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 6.51
+    },
+    {
+      "doc_id": "adv-005",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 23.1,
+      "llm_calls": 26,
+      "usd": 0.0,
+      "seconds": 6.16
+    },
+    {
+      "doc_id": "adv-006",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 1,
+      "repair_passes": 0,
+      "aggregate_risk": 30.8,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 5.99
+    },
+    {
+      "doc_id": "adv-007",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 22.8,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 6.22
+    },
+    {
+      "doc_id": "adv-008",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 1,
+      "repair_passes": 0,
+      "aggregate_risk": 19.6,
+      "llm_calls": 27,
+      "usd": 0.0,
+      "seconds": 6.28
+    }
+  ]
+}

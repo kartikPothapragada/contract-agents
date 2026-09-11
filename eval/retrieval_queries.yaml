@@ -1,0 +1,134 @@
+# Labelled playbook-lookup queries.
+#
+# Written to answer one question: does the hybrid retriever beat either leg
+# alone, and on which query types? The set is therefore stratified by the kind
+# of signal each query carries, not sampled at random:
+#
+#   lexical    -- the answer turns on a number or a proper noun ("net 15",
+#                 "72 hours", "SOC 2"). BM25 should win these; dense retrieval
+#                 blurs numerals.
+#   semantic   -- paraphrase with no shared vocabulary ("they can walk away but
+#                 we cannot"). Dense should win these; BM25 has nothing to match.
+#   mixed      -- realistic counsel phrasing, both signals present.
+#   adversarial-- vocabulary that points at the wrong rule, to expose retrievers
+#                 that key on a single salient word.
+#
+# `expected` is the rule a counsel would open. Where a second rule is genuinely
+# arguable it is listed in `acceptable`, which counts for recall@3 but not for
+# recall@1 -- rewarding a retriever for a defensible second choice while still
+# holding it to the right first answer.
+
+queries:
+  - q: "vendor says their liability is capped at three months of fees"
+    expected: PB-LIAB-01
+    kind: mixed
+  - q: "there is no ceiling at all on what we could owe them"
+    expected: PB-LIAB-01
+    kind: semantic
+  - q: "aggregate liability shall not exceed USD 500,000"
+    expected: PB-LIAB-01
+    kind: lexical
+
+  - q: "we must be told within 72 hours if personal data leaks"
+    expected: PB-DP-01
+    kind: lexical
+  - q: "they can hand our customer records to anyone they like without telling us"
+    expected: PB-DP-01
+    kind: semantic
+    acceptable: [PB-CONF-01]
+  - q: "sub-processor appointed at sole discretion, no objection right"
+    expected: PB-DP-01
+    kind: mixed
+
+  - q: "net 15 payment with 3% monthly late interest"
+    expected: PB-PAY-01
+    kind: lexical
+  - q: "they can put the price up whenever they feel like it"
+    expected: PB-PAY-01
+    kind: semantic
+  - q: "invoice due forty-five days after receipt"
+    expected: PB-PAY-01
+    kind: lexical
+
+  - q: "we cannot get out of this unless they breach"
+    expected: PB-TERM-01
+    kind: semantic
+  - q: "termination for convenience on thirty days written notice"
+    expected: PB-TERM-01
+    kind: lexical
+  - q: "early exit fee of 40% of the remaining contract value"
+    expected: PB-TERM-01
+    kind: mixed
+
+  - q: "contract rolls over forever unless we cancel 120 days ahead"
+    expected: PB-AUTO-01
+    kind: mixed
+  - q: "evergreen term with no exit"
+    expected: PB-AUTO-01
+    kind: lexical
+
+  - q: "they want to use our data to train their models"
+    expected: PB-IP-01
+    kind: semantic
+  - q: "vendor shall own all deliverables and work product"
+    expected: PB-IP-01
+    kind: lexical
+
+  - q: "they will not cover us if their software infringes someone's patent"
+    expected: PB-IND-01
+    kind: semantic
+  - q: "defend indemnify and hold harmless against third party claims"
+    expected: PB-IND-01
+    kind: lexical
+
+  - q: "uptime commitment of 99.0% and credits are the only remedy"
+    expected: PB-SLA-01
+    kind: mixed
+  - q: "the service can be down as often as they like with no consequence"
+    expected: PB-SLA-01
+    kind: semantic
+
+  - q: "disputes go to arbitration in Singapore"
+    expected: PB-LAW-01
+    kind: lexical
+  - q: "which country's courts decide if we fall out"
+    expected: PB-LAW-01
+    kind: semantic
+
+  - q: "residuals clause letting them use whatever they remember"
+    expected: PB-CONF-01
+    kind: mixed
+  - q: "only we have to keep secrets, they do not"
+    expected: PB-CONF-01
+    kind: semantic
+
+  - q: "cyber liability cover of at least five million"
+    expected: PB-INS-01
+    kind: lexical
+  - q: "can we inspect their compliance records once a year"
+    expected: PB-AUD-01
+    kind: semantic
+  - q: "SOC 2 Type II report in place of an audit right"
+    expected: PB-AUD-01
+    kind: lexical
+    acceptable: [PB-INS-01]
+
+  - q: "we are locked into buying only from them"
+    expected: PB-NONC-01
+    kind: semantic
+  - q: "minimum purchase commitment with no termination right"
+    expected: PB-NONC-01
+    kind: mixed
+  - q: "agreement terminates automatically if we are acquired"
+    expected: PB-ASG-01
+    kind: mixed
+
+  # Adversarial: the salient vocabulary points at the wrong rule.
+  - q: "confidential pricing information may not be disclosed when we assign the agreement to an acquirer"
+    expected: PB-ASG-01
+    kind: adversarial
+    acceptable: [PB-CONF-01]
+  - q: "liability for a data breach is indemnified without limit"
+    expected: PB-IND-01
+    kind: adversarial
+    acceptable: [PB-LIAB-01, PB-DP-01]

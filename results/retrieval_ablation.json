@@ -1,0 +1,177 @@
+{
+  "dense_backend": "sentence-transformers:sentence-transformers/all-MiniLM-L6-v2",
+  "playbook_version": "3.2",
+  "rules_indexed": 14,
+  "overall": {
+    "bm25": {
+      "n": 32,
+      "recall@1": 0.7188,
+      "recall@3": 0.8438,
+      "mrr@3": 0.7604
+    },
+    "dense": {
+      "n": 32,
+      "recall@1": 0.6875,
+      "recall@3": 0.9688,
+      "mrr@3": 0.8125
+    },
+    "hybrid": {
+      "n": 32,
+      "recall@1": 0.75,
+      "recall@3": 0.9375,
+      "mrr@3": 0.8385
+    }
+  },
+  "by_kind": {
+    "mixed": {
+      "bm25": {
+        "n": 8,
+        "r1": 7,
+        "r3": 7
+      },
+      "dense": {
+        "n": 8,
+        "r1": 4,
+        "r3": 8
+      },
+      "hybrid": {
+        "n": 8,
+        "r1": 6,
+        "r3": 8
+      }
+    },
+    "semantic": {
+      "bm25": {
+        "n": 11,
+        "r1": 4,
+        "r3": 7
+      },
+      "dense": {
+        "n": 11,
+        "r1": 6,
+        "r3": 10
+      },
+      "hybrid": {
+        "n": 11,
+        "r1": 7,
+        "r3": 9
+      }
+    },
+    "lexical": {
+      "bm25": {
+        "n": 11,
+        "r1": 11,
+        "r3": 11
+      },
+      "dense": {
+        "n": 11,
+        "r1": 11,
+        "r3": 11
+      },
+      "hybrid": {
+        "n": 11,
+        "r1": 11,
+        "r3": 11
+      }
+    },
+    "adversarial": {
+      "bm25": {
+        "n": 2,
+        "r1": 1,
+        "r3": 2
+      },
+      "dense": {
+        "n": 2,
+        "r1": 1,
+        "r3": 2
+      },
+      "hybrid": {
+        "n": 2,
+        "r1": 0,
+        "r3": 2
+      }
+    }
+  },
+  "hybrid_failures": [
+    {
+      "q": "there is no ceiling at all on what we could owe them",
+      "kind": "semantic",
+      "expected": "PB-LIAB-01",
+      "got": [
+        "PB-PAY-01",
+        "PB-LIAB-01",
+        "PB-SLA-01"
+      ]
+    },
+    {
+      "q": "we cannot get out of this unless they breach",
+      "kind": "semantic",
+      "expected": "PB-TERM-01",
+      "got": [
+        "PB-DP-01",
+        "PB-CONF-01",
+        "PB-IND-01"
+      ]
+    },
+    {
+      "q": "contract rolls over forever unless we cancel 120 days ahead",
+      "kind": "mixed",
+      "expected": "PB-AUTO-01",
+      "got": [
+        "PB-TERM-01",
+        "PB-SLA-01",
+        "PB-AUTO-01"
+      ]
+    },
+    {
+      "q": "they will not cover us if their software infringes someone's patent",
+      "kind": "semantic",
+      "expected": "PB-IND-01",
+      "got": [
+        "PB-INS-01",
+        "PB-IND-01",
+        "PB-NONC-01"
+      ]
+    },
+    {
+      "q": "we are locked into buying only from them",
+      "kind": "semantic",
+      "expected": "PB-NONC-01",
+      "got": [
+        "PB-DP-01",
+        "PB-CONF-01",
+        "PB-TERM-01"
+      ]
+    },
+    {
+      "q": "minimum purchase commitment with no termination right",
+      "kind": "mixed",
+      "expected": "PB-NONC-01",
+      "got": [
+        "PB-TERM-01",
+        "PB-NONC-01",
+        "PB-SLA-01"
+      ]
+    },
+    {
+      "q": "confidential pricing information may not be disclosed when we assign the agreement to an acquirer",
+      "kind": "adversarial",
+      "expected": "PB-ASG-01",
+      "got": [
+        "PB-CONF-01",
+        "PB-ASG-01",
+        "PB-IP-01"
+      ]
+    },
+    {
+      "q": "liability for a data breach is indemnified without limit",
+      "kind": "adversarial",
+      "expected": "PB-IND-01",
+      "got": [
+        "PB-DP-01",
+        "PB-IND-01",
+        "PB-INS-01"
+      ]
+    }
+  ]
+}

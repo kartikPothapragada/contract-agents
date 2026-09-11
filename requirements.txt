@@ -1,0 +1,33 @@
+# Python 3.11.5 (see README for why 3.11+ is required)
+#
+# Pinned to the versions the reported results were produced with.
+# Nothing here is optional for the default (stub-backend) path except the
+# sentence-transformers/torch pair -- see the note below.
+
+# --- orchestration -------------------------------------------------------- #
+langgraph==1.2.11
+langchain-core==1.6.1
+
+# --- schema & config ------------------------------------------------------ #
+pydantic==2.13.4
+PyYAML==6.0.2
+
+# --- retrieval ------------------------------------------------------------ #
+# BM25 is implemented in-repo (src/clauseguard/tools/retrieval.py), so there is
+# no rank-bm25 dependency. Dense retrieval prefers sentence-transformers and
+# falls back automatically to scikit-learn TF-IDF + SVD if it is unavailable,
+# so the system still runs on a machine where the ~250MB torch install is not
+# wanted. scikit-learn and numpy are therefore NOT optional; torch and
+# sentence-transformers are.
+scikit-learn==1.9.0
+numpy==2.2.3
+sentence-transformers==5.6.0
+torch==2.12.1
+
+# --- LLM backends (only the one you use is needed) ------------------------ #
+anthropic==0.112.0
+openai==2.54.0
+httpx==0.28.1           # also the Ollama client
+
+# --- tests ---------------------------------------------------------------- #
+pytest==9.1.1

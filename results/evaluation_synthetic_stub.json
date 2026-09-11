@@ -1,0 +1,387 @@
+{
+  "backend": "stub",
+  "corpus": "data/contracts/synthetic",
+  "documents": 24,
+  "clause_judgements": 233,
+  "severity_accuracy": 0.8798,
+  "adjacent_rate": 0.0558,
+  "dangerous_miss_rate": 0.0,
+  "dangerous_misses": 0,
+  "risky_clauses_total": 120,
+  "false_alarm_rate": 0.0928,
+  "false_alarms": 9,
+  "compliant_clauses_total": 97,
+  "absence_detection_recall": 1.0,
+  "absence_cases": 7,
+  "groundedness_rate": 1.0,
+  "grounded_checked": 233,
+  "escalation": {
+    "recall": 1.0,
+    "precision": 0.8261,
+    "tp": 19,
+    "fp": 4,
+    "fn": 0,
+    "tn": 1
+  },
+  "cost": {
+    "total_usd": 0.0,
+    "usd_per_contract": 0.0,
+    "seconds_per_contract": 7.13
+  },
+  "confusion": {
+    "COMPLIANT->COMPLIANT": 88,
+    "COMPLIANT->UNACCEPTABLE": 9,
+    "MATERIAL->MATERIAL": 29,
+    "MATERIAL->UNACCEPTABLE": 13,
+    "MINOR->MINOR": 10,
+    "MINOR->UNACCEPTABLE": 6,
+    "UNACCEPTABLE->UNACCEPTABLE": 78
+  },
+  "dangerous_miss_detail": [],
+  "false_alarm_detail": [
+    {
+      "doc": "syn-006",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-007",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-008",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-011",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-014",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-016",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-018",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-022",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    },
+    {
+      "doc": "syn-023",
+      "clause": "DATA_PROTECTION",
+      "gold": "COMPLIANT",
+      "pred": "UNACCEPTABLE"
+    }
+  ],
+  "per_document": [
+    {
+      "doc_id": "syn-001",
+      "value_tier": "SMALL",
+      "escalated": false,
+      "should_escalate": false,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 13.6,
+      "llm_calls": 27,
+      "usd": 0.0,
+      "seconds": 31.39
+    },
+    {
+      "doc_id": "syn-002",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 20.0,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 5.96
+    },
+    {
+      "doc_id": "syn-003",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 20.0,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 5.96
+    },
+    {
+      "doc_id": "syn-004",
+      "value_tier": "SMALL",
+      "escalated": true,
+      "should_escalate": false,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 12.24,
+      "llm_calls": 27,
+      "usd": 0.0,
+      "seconds": 5.91
+    },
+    {
+      "doc_id": "syn-005",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 26.32,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 6.28
+    },
+    {
+      "doc_id": "syn-006",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 20.8,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 6.13
+    },
+    {
+      "doc_id": "syn-007",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 32.2,
+      "llm_calls": 27,
+      "usd": 0.0,
+      "seconds": 6.54
+    },
+    {
+      "doc_id": "syn-008",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": false,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 12.6,
+      "llm_calls": 25,
+      "usd": 0.0,
+      "seconds": 6.64
+    },
+    {
+      "doc_id": "syn-009",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 21.42,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 6.06
+    },
+    {
+      "doc_id": "syn-010",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 29.12,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 5.89
+    },
+    {
+      "doc_id": "syn-011",
+      "value_tier": "SMALL",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 20.0,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 6.05
+    },
+    {
+      "doc_id": "syn-012",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 37.1,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 5.92
+    },
+    {
+      "doc_id": "syn-013",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 29.82,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 6.05
+    },
+    {
+      "doc_id": "syn-014",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 39.9,
+      "llm_calls": 29,
+      "usd": 0.0,
+      "seconds": 5.85
+    },
+    {
+      "doc_id": "syn-015",
+      "value_tier": "SMALL",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 18.64,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 5.97
+    },
+    {
+      "doc_id": "syn-016",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 46.2,
+      "llm_calls": 31,
+      "usd": 0.0,
+      "seconds": 5.98
+    },
+    {
+      "doc_id": "syn-017",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 24.5,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 5.94
+    },
+    {
+      "doc_id": "syn-018",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 22.12,
+      "llm_calls": 28,
+      "usd": 0.0,
+      "seconds": 6.13
+    },
+    {
+      "doc_id": "syn-019",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 27.0,
+      "llm_calls": 30,
+      "usd": 0.0,
+      "seconds": 6.12
+    },
+    {
+      "doc_id": "syn-020",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 20.72,
+      "llm_calls": 26,
+      "usd": 0.0,
+      "seconds": 5.88
+    },
+    {
+      "doc_id": "syn-021",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 25.2,
+      "llm_calls": 27,
+      "usd": 0.0,
+      "seconds": 5.96
+    },
+    {
+      "doc_id": "syn-022",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": false,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 16.5,
+      "llm_calls": 27,
+      "usd": 0.0,
+      "seconds": 6.04
+    },
+    {
+      "doc_id": "syn-023",
+      "value_tier": "MID",
+      "escalated": true,
+      "should_escalate": false,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 14.0,
+      "llm_calls": 26,
+      "usd": 0.0,
+      "seconds": 6.31
+    },
+    {
+      "doc_id": "syn-024",
+      "value_tier": "STRATEGIC",
+      "escalated": true,
+      "should_escalate": true,
+      "dangerous_misses": 0,
+      "repair_passes": 0,
+      "aggregate_risk": 28.42,
+      "llm_calls": 30,
+      "usd": 0.0,
+      "seconds": 6.08
+    }
+  ]
+}

@@ -115,7 +115,10 @@ class VerifierAgent(Agent):
                 {"clause_type": assessment.clause_type, "citation_chars": len(assessment.cited_span_text)},
                 lambda a=assessment: check_span(a.cited_span_text, source).__dict__,
             )
-            grounded = span_check["exact"] or span_check["fuzzy_ratio"] >= 0.92
+            grounded = (
+                not span_check["numeric_conflict"]
+                and (span_check["exact"] or span_check["fuzzy_ratio"] >= 0.92)
+            )
             issues.extend(span_check["issues"])
 
             # 2. numeric consistency (free). The governing rule is passed as a
@@ -163,7 +166,9 @@ class VerifierAgent(Agent):
                     entailment = Entailment.PARTIAL
                 issues.extend(resp.issues)
 
-            verdict_value = self._decide(grounded, entailment, issues)
+            verdict_value = self._decide(
+                grounded, entailment, issues, span_check["numeric_conflict"]
+            )
             if verdict_value is Verdict.REPAIR:
                 repair_targets.append(assessment.clause_type)
             elif verdict_value is Verdict.ESCALATE:
@@ -201,15 +206,22 @@ class VerifierAgent(Agent):
         }
 
     @staticmethod
-    def _decide(grounded: bool, entailment: Entailment, issues: list[str]) -> Verdict:
+    def _decide(
+        grounded: bool,
+        entailment: Entailment,
+        issues: list[str],
+        numeric_conflict: bool = False,
+    ) -> Verdict:
         """Map check results to a routing decision.
 
         Ungrounded is REPAIR rather than ESCALATE on first encounter because the
-        common cause is a quoting slip the extractor can fix. Numeric mismatch
-        goes straight to ESCALATE: the span was real, so re-extraction will
-        return the same text, and the error is in the reasoning -- which is
-        exactly the class of error a human is better at catching than a retry.
+        common cause is a quoting slip the extractor can fix. Numeric conflict
+        goes straight to ESCALATE: the surrounding text was real, so
+        re-extraction returns the same passage, and what changed was a figure --
+        the class of error a human catches and a retry does not.
         """
+        if numeric_conflict:
+            return Verdict.ESCALATE
         if not grounded:
             return Verdict.REPAIR
         if any("neither in the cited span nor" in i for i in issues):

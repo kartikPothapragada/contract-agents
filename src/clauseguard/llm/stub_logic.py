@@ -253,7 +253,17 @@ def _extract(ctx: dict[str, Any]) -> dict:
                 ),
             }
 
-    quote = _verbatim(sentence, source)
+    # Quote the operative clause, not one sentence of it. Governing law is the
+    # case that exposed this: "governed by the laws of Singapore" and "waives
+    # any right to a jury trial" are separate sentences, and keyword density
+    # picked the second, so the assessor never saw the forum at all. Capped so a
+    # pathologically long section cannot dominate the prompt.
+    body = best_section.text
+    heading_end = body.find("\n")
+    if 0 < heading_end < 120:
+        body = body[heading_end:].strip()
+    clause = body if len(body) <= 900 else sentence
+    quote = _verbatim(clause, source) or _verbatim(sentence, source)
     if not quote:
         return {
             "found": False,
@@ -349,6 +359,81 @@ def _assess_ip(t: str) -> tuple[str, str]:
     return "MINOR", "IP allocation stated but does not clearly vest deliverables in Northwind"
 
 
+def _assess_indemnity(t: str) -> tuple[str, str]:
+    # Direction is everything here. The same vocabulary ("defend, indemnify and
+    # hold harmless") appears whether the vendor is protecting Northwind or the
+    # reverse, so the subject of the verb is the whole signal.
+    if re.search(r"(customer|northwind)\s+shall\s+(defend|indemnif)", t):
+        return "UNACCEPTABLE", "indemnity runs against Northwind rather than the vendor"
+    if re.search(r"vendor\s+shall\s+(defend|indemnif)", t):
+        has_ip = "infring" in t or "intellectual property" in t
+        has_data = "security" in t or "data protection" in t or "personal data" in t
+        if has_ip and has_data:
+            return "COMPLIANT", "vendor indemnifies for both IP infringement and data breach"
+        if has_ip or has_data:
+            return "MATERIAL", "vendor indemnity covers only one of the two required heads"
+        return "MINOR", "vendor indemnity present but its scope is not clearly stated"
+    return "MATERIAL", "no clear vendor indemnity obligation"
+
+
+def _assess_confidentiality(t: str) -> tuple[str, str]:
+    if "unaided memory" in t or "residual" in t:
+        return "UNACCEPTABLE", "residuals clause permits use of information from unaided memory"
+    years = _nums_near(t, "years?")
+    months = _nums_near(t, "months?")
+    if months and max(months) < 12 and not years:
+        return "UNACCEPTABLE", f"survival of {max(months)} months is under the twelve-month floor"
+    mutual = "each party" in t or "either party" in t or "both parties" in t
+    if not mutual and re.search(r"(customer|northwind)\s+shall\s+protect", t):
+        return "UNACCEPTABLE", "confidentiality binds Northwind only and is not mutual"
+    if years and max(years) >= 3:
+        return "COMPLIANT", f"mutual confidentiality surviving {max(years)} years"
+    if years and max(years) >= 2:
+        return "MINOR", f"survival of {max(years)} years relies on the pre-approved fallback"
+    return "MINOR", "confidentiality present but survival period is unclear"
+
+
+def _assess_auto_renewal(t: str) -> tuple[str, str]:
+    if "evergreen" in t or re.search(r"perpetual.{0,30}renew", t):
+        return "UNACCEPTABLE", "renewal is evergreen with no exit"
+    days = _nums_near(t, "days?")
+    if days and max(days) > 90:
+        return "MATERIAL", f"non-renewal notice of {max(days)} days exceeds the ninety-day ceiling"
+    if days and max(days) > 30:
+        return "MINOR", f"non-renewal notice of {max(days)} days relies on the fallback"
+    if days:
+        return "COMPLIANT", f"non-renewal notice of {max(days)} days meets the standard position"
+    return "MINOR", "automatic renewal present but the opt-out window is not stated"
+
+
+_ACCEPTABLE_FORUMS = (
+    "delaware", "new york", "california", "texas", "united states", "u.s.",
+    "england", "wales", "scotland", "ireland", "germany", "france",
+    "netherlands", "sweden", "spain", "italy",
+)
+
+
+def _assess_governing_law(t: str) -> tuple[str, str]:
+    # Excludes "." and "," from the character class so the match stops at the
+    # end of the sentence rather than swallowing the next clause.
+    m = re.search(r"laws? of (?:the )?([a-z '\-]{3,45})", t)
+    forum = m.group(1).strip(" .,") if m else ""
+    outside = bool(forum) and not any(f in forum for f in _ACCEPTABLE_FORUMS)
+    arbitration_abroad = "arbitration" in t and outside
+    if arbitration_abroad and "jury" in t:
+        return "UNACCEPTABLE", (
+            f"governed by the laws of {forum}, with mandatory arbitration abroad "
+            "and a jury trial waiver"
+        )
+    if outside:
+        return "UNACCEPTABLE", f"governing law of {forum} is outside the US, UK and EU"
+    if "delaware" in t:
+        return "COMPLIANT", "Delaware law and jurisdiction, matching the standard position"
+    if forum:
+        return "MINOR", f"governing law of {forum} relies on the pre-approved fallback"
+    return "MINOR", "governing law clause present but the forum is not clearly stated"
+
+
 def _assess_generic(t: str, rule) -> tuple[str, str]:
     """Fallback: match the rule's own never-acceptable triggers lexically."""
     for trigger in rule.unacceptable_triggers:
@@ -367,7 +452,25 @@ _ASSESSORS = {
     "TERMINATION_FOR_CONVENIENCE": _assess_termination,
     "PAYMENT_TERMS": _assess_payment,
     "IP_OWNERSHIP": _assess_ip,
+    "INDEMNIFICATION": _assess_indemnity,
+    "CONFIDENTIALITY": _assess_confidentiality,
+    "AUTO_RENEWAL": _assess_auto_renewal,
+    "GOVERNING_LAW": _assess_governing_law,
 }
+"""Nine of fourteen clause types have a hand-written assessor.
+
+They were not written speculatively. The first evaluation run put the
+rule-engine baseline at a 42% dangerous-miss rate, and the misses concentrated
+in four clause types that were falling through to ``_assess_generic``. Writing
+assessors for them is the honest thing to do before claiming an LLM is
+necessary: a baseline left deliberately weak would overstate the case for the
+expensive path. What remains after a serious attempt is the real argument.
+
+The five without one (SLA, INSURANCE, AUDIT_RIGHTS, ASSIGNMENT, NON_COMPETE)
+turn on judgements a regex genuinely cannot make -- whether a remedy is
+adequate, whether cover is proportionate to exposure -- and they stay on the
+generic trigger matcher.
+"""
 
 
 def _policy(ctx: dict[str, Any]) -> dict:

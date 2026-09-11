@@ -11,10 +11,15 @@ The check is staged cheapest-first, which is the whole point:
    sounds right and does not exist. No tokens spent.
 2. **Fuzzy ratio** via ``difflib``. Distinguishes "the model invented this
    clause" (ratio near 0) from "the model dropped a comma or re-cased a word"
-   (ratio above 0.92). Only the first deserves escalation.
-3. **LLM entailment**, run by the Verifier agent *only on spans that survived
-   step 1 or 2*. Semantic checking is the expensive one, so it never runs on a
-   citation already proven fabricated.
+   (ratio above 0.92).
+3. **Numeral comparison** on anything that survived step 2. Character similarity
+   cannot see a substituted digit -- "three (3) months" to "thirty (30) months"
+   scores 0.93 -- so the figures are compared categorically instead. This check
+   exists because a test caught the fuzzy floor waving that substitution
+   through, not because it was anticipated.
+4. **LLM entailment**, run by the Verifier agent *only on spans that survived
+   the first three*. Semantic checking is the expensive one, so it never runs on
+   a citation already proven fabricated or numerically wrong.
 
 The ordering matters for cost: on a contract where the extractor is behaving,
 step 1 resolves nearly every span and step 3 runs on a handful.
@@ -34,16 +39,35 @@ _PUNCT_MAP = str.maketrans({"‘": "'", "’": "'", "“": '"', "”": '"', "–
 EXACT_FUZZY_FLOOR = 0.92
 """Above this, treat as a formatting variance rather than a fabrication.
 
-Chosen rather than tuned: at 0.92 a ~40-word quote tolerates roughly three
-characters of drift (punctuation, casing, a collapsed line break) but not a
-substituted number or a negation. Substituting "shall not" for "shall" or
-"$500,000" for "$5,000,000" lands well below it, which is the property that
-actually matters here.
+Chosen rather than tuned: at 0.92 a ~40-word quote tolerates a few characters of
+drift -- punctuation, casing, a collapsed line break -- but not wholesale
+invention.
+
+What it does NOT catch, established by test rather than assumed: **a single
+substituted digit in a long quote.** Changing "three (3) months" to "thirty (30)
+months" in a 140-character citation moves the ratio by about two characters'
+worth, which lands far above 0.92. Character similarity is simply the wrong
+instrument for digit substitution, and lowering the floor until it caught them
+would reject every legitimately reformatted quote instead.
+
+So the numerals are checked separately and categorically -- see
+``_numerals`` and its use in :func:`check_span`. A fuzzy match whose figures
+disagree with the source is not grounded at any ratio.
 """
 
 
 def normalize(text: str) -> str:
     return _WS.sub(" ", text.translate(_PUNCT_MAP).strip().lower())
+
+
+def _numerals(text: str) -> set[str]:
+    """Bare numerals, so "$500,000", "500000" and "500,000" compare equal."""
+    out: set[str] = set()
+    for m in re.finditer(r"\d[\d,]*(?:\.\d+)?", text):
+        v = m.group(0).replace(",", "").rstrip(".")
+        if v:
+            out.add(v.rstrip("0").rstrip(".") if "." in v else v)
+    return out
 
 
 @dataclass
@@ -52,9 +76,20 @@ class SpanCheck:
     fuzzy_ratio: float
     best_window: str | None
     issues: list[str]
+    numeric_conflict: bool = False
+    """Set when the citation is character-close but states different figures.
+
+    Kept as its own flag rather than folded into the ratio: a caller reading
+    ``fuzzy_ratio = 0.97, grounded = False`` needs to be able to see *why*, and
+    the distinction between "invented text" and "real text, wrong number" leads
+    to different handling -- re-extraction fixes the first, only a human catches
+    the second.
+    """
 
     @property
     def grounded(self) -> bool:
+        if self.numeric_conflict:
+            return False
         return self.exact or self.fuzzy_ratio >= EXACT_FUZZY_FLOOR
 
 
@@ -94,6 +129,23 @@ def check_span(citation: str, source: str) -> SpanCheck:
             f"citation not found in source (best window similarity "
             f"{best_ratio:.2f} < {EXACT_FUZZY_FLOOR})"
         )
+        return SpanCheck(False, round(best_ratio, 4), best_window, issues)
+
+    # Close enough on characters -- now check the figures categorically. One
+    # substituted digit barely moves the similarity ratio but completely changes
+    # the contract term, so a numeric disagreement voids the match outright
+    # rather than being weighed against it.
+    drifted = _numerals(cite_n) - _numerals(best_window or "")
+    if drifted:
+        issues.append(
+            f"citation matches the source closely ({best_ratio:.2f}) but states "
+            f"figure(s) {sorted(drifted)} that the source text does not -- "
+            "treated as ungrounded, not as formatting drift"
+        )
+        return SpanCheck(
+            False, round(best_ratio, 4), best_window, issues, numeric_conflict=True
+        )
+
     return SpanCheck(False, round(best_ratio, 4), best_window, issues)
 
 
@@ -118,20 +170,10 @@ def check_numeric_consistency(
     Percentages, currency amounts and day-counts are all reduced to bare
     numerals so "$500,000", "500000" and "500,000" compare equal.
     """
-    num = re.compile(r"\d[\d,]*(?:\.\d+)?")
-
-    def norm_nums(t: str) -> set[str]:
-        out = set()
-        for m in num.finditer(t):
-            v = m.group(0).replace(",", "").rstrip(".")
-            if v:
-                out.add(v.rstrip("0").rstrip(".") if "." in v else v)
-        return out
-
-    grounded = norm_nums(citation)
+    grounded = _numerals(citation)
     for ref in reference_texts:
-        grounded |= norm_nums(ref)
-    claimed = norm_nums(claim)
+        grounded |= _numerals(ref)
+    claimed = _numerals(claim)
     # Small integers (1-12) are usually ordinals or list markers in prose, not
     # contractual figures; flagging them produces noise with no signal.
     orphans = {
