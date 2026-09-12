@@ -360,6 +360,7 @@ revisit under cost pressure.
 
 ## Deliverables
 
+- **Technical write-up PDF:** [`writeup/ClauseGuard_TrackA_Scenario2.pdf`](writeup/ClauseGuard_TrackA_Scenario2.pdf)
 - **Write-up:** [`writeup/ClauseGuard_TrackA_Scenario2.md`](writeup/ClauseGuard_TrackA_Scenario2.md)
 - **Agent traces:** [`results/traces/scenario_a_success.md`](results/traces/scenario_a_success.md),
   [`results/traces/scenario_b_edge_case.md`](results/traces/scenario_b_edge_case.md)
