@@ -36,7 +36,7 @@ routing, the repair loop, the human gate, the traces, the cost report — runs
 offline in seconds.
 
 ```bash
-git clone <repo> && cd avathon-contract-agents
+git clone <repo> && cd contract-agents
 python -m venv .venv && source .venv/bin/activate   # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
 ```
